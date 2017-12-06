@@ -1,0 +1,44 @@
+#+LaTeX_CLASS: article
+#+OPTIONS: ':nil *:t -:t ::t <:t  \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:nil todo:t |:t
+#+TITLE: One Culture HW 1
+#+DATE: \today
+#+AUTHOR:Jake Brawer
+#+EMAIL: jabrawer@vassar.edu
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.1)
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+#+LATEX_HEADER: \usepackage[margin=2.54cm]{geometry}
+
+Part of the issue here seems to lie in definitions: What belongs to science (e.g. reason), and what to humanities?
+What is knowledge?
+
+This seems to primarily be a levels problem?
+* Weiseltier
+** Humanities take on science (Weiseltier)
+Science thinks that science is the only path to knowledge.
+- Gives an example of a painting and describes how a chemical analysis of its color would miss the point
+  - However, this is only one way to approach the beauty of a paintign scientifically. What about a cogsci approach?
+** Pinker responds
+ - Old philisophical masters intwerwove their philosophy with scientific ideas
+ - Meaning in art is partially derived from the techincal details, which science cn illuminate.
+
+The two cultures emerge from mutual misunderstandning. On one hand this misunderstanding arises from each cultures ignorance of the intricacies and utility of the other. On the other hand, 
+
+* Kagan
+- There are actually three cultures:
+  - Natural sciences
+  - Social sciences
+  - Humanities 
+- Social science and humanities are the most similar.
+- Differences emerge in part due to the different ways each group use language
+
+
+It is clear from the readings that the unequivocal attribute that the two cultures, as described by Snow, share is a mutual misunderstanding of each other. This is not just a misunderstanding by the two cultures of the benefits of synergism, but a mutual, low-level incomprehensibility by each culture of the particulars, goals, and even vocabulary that typifies the other (although these two things are certainly intermingled). To a non scientist, for example, the heavily mathematical and technical jargon that is often part and parcel of the scientific enterprise, can be impenetrable and therefore off-putting. On the other hand, as Hernstein points out, a scientist may confuse humanities scholarship with merely reading and teaching literature, a task 'anyone could do,' and therefore may disregard it as a legitimate epistemic avenue. Indeed, as Kagan rightly asserts, even vocabulary that is shared amongst the cultures may be semantically unrelated. For example, the way Stephen King utilized and understood the word "fear" is probably incommensurable with B.F. Skinner's usage.
+
+ In the light of Snow's cultural dichotomy, on the one hand, the natural sciences, and the other the humanities or "traditional culture," then true consillience appears to be an intractable goal. I think this is in part due to the fact that Snow has drawn the dividing lines inadequately. I do not think that gluons or quantum entanglement have much baring on how an author understands, say, her place in society or how she may live a meaningful life. This divide is illustrated by an example Weiseltier limns in his first of his rebuttals to Pinker. He rightfully argues how a chemical analysis of Chardin's cherries would not yield an adequate explanation of their "quality of beauty." However, what both Snow and Weiseltier neglect, and Hernstein and Kagan appreciate is that the natural sciences are not the only avenue of scientific inquiry. An approach provided by the social sciences, a standalone culture which Kagan claims shares more in common with the humanities than natural sciences, could potentially shed light on the 'aesthetic charisma' of Chardin's cherries. 

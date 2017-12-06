@@ -1,0 +1,9 @@
+* ACT-R
+** How it works
+- Essentially a cognitive computer language written in Lisp
+- Assumes two types of knowledge *Declaritive* and *Procedural*
+** Children and robots learn to play hide and seek
+- HYPOTHESIS: A robot controlled by systems modeled after humans will be better able to interact with the robot
+  - In order to comunicate effectively w a human, a robot must be able to translate it's representations into a system a human can understand
+  - Robot should act naturally/as expected in a shared space
+  - If we want robots to perform human tasks, it needs to be able to think like I a human 

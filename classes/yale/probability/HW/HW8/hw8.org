@@ -1,0 +1,397 @@
+#+TITLE: Assignment 8
+#+AUTHOR: Jake Brawer
+#+OPTIONS: toc:nil num:nil |t:nil
+#+BABEL: :session *R* :cache no :results output graphics :exports both 
+#+LATEX_HEADER: \usepackage{amsmath}
+
+* Problem 1
+** a) 
+#+BEGIN_SRC R :session *R* :results graphics :file hist.png :exports both
+  d <- read.csv("http://www.stat.yale.edu/~jtc5/238/data/cost-of-the-muse.csv")
+
+  ages <- d$Age
+
+  novlsts <- ages[d$Type == "Novels"]
+  pts <- ages[d$Type == "Poems"]
+  nfcts <- ages[d$Type == "Nonfiction"]
+
+  par(mfrow = c(3,1))
+  rg <- range(ages)
+
+  hist(novlsts, 100, xlim = rg, col="red")
+  hist(pts, 100, xlim = rg, col="blue")
+  hist(nfcts, 100, xlim = rg, col="green")
+#+END_SRC
+
+#+RESULTS:
+[[file:hist.png]]
+
+** b) 
+
+#+BEGIN_SRC R :session *R* :exports src :cache no
+  lik <- function(th){
+    mu1 <- th[1]; mu2 <- th[2]; mu3 <- th[3]
+    s1 <- th[4]; s2 <- th[5]; s3 <- th[6]
+    return(
+      prod(dnorm(novlsts, mean=mu1, sd = s1)) *
+      prod(dnorm(pts, mean=mu2, sd = s2)) *
+      prod(dnorm(nfcts, mean=mu3, sd = s3))
+    )
+  }
+  prior <- function(th){
+    mu1 <- th[1]; mu2 <- th[2]; mu3 <- th[3]
+    s1 <- th[4]; s2 <- th[5]; s3 <- th[6]
+    return(prod(dunif(th, 0, 100)))
+  }
+
+  post <- function(th){
+    s1 <- th[4]; s2 <- th[5]; s3 <- th[6]
+    if((s1 < 0) | (s2 < 0) | (s3 < 0))return(0)
+    return(prior(th) * lik(th))
+  }
+
+
+
+  MCMC <- function(reps, th){
+    path <- matrix(0, nrow=reps, ncol=6)
+    path[1, ] <- th
+    for(i in 2:reps)
+    {
+      candidate <- th + rnorm(6)
+      ratio <- post(candidate)/post(th)
+
+      if(runif(1) < ratio) th <- candidate
+
+      path[i, ] <- th
+    }
+    return(path)
+  }
+
+  reps <- 10000
+  strt <- c(65, 65, 65, 20, 20 , 20)
+
+  results <- MCMC(10000, strt)
+  mu1 <-  results[, 1]
+  mu2 <-  results[, 2]
+  mu3 <-  results[, 3]
+  sd1 <-  results[, 4]
+  sd2 <-  results[, 5]
+  sd3 <-  results[, 6]
+
+
+  qts <- c(0.025, 0.5, 0.975)
+
+#+END_SRC
+
+#+RESULTS[3ab4cacf2139bd36f27ea3df7ffc225644b97a27]:
+| 0.025 |
+|   0.5 |
+| 0.975 |
+
+
+
+Novelist \mu credible intervals (0.025, 0.5, 0.97, respectively)
+#+BEGIN_SRC R :session *R* :exports both 
+  quantile(mu1, qts)
+#+END_SRC
+
+#+RESULTS:
+| 68.2241897363557 |
+| 71.4345177772893 |
+|  74.643049126883 |
+
+Novelist $SD$ credible intervals (0.025, 0.5, 0.97, respectively)
+#+BEGIN_SRC R :session *R* :exports both 
+  quantile(sd1, qts)
+#+END_SRC
+
+#+RESULTS:
+| 11.1972559970414 |
+| 13.2483465324303 |
+| 15.7915468448226 |
+
+Poets \mu credible intervals (0.025, 0.5, 0.97, respectively)
+#+BEGIN_SRC R :session *R* :exports both 
+  quantile(mu2, qts)
+#+END_SRC
+
+#+RESULTS:
+| 57.0323238526516 |
+| 62.9622605757819 |
+| 69.4536307177725 |
+
+Novelist $SD$ credible intervals (0.025, 0.5, 0.97, respectively)
+#+BEGIN_SRC R :session *R* :exports both 
+  quantile(sd2, qts)
+#+END_SRC
+
+#+RESULTS:
+| 13.9920907469933 |
+| 17.7329845873503 |
+|  23.239429041122 |
+
+Nonfiction writers \mu credible intervals (0.025, 0.5, 0.97, respectively)
+#+BEGIN_SRC R :session *R* :exports both 
+  quantile(mu3, qts)
+#+END_SRC
+
+#+RESULTS:
+| 70.6639617708472 |
+| 76.6507163710426 |
+| 82.8633488861922 |
+
+Nonfiction writers $SD$ credible intervals (0.025, 0.5, 0.97, respectively)
+#+BEGIN_SRC R :session *R* :exports both 
+  quantile(sd3, qts)
+#+END_SRC
+
+#+RESULTS:
+| 11.4067072014372 |
+| 14.6433500492872 |
+| 20.2317046993274 |
+
+** c)
+
+#+BEGIN_SRC R :session *R*
+  df <- (as.data.frame(results))
+  names(df) <- c("mu1", "mu2", "mu3", "sd1", "sd2", "sd3")
+
+  # novelist - poets
+  delta1 <- df$mu1 - df$mu2
+  # nonfiction writers - poets
+  delta2 <- df$mu3 - df$mu2
+
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC R :file hist2.png :session *R* :exports both :results graphics
+  par(mfrow = c(2,1))
+
+  hist(delta1)
+  hist(delta2)
+#+END_SRC
+
+#+RESULTS:
+[[file:hist2.png]]
+
+
+Novelist - poets credible intervals (0.025, 0.975)
+#+BEGIN_SRC R :exports both :session *R*
+  quantile(delta1, c(0.025,0.975))
+#+END_SRC
+
+#+RESULTS:
+| 1.46698838245027 |
+| 15.7800193787977 |
+
+
+Nonfiction writers - poets credible intervals (0.025, 0.975)
+#+BEGIN_SRC R :exports both :session *R*
+  quantile(delta2, c(0.025,0.975))
+#+END_SRC
+
+#+RESULTS:
+| 4.71955265222643 |
+| 22.2016364865924 |
+
+** d) 
+
+#+BEGIN_SRC R :session *R* :exports both
+  delta3 <-  delta2 - delta1
+  mean(delta3 > 0)
+#+END_SRC
+
+#+RESULTS:
+: 0.9403
+
+* Problem 2
+#+BEGIN_SRC R :session *R* :exports both :cache no
+  library('rjags')
+  mymodel <- "
+    model {
+      for(i in 1:length(novlsts)){
+        novlsts[i] ~ dnorm(mu1 , tau1)
+      }
+      for(i in 1:length(pts)){
+        pts[i] ~ dnorm(mu2 , tau2)
+      }
+      for(i in 1:length(nfcts)){
+        nfcts[i] ~ dnorm(mu3 , tau3)
+      }
+    mu1 ~ dunif(0, 100)
+    mu2 ~ dunif(0, 100)
+    mu3 ~ dunif(0, 100)
+    sig1 ~ dunif(0, 100)
+    sig2 ~ dunif(0, 100)
+    sig3 ~ dunif(0, 100)
+    tau1 <- 1/(sig1 ^2)
+    tau2 <- 1/(sig2 ^2)
+    tau3 <- 1/(sig3 ^2)
+  }
+  "
+  jm <- jags.model (file = textConnection ( mymodel ),
+                    data=list(novlsts=novlsts ,
+                              pts=pts,
+                              nfcts=nfcts),
+                    inits=list(mu1 =65, sig1 =20,
+                               mu2 =65, sig2 =20,
+                               mu3 =65, sig3 =20))
+  cs <- coda.samples (jm , c('mu1','sig1','mu2','sig2', 'mu3', 'sig3'), 100000)
+  s <- as.data.frame (cs [[1]])
+#+END_SRC
+
+#+RESULTS[e26d8406ee96c07d4603b61c4974e2663106016f]:
+
+
+#+BEGIN_SRC R :session *R* :exports code
+  qts <- c(0.025, 0.5, 0.975)
+  quantile(s$mu1, qts)
+#+END_SRC
+
+#+RESULTS:
+| 68.2531073052276 |
+| 71.4559934165601 |
+| 74.6739675370186 |
+
+| 0.025 | 68.2467778031878 |
+|   0.5 | 71.4358081522129 |
+| 0.975 | 74.6465196684498 |
+
+
+#+BEGIN_SRC R :session *R* :exports code
+  qts <- c(0.025, 0.5, 0.975)
+  quantile(s$sig1, qts)
+#+END_SRC
+
+| 0.025 | 11.2466288801889 |
+|   0.5 | 13.2170804017298 |
+| 0.975 | 15.8769467329275 |
+
+#+BEGIN_SRC R :session *R* :exports code
+  qts <- c(0.025, 0.5, 0.975)
+  quantile(s$mu2, qts)
+#+END_SRC
+
+| 0.025 | 56.8408695246123 |
+|   0.5 | 63.1785840942802 |
+| 0.975 | 69.5388634163273 |
+
+#+BEGIN_SRC R :session *R* :exports code
+  qts <- c(0.025, 0.5, 0.975)
+  quantile(s$sig2, qts)
+#+END_SRC
+
+| 0.025 |  14.032656853907 |
+|   0.5 | 17.7715410431306 |
+| 0.975 | 23.4585322202547 |
+
+#+BEGIN_SRC R :session *R* :exports code
+  qts <- c(0.025, 0.5, 0.975)
+  quantile(s$mu3, qts)
+#+END_SRC
+
+| 0.025 | 70.8154910038315 |
+|   0.5 | 76.8770028433609 |
+| 0.975 | 82.9686162380408 |
+
+#+BEGIN_SRC R :session *R* :exports code
+  qts <- c(0.025, 0.5, 0.975)
+  quantile(s$sig3, qts)
+#+END_SRC
+
+| 0.025 | 11.1451597067461 |
+|   0.5 | 14.6521626614445 |
+| 0.975 | 20.4100336403886 |
+
+#+BEGIN_SRC R :session *R* :exports both :results graphics :file fig4.png
+  dt1 <- s$mu1 - s$mu2
+  dt2 <- s$mu3 - s$mu2
+
+  par(mfrow = c(2,1))
+
+  hist(dt1)
+  hist(dt2)
+#+END_SRC
+
+#+RESULTS:
+[[file:fig4.png]]
+
+#+BEGIN_SRC R :session *R* :exports both
+  dt3 <- dt2 - dt1
+  mean(dt3 > 0)
+#+END_SRC
+
+#+RESULTS:
+: 0.94263
+
+* Problem 3 
+** a)
+#+BEGIN_SRC R :session *R* :exports both :results graphics :file fig1.png :cache yes
+  xTrt <- 56
+    xCtrl <- 84
+    modelHeart <- "
+      model{
+        xTrt ~ dbin(pTrt, 2051)
+        xCtrl ~ dbin(pCtrl, 2030)
+
+        pTrt ~ dunif(0, 1)
+        pCtrl ~ dunif(0, 1)
+      }
+    "
+
+    jm <- jags.model (file = textConnection ( modelHeart ),
+                      data=list(xTrt=xTrt, xCtrl=xCtrl),
+                      )
+    cs <- coda.samples (jm , c("pTrt", "pCtrl"), 100000)
+    s <- as.data.frame (cs [[1]])
+
+
+    par(mfrow = c(2,1))
+    hist(s$pCtrl)
+    hist(s$pTrt)
+#+END_SRC
+
+#+RESULTS[95242e4eb3ce808cecd6497c56bd65b6c626302e]:
+[[file:fig1.png]]
+
+** b)
+
+#+BEGIN_SRC R :session *R* :exports code
+  qt <- c(0.025, 0.975 )
+  quantile(s$pCtrl, qt)
+#+END_SRC
+
+#+RESULTS:
+| 0.0334759933437895 |
+| 0.0509672161260995 |
+
+| 0.025 | 0.0335144495945179 |
+| 0.975 | 0.0508070951553886 |
+
+#+BEGIN_SRC R :session *R* :exports code
+  quantile(s$pTrt, qt)
+#+END_SRC
+
+| 0.025 | 0.0211767269637845 |
+| 0.975 | 0.0353057663606585 |
+
+** c) 
+
+#+BEGIN_SRC R :session *R* :exports code
+quantile( 100 * (s$pCtrl - s$pTrt)/s$pCtrl, qt)
+#+END_SRC
+
+
+| 0.025 | 7.90152955146893 |
+| 0.975 | 52.4127972295888 |
+
+* 4) 
+
+#+BEGIN_SRC latex
+  $P(\theta_{trt}) = P(\theta_{ctrl}) = U(0,1) = Beta(1,1)$\\
+  $L(\theta_{trt}) = Beta(1995, 56), L(\theta_{ctrl}) = Beta(1946, 84)$\\
+  Thus the post. dist. for $\theta_{trt}$ is: $B(1995 + 1, 56 + 1)$ and the post
+  dist for $\theta_{ctrl}$ is: $Beta(1946 + 1, 84 + 1)$ 
+#+END_SRC

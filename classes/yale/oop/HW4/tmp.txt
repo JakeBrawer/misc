@@ -1,0 +1,3185 @@
+g++ -std=c++11 -Wall -pedantic -g3 -o Unit cooccur_unit.cpp
+In file included from cooccur_unit.cpp:10:0:
+cooccur.h:70:1: error: 'include' does not name a type
+ include "cooccur.cpp"
+ ^~~~~~~
+cooccur_unit.cpp:17:31: error: 'string' was not declared in this scope
+ using CM = CooccurrenceMatrix<string>;
+                               ^~~~~~
+cooccur_unit.cpp:17:31: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:17:37: error: template argument 1 is invalid
+ using CM = CooccurrenceMatrix<string>;
+                                     ^
+cooccur_unit.cpp:19:1: error: 'CM' does not name a type
+ CM make_matrix(string prefix, const int size);
+ ^~
+cooccur_unit.cpp:20:1: error: 'CM' does not name a type
+ CM make_matrix_keywords(const string& keys, const int size);
+ ^~
+cooccur_unit.cpp:23:1: error: 'stringstream' does not name a type
+ stringstream make_file(const vector<string> words, const vector<string> select, int n);
+ ^~~~~~~~~~~~
+cooccur_unit.cpp:26:1: error: 'vector' does not name a type; did you mean 'perror'?
+ vector<string> make_words(string word, const int size);
+ ^~~~~~
+ perror
+cooccur_unit.cpp:27:1: error: 'vector' does not name a type; did you mean 'perror'?
+ vector<string> make_words_select(const vector<string>& keys, const vector<int> select, const int size);
+ ^~~~~~
+ perror
+cooccur_unit.cpp:28:1: error: 'stringstream' does not name a type
+ stringstream make_stream(vector<string> words, vector<int> select, int n);
+ ^~~~~~~~~~~~
+cooccur_unit.cpp:56:31: error: 'istream' has not been declared
+ void test_read_time(int size, istream& in);
+                               ^~~~~~~
+cooccur_unit.cpp: In function 'int main(int, char**)':
+cooccur_unit.cpp:74:5: error: 'cerr' was not declared in this scope
+     cerr << "USAGE: " << argv[0] << "test-number matrix-size" << endl;
+     ^~~~
+cooccur_unit.cpp:74:5: note: suggested alternative:
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:62:18: note:   'std::cerr'
+   extern ostream cerr;  /// Linked to standard error (unbuffered)
+                  ^~~~
+cooccur_unit.cpp:74:66: error: 'endl' was not declared in this scope
+     cerr << "USAGE: " << argv[0] << "test-number matrix-size" << endl;
+                                                                  ^~~~
+cooccur_unit.cpp:74:66: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: At global scope:
+cooccur_unit.cpp:204:1: error: 'CM' does not name a type
+ CM max_matrix(string prefix, const int size)
+ ^~
+cooccur_unit.cpp:212:1: error: 'CM' does not name a type
+ CM make_matrix_keywords(const string& keys, const int size)
+ ^~
+cooccur_unit.cpp:219:1: error: 'vector' does not name a type; did you mean 'perror'?
+ vector<string> make_words(string word, const int size)
+ ^~~~~~
+ perror
+cooccur_unit.cpp:232:1: error: 'vector' does not name a type; did you mean 'perror'?
+ vector<string> make_words_select(const vector<string>& keys,
+ ^~~~~~
+ perror
+cooccur_unit.cpp: In function 'void test_create()':
+cooccur_unit.cpp:248:3: error: 'vector' was not declared in this scope
+   vector<string> keys{"word0", "word1", "word2" };
+   ^~~~~~
+cooccur_unit.cpp:248:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:248:10: error: 'string' was not declared in this scope
+   vector<string> keys{"word0", "word1", "word2" };
+          ^~~~~~
+cooccur_unit.cpp:248:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:248:18: error: 'keys' was not declared in this scope
+   vector<string> keys{"word0", "word1", "word2" };
+                  ^~~~
+cooccur_unit.cpp:248:18: note: suggested alternative: 'gets'
+   vector<string> keys{"word0", "word1", "word2" };
+                  ^~~~
+                  gets
+cooccur_unit.cpp:249:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:250:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:250:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:250:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:250:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_update_all_keywords(int)':
+cooccur_unit.cpp:278:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:278:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:278:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:278:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:278:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:278:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:278:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:279:3: error: 'CM' was not declared in this scope
+   CM cm(make_matrix(string("word"), size));
+   ^~
+cooccur_unit.cpp:285:22: error: 'context' was not declared in this scope
+       vector<string> context = make_words("word", i);
+                      ^~~~~~~
+cooccur_unit.cpp:285:22: note: suggested alternative: 'on_exit'
+       vector<string> context = make_words("word", i);
+                      ^~~~~~~
+                      on_exit
+cooccur_unit.cpp:286:7: error: 'unordered_set' was not declared in this scope
+       unordered_set<string> context_set(context.begin(), context.end());
+       ^~~~~~~~~~~~~
+cooccur_unit.cpp:286:7: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:286:29: error: 'context_set' was not declared in this scope
+       unordered_set<string> context_set(context.begin(), context.end());
+                             ^~~~~~~~~~~
+cooccur_unit.cpp:288:7: error: 'cm' was not declared in this scope
+       cm.update(context_set);
+       ^~
+cooccur_unit.cpp:288:7: note: suggested alternative: 'tm'
+       cm.update(context_set);
+       ^~
+       tm
+cooccur_unit.cpp:292:10: error: expected primary-expression before 'double'
+   vector<double> vec0(cm.getVector(keys[0]));
+          ^~~~~~
+cooccur_unit.cpp:295:23: error: 'vec0' was not declared in this scope
+       if (!test_ratio(vec0[i], size - i, size))
+                       ^~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:297:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:297:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:297:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:297:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:303:10: error: expected primary-expression before 'double'
+   vector<double> vec_last(cm.getVector(keys[size - 1]));
+          ^~~~~~
+cooccur_unit.cpp:306:23: error: 'vec_last' was not declared in this scope
+       if (!test_ratio(vec_last[i], 1, 1))
+                       ^~~~~~~~
+cooccur_unit.cpp:306:23: note: suggested alternative: 'va_list'
+       if (!test_ratio(vec_last[i], 1, 1))
+                       ^~~~~~~~
+                       va_list
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:308:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:308:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:308:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:308:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:313:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:313:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:313:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:313:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_update_mixed_words(int)':
+cooccur_unit.cpp:319:3: error: 'CM' was not declared in this scope
+   CM cm = make_matrix(string("word"), size);
+   ^~
+cooccur_unit.cpp:320:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:320:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:320:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:320:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:320:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:320:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:320:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:327:22: error: 'cntxt' was not declared in this scope
+       vector<string> cntxt(make_words(string("word"), size));
+                      ^~~~~
+cooccur_unit.cpp:328:7: error: 'unordered_set' was not declared in this scope
+       unordered_set<string> cntxt_set(cntxt.begin(), cntxt.end());
+       ^~~~~~~~~~~~~
+cooccur_unit.cpp:328:7: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:328:29: error: 'cntxt_set' was not declared in this scope
+       unordered_set<string> cntxt_set(cntxt.begin(), cntxt.end());
+                             ^~~~~~~~~
+cooccur_unit.cpp:330:7: error: 'cm' was not declared in this scope
+       cm.update(cntxt_set);
+       ^~
+cooccur_unit.cpp:330:7: note: suggested alternative: 'tm'
+       cm.update(cntxt_set);
+       ^~
+       tm
+cooccur_unit.cpp:334:10: error: expected primary-expression before 'double'
+   vector<double> vec0 = cm.getVector(keys[0]);
+          ^~~~~~
+cooccur_unit.cpp:337:23: error: 'vec0' was not declared in this scope
+       if (!test_ratio(vec0[i], size - i, size))
+                       ^~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:339:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:339:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:339:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:339:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:345:10: error: expected primary-expression before 'double'
+   vector<double> vec_last(cm.getVector(keys[size - 1]));
+          ^~~~~~
+cooccur_unit.cpp:348:23: error: 'vec_last' was not declared in this scope
+       if (!test_ratio(vec_last[i], 1, 1))
+                       ^~~~~~~~
+cooccur_unit.cpp:348:23: note: suggested alternative: 'va_list'
+       if (!test_ratio(vec_last[i], 1, 1))
+                       ^~~~~~~~
+                       va_list
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:350:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:350:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:350:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:350:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:355:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:355:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:355:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:355:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_update_duplicates_in_context(int)':
+cooccur_unit.cpp:375:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:375:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:375:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:375:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:375:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:375:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:375:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:376:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:379:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:380:10: error: request for member 'reserve' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.reserve(size);
+          ^~~~~~~
+cooccur_unit.cpp:382:11: warning: pointer to a function used in arithmetic [-Wpointer-arith]
+   select[0] = 0;
+           ^
+cooccur_unit.cpp:382:15: error: assignment of function 'int select(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select[0] = 0;
+               ^
+cooccur_unit.cpp:382:15: error: cannot convert 'int' to 'int(int, fd_set*, fd_set*, fd_set*, timeval*)' in assignment
+cooccur_unit.cpp:385:15: warning: pointer to a function used in arithmetic [-Wpointer-arith]
+       select[i] = 1;
+               ^
+cooccur_unit.cpp:385:19: error: assignment of read-only location '*(select + ((sizetype)i))'
+       select[i] = 1;
+                   ^
+cooccur_unit.cpp:385:19: error: cannot convert 'int' to 'int(int, fd_set*, fd_set*, fd_set*, timeval*)' in assignment
+cooccur_unit.cpp:390:27: error: 'make_words_select' was not declared in this scope
+   vector<string> update_1(make_words_select(keys, select, size));
+                           ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:390:18: error: 'update_1' was not declared in this scope
+   vector<string> update_1(make_words_select(keys, select, size));
+                  ^~~~~~~~
+cooccur_unit.cpp:390:18: note: suggested alternative: 'getdate_r'
+   vector<string> update_1(make_words_select(keys, select, size));
+                  ^~~~~~~~
+                  getdate_r
+cooccur_unit.cpp:391:18: error: 'update_2' was not declared in this scope
+   vector<string> update_2(make_words_select(keys, select, 1));
+                  ^~~~~~~~
+cooccur_unit.cpp:391:18: note: suggested alternative: 'getdate_r'
+   vector<string> update_2(make_words_select(keys, select, 1));
+                  ^~~~~~~~
+                  getdate_r
+cooccur_unit.cpp:393:3: error: 'cm' was not declared in this scope
+   cm.update(unordered_set<string>(update_1.begin(), update_1.end()));
+   ^~
+cooccur_unit.cpp:393:3: note: suggested alternative: 'tm'
+   cm.update(unordered_set<string>(update_1.begin(), update_1.end()));
+   ^~
+   tm
+cooccur_unit.cpp:393:13: error: 'unordered_set' was not declared in this scope
+   cm.update(unordered_set<string>(update_1.begin(), update_1.end()));
+             ^~~~~~~~~~~~~
+cooccur_unit.cpp:393:13: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:398:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:398:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:398:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:398:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_update_empty_context(int)':
+cooccur_unit.cpp:405:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:405:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:405:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:405:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:405:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:405:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:405:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:406:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:409:10: error: expected primary-expression before 'int'
+   vector<int> select{0, 1};
+          ^~~
+cooccur_unit.cpp:410:18: error: 'context' was not declared in this scope
+   vector<string> context = make_words_select(keys, select, 2);
+                  ^~~~~~~
+cooccur_unit.cpp:410:18: note: suggested alternative: 'on_exit'
+   vector<string> context = make_words_select(keys, select, 2);
+                  ^~~~~~~
+                  on_exit
+cooccur_unit.cpp:410:28: error: 'make_words_select' was not declared in this scope
+   vector<string> context = make_words_select(keys, select, 2);
+                            ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:411:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context_set(context.begin(), context.end());
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:411:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:411:25: error: 'context_set' was not declared in this scope
+   unordered_set<string> context_set(context.begin(), context.end());
+                         ^~~~~~~~~~~
+cooccur_unit.cpp:413:3: error: 'cm' was not declared in this scope
+   cm.update(context_set);
+   ^~
+cooccur_unit.cpp:413:3: note: suggested alternative: 'tm'
+   cm.update(context_set);
+   ^~
+   tm
+cooccur_unit.cpp:416:25: error: 'empty' was not declared in this scope
+   unordered_set<string> empty;
+                         ^~~~~
+cooccur_unit.cpp:419:10: error: expected primary-expression before 'double'
+   vector<double> vec0 = cm.getVector(keys[0]);
+          ^~~~~~
+cooccur_unit.cpp:421:7: error: 'vec0' was not declared in this scope
+   if (vec0[0] != 1.0 || vec0[1] != 1.0)
+       ^~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:423:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:423:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:423:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:423:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:428:11: error: 'vec0' was not declared in this scope
+       if (vec0[i] != 0.0)
+           ^~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:430:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:430:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:430:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:430:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:435:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:435:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:435:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:435:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_read_only_keywords(int)':
+cooccur_unit.cpp:442:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:442:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:442:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:442:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:442:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                  ^~~~~
+cooccur_unit.cpp:442:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                          ^~~~~~~~~~
+cooccur_unit.cpp:443:3: error: 'CM' was not declared in this scope
+   CM cm(words);
+   ^~
+cooccur_unit.cpp:446:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:447:10: error: request for member 'push_back' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.push_back(size / 2);
+          ^~~~~~~~~
+cooccur_unit.cpp:449:18: error: 'context_correct' was not declared in this scope
+   vector<string> context_correct = make_words_select(words, select, 1);
+                  ^~~~~~~~~~~~~~~
+cooccur_unit.cpp:449:36: error: 'make_words_select' was not declared in this scope
+   vector<string> context_correct = make_words_select(words, select, 1);
+                                    ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:450:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context_set(context_correct.begin(),
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:450:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:450:25: error: 'context_set' was not declared in this scope
+   unordered_set<string> context_set(context_correct.begin(),
+                         ^~~~~~~~~~~
+cooccur_unit.cpp:452:3: error: 'stringstream' was not declared in this scope
+   stringstream in(context_correct[0]);
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:452:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:458:25: error: 'context_read' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+cooccur_unit.cpp:458:25: note: suggested alternative: 'constexpr'
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+                         constexpr
+cooccur_unit.cpp:458:40: error: 'cm' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+cooccur_unit.cpp:458:40: note: suggested alternative: 'tm'
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+                                        tm
+cooccur_unit.cpp:458:55: error: 'in' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                                       ^~
+cooccur_unit.cpp:458:55: note: suggested alternative: 'int'
+   unordered_set<string> context_read = cm.readContext(in);
+                                                       ^~
+                                                       int
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:463:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:463:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:463:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:463:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:467:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:467:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:467:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:467:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_read_all_keywords(int)':
+cooccur_unit.cpp:476:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:476:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:476:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:476:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:476:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                  ^~~~~
+cooccur_unit.cpp:476:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                          ^~~~~~~~~~
+cooccur_unit.cpp:477:3: error: 'CM' was not declared in this scope
+   CM cm(words);
+   ^~
+cooccur_unit.cpp:480:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:481:10: error: request for member 'reserve' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.reserve(size);
+          ^~~~~~~
+cooccur_unit.cpp:485:15: warning: pointer to a function used in arithmetic [-Wpointer-arith]
+       select[i] = i;
+               ^
+cooccur_unit.cpp:485:19: error: assignment of read-only location '*(select + ((sizetype)i))'
+       select[i] = i;
+                   ^
+cooccur_unit.cpp:485:19: error: cannot convert 'int' to 'int(int, fd_set*, fd_set*, fd_set*, timeval*)' in assignment
+cooccur_unit.cpp:489:18: error: 'context_vec' was not declared in this scope
+   vector<string> context_vec =  make_words_select(words, select, size);
+                  ^~~~~~~~~~~
+cooccur_unit.cpp:489:33: error: 'make_words_select' was not declared in this scope
+   vector<string> context_vec =  make_words_select(words, select, size);
+                                 ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:490:3: error: 'stringstream' was not declared in this scope
+   stringstream context_stream = make_stream(words, select, size);
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:490:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:491:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context_set(context_vec.begin(), context_vec.end());
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:491:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:491:25: error: 'context_set' was not declared in this scope
+   unordered_set<string> context_set(context_vec.begin(), context_vec.end());
+                         ^~~~~~~~~~~
+cooccur_unit.cpp:497:25: error: 'context_read' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(context_stream);
+                         ^~~~~~~~~~~~
+cooccur_unit.cpp:497:25: note: suggested alternative: 'constexpr'
+   unordered_set<string> context_read = cm.readContext(context_stream);
+                         ^~~~~~~~~~~~
+                         constexpr
+cooccur_unit.cpp:497:40: error: 'cm' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(context_stream);
+                                        ^~
+cooccur_unit.cpp:497:40: note: suggested alternative: 'tm'
+   unordered_set<string> context_read = cm.readContext(context_stream);
+                                        ^~
+                                        tm
+cooccur_unit.cpp:497:55: error: 'context_stream' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(context_stream);
+                                                       ^~~~~~~~~~~~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:504:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:504:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:504:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:504:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:508:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:508:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:508:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:508:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_read_mixed_words(int)':
+cooccur_unit.cpp:517:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("words"), size);
+   ^~~~~~
+cooccur_unit.cpp:517:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:517:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("words"), size);
+          ^~~~~~
+cooccur_unit.cpp:517:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:517:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("words"), size);
+                  ^~~~~
+cooccur_unit.cpp:517:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("words"), size);
+                          ^~~~~~~~~~
+cooccur_unit.cpp:519:18: error: 'extra_words' was not declared in this scope
+   vector<string> extra_words = make_words(string("words"), size * 2);
+                  ^~~~~~~~~~~
+cooccur_unit.cpp:520:3: error: 'CM' was not declared in this scope
+   CM cm(words);
+   ^~
+cooccur_unit.cpp:523:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:524:10: error: request for member 'reserve' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.reserve(size * 2);
+          ^~~~~~~
+cooccur_unit.cpp:530:18: error: request for member 'push_back' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+           select.push_back(i / 2);
+                  ^~~~~~~~~
+cooccur_unit.cpp:534:18: error: request for member 'push_back' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+           select.push_back(size + i);
+                  ^~~~~~~~~
+cooccur_unit.cpp:539:18: error: 'context_correct_vec' was not declared in this scope
+   vector<string> context_correct_vec = make_words_select(extra_words,
+                  ^~~~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:539:40: error: 'make_words_select' was not declared in this scope
+   vector<string> context_correct_vec = make_words_select(extra_words,
+                                        ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:541:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context_correct_set(context_correct_vec.begin(),
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:541:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:541:25: error: 'context_correct_set' was not declared in this scope
+   unordered_set<string> context_correct_set(context_correct_vec.begin(),
+                         ^~~~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:545:3: error: 'stringstream' was not declared in this scope
+   stringstream in = make_stream(extra_words, select, size);
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:545:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:548:25: error: 'context_read' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+cooccur_unit.cpp:548:25: note: suggested alternative: 'constexpr'
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+                         constexpr
+cooccur_unit.cpp:548:40: error: 'cm' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+cooccur_unit.cpp:548:40: note: suggested alternative: 'tm'
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+                                        tm
+cooccur_unit.cpp:548:55: error: 'in' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                                       ^~
+cooccur_unit.cpp:548:55: note: suggested alternative: 'int'
+   unordered_set<string> context_read = cm.readContext(in);
+                                                       ^~
+                                                       int
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:553:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:553:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:553:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:553:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:557:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:557:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:557:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:557:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_read_duplicate_keywords(int)':
+cooccur_unit.cpp:565:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:565:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:565:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:565:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:565:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                  ^~~~~
+cooccur_unit.cpp:565:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                          ^~~~~~~~~~
+cooccur_unit.cpp:566:3: error: 'CM' was not declared in this scope
+   CM cm(words);
+   ^~
+cooccur_unit.cpp:569:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:570:10: error: request for member 'reserve' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.reserve(size);
+          ^~~~~~~
+cooccur_unit.cpp:574:15: warning: pointer to a function used in arithmetic [-Wpointer-arith]
+       select[i] = 0;
+               ^
+cooccur_unit.cpp:574:19: error: assignment of read-only location '*(select + ((sizetype)i))'
+       select[i] = 0;
+                   ^
+cooccur_unit.cpp:574:19: error: cannot convert 'int' to 'int(int, fd_set*, fd_set*, fd_set*, timeval*)' in assignment
+cooccur_unit.cpp:578:18: error: 'context_correct_vec' was not declared in this scope
+   vector<string> context_correct_vec = make_words_select(words, select, 1);
+                  ^~~~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:578:40: error: 'make_words_select' was not declared in this scope
+   vector<string> context_correct_vec = make_words_select(words, select, 1);
+                                        ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:579:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context_correct_set(context_correct_vec.begin(),
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:579:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:579:25: error: 'context_correct_set' was not declared in this scope
+   unordered_set<string> context_correct_set(context_correct_vec.begin(),
+                         ^~~~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:583:3: error: 'stringstream' was not declared in this scope
+   stringstream in;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:583:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:586:7: error: 'in' was not declared in this scope
+       in << context_correct_vec[0];
+       ^~
+cooccur_unit.cpp:586:7: note: suggested alternative: 'i'
+       in << context_correct_vec[0];
+       ^~
+       i
+cooccur_unit.cpp:589:3: error: 'in' was not declared in this scope
+   in << endl;
+   ^~
+cooccur_unit.cpp:589:3: note: suggested alternative: 'int'
+   in << endl;
+   ^~
+   int
+cooccur_unit.cpp:589:9: error: 'endl' was not declared in this scope
+   in << endl;
+         ^~~~
+cooccur_unit.cpp:589:9: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:593:25: error: 'context_read' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+cooccur_unit.cpp:593:25: note: suggested alternative: 'constexpr'
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+                         constexpr
+cooccur_unit.cpp:593:40: error: 'cm' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+cooccur_unit.cpp:593:40: note: suggested alternative: 'tm'
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+                                        tm
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:599:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:599:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:603:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:603:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp: In function 'void test_read_empty_line(int)':
+cooccur_unit.cpp:612:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:612:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:612:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:612:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:612:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                  ^~~~~
+cooccur_unit.cpp:612:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                          ^~~~~~~~~~
+cooccur_unit.cpp:613:3: error: 'CM' was not declared in this scope
+   CM cm(words);
+   ^~
+cooccur_unit.cpp:618:3: error: 'stringstream' was not declared in this scope
+   stringstream in;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:618:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:620:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context = cm.readContext(in);
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:620:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:620:25: error: 'context' was not declared in this scope
+   unordered_set<string> context = cm.readContext(in);
+                         ^~~~~~~
+cooccur_unit.cpp:620:25: note: suggested alternative: 'on_exit'
+   unordered_set<string> context = cm.readContext(in);
+                         ^~~~~~~
+                         on_exit
+cooccur_unit.cpp:620:35: error: 'cm' was not declared in this scope
+   unordered_set<string> context = cm.readContext(in);
+                                   ^~
+cooccur_unit.cpp:620:35: note: suggested alternative: 'tm'
+   unordered_set<string> context = cm.readContext(in);
+                                   ^~
+                                   tm
+cooccur_unit.cpp:620:50: error: 'in' was not declared in this scope
+   unordered_set<string> context = cm.readContext(in);
+                                                  ^~
+cooccur_unit.cpp:620:50: note: suggested alternative: 'int'
+   unordered_set<string> context = cm.readContext(in);
+                                                  ^~
+                                                  int
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:626:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:626:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:626:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:626:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:630:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:630:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:630:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:630:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_read_eof(int)':
+cooccur_unit.cpp:640:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:640:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:640:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:640:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:640:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                  ^~~~~
+cooccur_unit.cpp:640:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                          ^~~~~~~~~~
+cooccur_unit.cpp:641:3: error: 'CM' was not declared in this scope
+   CM cm(words);
+   ^~
+cooccur_unit.cpp:644:3: error: 'stringstream' was not declared in this scope
+   stringstream in(words[0]);
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:644:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:645:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context_correct(words.begin(), words.begin() + 1);
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:645:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:645:25: error: 'context_correct' was not declared in this scope
+   unordered_set<string> context_correct(words.begin(), words.begin() + 1);
+                         ^~~~~~~~~~~~~~~
+cooccur_unit.cpp:655:25: error: 'context_read' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+cooccur_unit.cpp:655:25: note: suggested alternative: 'constexpr'
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+                         constexpr
+cooccur_unit.cpp:655:40: error: 'cm' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+cooccur_unit.cpp:655:40: note: suggested alternative: 'tm'
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+                                        tm
+cooccur_unit.cpp:655:55: error: 'in' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                                       ^~
+cooccur_unit.cpp:655:55: note: suggested alternative: 'int'
+   unordered_set<string> context_read = cm.readContext(in);
+                                                       ^~
+                                                       int
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:659:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:659:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:659:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:659:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:663:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:663:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:663:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:663:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_read_two_lines(int)':
+cooccur_unit.cpp:671:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:671:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:671:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:671:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:671:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                  ^~~~~
+cooccur_unit.cpp:671:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                          ^~~~~~~~~~
+cooccur_unit.cpp:672:3: error: 'CM' was not declared in this scope
+   CM cm(words);
+   ^~
+cooccur_unit.cpp:675:18: error: 'context_correct_1' was not declared in this scope
+   vector<string> context_correct_1(words.begin(), words.begin() + 1);
+                  ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:676:18: error: 'context_correct_2' was not declared in this scope
+   vector<string> context_correct_2 (words.begin(), words.begin() + 2);
+                  ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:678:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context_set_1(context_correct_1.begin(),
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:678:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:678:25: error: 'context_set_1' was not declared in this scope
+   unordered_set<string> context_set_1(context_correct_1.begin(),
+                         ^~~~~~~~~~~~~
+cooccur_unit.cpp:680:25: error: 'context_set_2' was not declared in this scope
+   unordered_set<string> context_set_2(context_correct_2.begin(),
+                         ^~~~~~~~~~~~~
+cooccur_unit.cpp:683:3: error: 'stringstream' was not declared in this scope
+   stringstream in1(words[0]);
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:683:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:684:16: error: expected ';' before 'in2'
+   stringstream in2(words[0] + string(" ") + words[1]);
+                ^~~
+cooccur_unit.cpp:695:25: error: 'context_read_1' was not declared in this scope
+   unordered_set<string> context_read_1 = cm.readContext(in1);
+                         ^~~~~~~~~~~~~~
+cooccur_unit.cpp:695:25: note: suggested alternative: 'test_read_eof'
+   unordered_set<string> context_read_1 = cm.readContext(in1);
+                         ^~~~~~~~~~~~~~
+                         test_read_eof
+cooccur_unit.cpp:695:42: error: 'cm' was not declared in this scope
+   unordered_set<string> context_read_1 = cm.readContext(in1);
+                                          ^~
+cooccur_unit.cpp:695:42: note: suggested alternative: 'tm'
+   unordered_set<string> context_read_1 = cm.readContext(in1);
+                                          ^~
+                                          tm
+cooccur_unit.cpp:695:57: error: 'in1' was not declared in this scope
+   unordered_set<string> context_read_1 = cm.readContext(in1);
+                                                         ^~~
+cooccur_unit.cpp:695:57: note: suggested alternative: 'int'
+   unordered_set<string> context_read_1 = cm.readContext(in1);
+                                                         ^~~
+                                                         int
+cooccur_unit.cpp:696:25: error: 'context_read_2' was not declared in this scope
+   unordered_set<string> context_read_2 = cm.readContext(in2);
+                         ^~~~~~~~~~~~~~
+cooccur_unit.cpp:696:25: note: suggested alternative: 'test_read_eof'
+   unordered_set<string> context_read_2 = cm.readContext(in2);
+                         ^~~~~~~~~~~~~~
+                         test_read_eof
+cooccur_unit.cpp:696:57: error: 'in2' was not declared in this scope
+   unordered_set<string> context_read_2 = cm.readContext(in2);
+                                                         ^~~
+cooccur_unit.cpp:696:57: note: suggested alternative: 'int'
+   unordered_set<string> context_read_2 = cm.readContext(in2);
+                                                         ^~~
+                                                         int
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:701:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:701:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:701:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:701:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:705:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:705:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:705:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:705:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_get_no_occurrences(int)':
+cooccur_unit.cpp:714:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:714:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:714:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:714:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:714:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:714:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:714:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:715:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:720:14: error: expected primary-expression before 'double'
+       vector<double> vec = cm.getVector(keys[i]);
+              ^~~~~~
+cooccur_unit.cpp:723:15: error: 'vec' was not declared in this scope
+           if (vec[j] != 0.0)
+               ^~~
+cooccur_unit.cpp:723:15: note: suggested alternative: 'getc'
+           if (vec[j] != 0.0)
+               ^~~
+               getc
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:725:15: note: in expansion of macro 'PRINT_FAILED'
+               PRINT_FAILED;
+               ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:725:15: note: in expansion of macro 'PRINT_FAILED'
+               PRINT_FAILED;
+               ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:725:15: note: in expansion of macro 'PRINT_FAILED'
+               PRINT_FAILED;
+               ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:725:15: note: in expansion of macro 'PRINT_FAILED'
+               PRINT_FAILED;
+               ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:731:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:731:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:731:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:731:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_get_not_keyword(int)':
+cooccur_unit.cpp:738:3: error: 'CM' was not declared in this scope
+   CM cm = make_matrix("word", size);
+   ^~
+cooccur_unit.cpp:741:3: error: 'vector' was not declared in this scope
+   vector<double> vec0 = cm.getVector(string("wort"));
+   ^~~~~~
+cooccur_unit.cpp:741:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:741:10: error: expected primary-expression before 'double'
+   vector<double> vec0 = cm.getVector(string("wort"));
+          ^~~~~~
+cooccur_unit.cpp:744:11: error: 'vec0' was not declared in this scope
+       if (vec0[i] != 0.0)
+           ^~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:746:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:746:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:746:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:746:5: note: in expansion of macro 'PRINT_FAILED'
+     PRINT_FAILED;
+     ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:751:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:751:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:751:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:751:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_get_returns_copy(int)':
+cooccur_unit.cpp:758:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:758:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:758:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:758:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:758:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:758:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:758:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:759:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:762:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context(keys.begin(), keys.begin() + 1);
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:762:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:762:25: error: 'context' was not declared in this scope
+   unordered_set<string> context(keys.begin(), keys.begin() + 1);
+                         ^~~~~~~
+cooccur_unit.cpp:762:25: note: suggested alternative: 'on_exit'
+   unordered_set<string> context(keys.begin(), keys.begin() + 1);
+                         ^~~~~~~
+                         on_exit
+cooccur_unit.cpp:763:3: error: 'cm' was not declared in this scope
+   cm.update(context);
+   ^~
+cooccur_unit.cpp:763:3: note: suggested alternative: 'tm'
+   cm.update(context);
+   ^~
+   tm
+cooccur_unit.cpp:766:10: error: expected primary-expression before 'double'
+   vector<double> vec0 = cm.getVector(keys[0]);
+          ^~~~~~
+cooccur_unit.cpp:767:3: error: 'vec0' was not declared in this scope
+   vec0[0] = 0.0;
+   ^~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:771:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:771:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:771:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:771:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:775:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:775:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:775:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:775:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_all(int)':
+cooccur_unit.cpp:783:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("word"), size );
+   ^~~~~~
+cooccur_unit.cpp:783:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:783:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("word"), size );
+          ^~~~~~
+cooccur_unit.cpp:783:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:783:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size );
+                  ^~~~~
+cooccur_unit.cpp:783:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size );
+                          ^~~~~~~~~~
+cooccur_unit.cpp:784:18: error: 'extra_words' was not declared in this scope
+   vector<string> extra_words = make_words(string("word"), size * 2);
+                  ^~~~~~~~~~~
+cooccur_unit.cpp:785:3: error: 'CM' was not declared in this scope
+   CM cm(words);
+   ^~
+cooccur_unit.cpp:787:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:788:10: error: request for member 'reserve' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.reserve(size * 2);
+          ^~~~~~~
+cooccur_unit.cpp:792:14: error: request for member 'push_back' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+       select.push_back(i);
+              ^~~~~~~~~
+cooccur_unit.cpp:795:3: error: 'stringstream' was not declared in this scope
+   stringstream in = make_stream(extra_words, select, size * 2);
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:795:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:798:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:798:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:798:25: error: 'context_read' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+cooccur_unit.cpp:798:25: note: suggested alternative: 'constexpr'
+   unordered_set<string> context_read = cm.readContext(in);
+                         ^~~~~~~~~~~~
+                         constexpr
+cooccur_unit.cpp:798:40: error: 'cm' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+cooccur_unit.cpp:798:40: note: suggested alternative: 'tm'
+   unordered_set<string> context_read = cm.readContext(in);
+                                        ^~
+                                        tm
+cooccur_unit.cpp:798:55: error: 'in' was not declared in this scope
+   unordered_set<string> context_read = cm.readContext(in);
+                                                       ^~
+cooccur_unit.cpp:798:55: note: suggested alternative: 'int'
+   unordered_set<string> context_read = cm.readContext(in);
+                                                       ^~
+                                                       int
+cooccur_unit.cpp:804:14: error: expected primary-expression before 'int'
+       vector<int> sub_select(select.begin(), select.begin() + i );
+              ^~~
+cooccur_unit.cpp:805:22: error: 'sub_context' was not declared in this scope
+       vector<string> sub_context = make_words_select(words, sub_select, i);
+                      ^~~~~~~~~~~
+cooccur_unit.cpp:805:22: note: suggested alternative: 'suseconds_t'
+       vector<string> sub_context = make_words_select(words, sub_select, i);
+                      ^~~~~~~~~~~
+                      suseconds_t
+cooccur_unit.cpp:805:61: error: 'sub_select' was not declared in this scope
+       vector<string> sub_context = make_words_select(words, sub_select, i);
+                                                             ^~~~~~~~~~
+cooccur_unit.cpp:805:61: note: suggested alternative: 'pselect'
+       vector<string> sub_context = make_words_select(words, sub_select, i);
+                                                             ^~~~~~~~~~
+                                                             pselect
+cooccur_unit.cpp:805:36: error: 'make_words_select' was not declared in this scope
+       vector<string> sub_context = make_words_select(words, sub_select, i);
+                                    ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:807:29: error: 'context_set' was not declared in this scope
+       unordered_set<string> context_set(sub_context.begin(), sub_context.end());
+                             ^~~~~~~~~~~
+cooccur_unit.cpp:814:14: error: expected primary-expression before 'double'
+       vector<double> vec = cm.getVector(words[i]);
+              ^~~~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:817:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:817:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:817:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:817:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_create_zero_keywords()':
+cooccur_unit.cpp:822:3: error: 'vector' was not declared in this scope
+   vector<string> keys;
+   ^~~~~~
+cooccur_unit.cpp:822:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:822:10: error: 'string' was not declared in this scope
+   vector<string> keys;
+          ^~~~~~
+cooccur_unit.cpp:822:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:822:18: error: 'keys' was not declared in this scope
+   vector<string> keys;
+                  ^~~~
+cooccur_unit.cpp:822:18: note: suggested alternative: 'gets'
+   vector<string> keys;
+                  ^~~~
+                  gets
+cooccur_unit.cpp:823:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:824:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:824:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:824:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:824:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_create_duplicate_keywords(int)':
+cooccur_unit.cpp:831:3: error: 'vector' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:831:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:831:10: error: 'string' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:831:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:831:18: error: 'words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                  ^~~~~
+cooccur_unit.cpp:831:26: error: 'make_words' was not declared in this scope
+   vector<string> words = make_words(string("word"), size);
+                          ^~~~~~~~~~
+cooccur_unit.cpp:834:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:835:10: error: request for member 'reserve' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.reserve(size);
+          ^~~~~~~
+cooccur_unit.cpp:839:15: warning: pointer to a function used in arithmetic [-Wpointer-arith]
+       select[i] = i % 2;
+               ^
+cooccur_unit.cpp:839:23: error: assignment of read-only location '*(select + ((sizetype)i))'
+       select[i] = i % 2;
+                       ^
+cooccur_unit.cpp:839:23: error: cannot convert 'int' to 'int(int, fd_set*, fd_set*, fd_set*, timeval*)' in assignment
+cooccur_unit.cpp:842:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words_select(words, select, size);
+                  ^~~~
+cooccur_unit.cpp:842:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words_select(words, select, size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:842:25: error: 'make_words_select' was not declared in this scope
+   vector<string> keys = make_words_select(words, select, size);
+                         ^~~~~~~~~~~~~~~~~
+cooccur_unit.cpp:843:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:846:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context(keys.begin(), keys.end());
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:846:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:846:25: error: 'context' was not declared in this scope
+   unordered_set<string> context(keys.begin(), keys.end());
+                         ^~~~~~~
+cooccur_unit.cpp:846:25: note: suggested alternative: 'on_exit'
+   unordered_set<string> context(keys.begin(), keys.end());
+                         ^~~~~~~
+                         on_exit
+cooccur_unit.cpp:847:3: error: 'cm' was not declared in this scope
+   cm.update(context);
+   ^~
+cooccur_unit.cpp:847:3: note: suggested alternative: 'tm'
+   cm.update(context);
+   ^~
+   tm
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:857:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:857:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:857:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:857:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_create_space_in_keyword(int)':
+cooccur_unit.cpp:863:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("wo rd"), size);
+   ^~~~~~
+cooccur_unit.cpp:863:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:863:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("wo rd"), size);
+          ^~~~~~
+cooccur_unit.cpp:863:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:863:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("wo rd"), size);
+                  ^~~~
+cooccur_unit.cpp:863:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("wo rd"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:863:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("wo rd"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:864:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:866:3: error: 'stringstream' was not declared in this scope
+   stringstream in(string("wo rd0 wo rd3"));
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:866:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:867:3: error: 'cm' was not declared in this scope
+   cm.update(cm.readContext(in));
+   ^~
+cooccur_unit.cpp:867:3: note: suggested alternative: 'tm'
+   cm.update(cm.readContext(in));
+   ^~
+   tm
+cooccur_unit.cpp:867:28: error: 'in' was not declared in this scope
+   cm.update(cm.readContext(in));
+                            ^~
+cooccur_unit.cpp:867:28: note: suggested alternative: 'int'
+   cm.update(cm.readContext(in));
+                            ^~
+                            int
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:869:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:869:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:869:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:869:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_update_non_keyword(int)':
+cooccur_unit.cpp:876:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:876:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:876:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:876:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:876:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:876:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:876:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:877:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:879:18: error: 'new_words' was not declared in this scope
+   vector<string> new_words = make_words("wort", size);
+                  ^~~~~~~~~
+cooccur_unit.cpp:880:3: error: 'stringstream' was not declared in this scope
+   stringstream in;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:880:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:882:3: error: 'unordered_set' was not declared in this scope
+   unordered_set<string> context(new_words.begin(), new_words.end());
+   ^~~~~~~~~~~~~
+cooccur_unit.cpp:882:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/unordered_set:48:0,
+                 from cooccur_unit.cpp:7:
+/usr/include/c++/7.2.0/bits/unordered_set.h:96:11: note:   'std::unordered_set'
+     class unordered_set
+           ^~~~~~~~~~~~~
+cooccur_unit.cpp:882:25: error: 'context' was not declared in this scope
+   unordered_set<string> context(new_words.begin(), new_words.end());
+                         ^~~~~~~
+cooccur_unit.cpp:882:25: note: suggested alternative: 'on_exit'
+   unordered_set<string> context(new_words.begin(), new_words.end());
+                         ^~~~~~~
+                         on_exit
+cooccur_unit.cpp:883:3: error: 'cm' was not declared in this scope
+   cm.update(context);
+   ^~
+cooccur_unit.cpp:883:3: note: suggested alternative: 'tm'
+   cm.update(context);
+   ^~
+   tm
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:886:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:886:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:886:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:886:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_create_time(int)':
+cooccur_unit.cpp:893:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:893:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:893:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:893:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:893:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:893:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:893:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:894:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:896:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:896:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:896:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:896:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_update_time(int, int)':
+cooccur_unit.cpp:903:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:903:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:903:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:903:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:903:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:903:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:903:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:904:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:907:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:908:10: error: request for member 'reserve' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.reserve(size);
+          ^~~~~~~
+cooccur_unit.cpp:912:14: error: request for member 'push_back' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+       select.push_back(i);
+              ^~~~~~~~~
+cooccur_unit.cpp:917:7: error: 'stringstream' was not declared in this scope
+       stringstream in = make_stream(keys, select, size / denom + 1);
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:917:7: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:918:7: error: 'cm' was not declared in this scope
+       cm.update(cm.readContext(in));
+       ^~
+cooccur_unit.cpp:918:7: note: suggested alternative: 'tm'
+       cm.update(cm.readContext(in));
+       ^~
+       tm
+cooccur_unit.cpp:918:32: error: 'in' was not declared in this scope
+       cm.update(cm.readContext(in));
+                                ^~
+cooccur_unit.cpp:918:32: note: suggested alternative: 'i'
+       cm.update(cm.readContext(in));
+                                ^~
+                                i
+cooccur_unit.cpp:921:10: error: expected primary-expression before 'double'
+   vector<double> vec1 = cm.getVector(keys[1]);
+          ^~~~~~
+cooccur_unit.cpp:924:7: error: 'vec1' was not declared in this scope
+   if (vec1[0] != 1.0 || vec1[1] != 1.0 || vec1[size - 1] != 0.0)
+       ^~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:926:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:926:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:926:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:926:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:930:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:930:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:930:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:930:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: At global scope:
+cooccur_unit.cpp:936:31: error: 'istream' has not been declared
+ void test_read_time(int size, istream& in)
+                               ^~~~~~~
+cooccur_unit.cpp: In function 'void test_read_time(int, int&)':
+cooccur_unit.cpp:938:3: error: 'CM' was not declared in this scope
+   CM cm = make_matrix("word", size);
+   ^~
+cooccur_unit.cpp:940:3: error: 'cm' was not declared in this scope
+   cm.readContext(in);
+   ^~
+cooccur_unit.cpp:940:3: note: suggested alternative: 'tm'
+   cm.readContext(in);
+   ^~
+   tm
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:942:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:942:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:942:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:942:3: note: in expansion of macro 'PRINT_PASSED'
+   PRINT_PASSED;
+   ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: In function 'void test_get_vector_time(int, int)':
+cooccur_unit.cpp:951:7: error: 'cout' was not declared in this scope
+       cout << "test_get_vector_time: need size >= 500; was " << size << endl;
+       ^~~~
+cooccur_unit.cpp:951:7: note: suggested alternative:
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:951:73: error: 'endl' was not declared in this scope
+       cout << "test_get_vector_time: need size >= 500; was " << size << endl;
+                                                                         ^~~~
+cooccur_unit.cpp:951:73: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:954:3: error: 'vector' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+   ^~~~~~
+cooccur_unit.cpp:954:3: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/vector:64:0,
+                 from cooccur_unit.cpp:3:
+/usr/include/c++/7.2.0/bits/stl_vector.h:216:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^~~~~~
+cooccur_unit.cpp:954:10: error: 'string' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+          ^~~~~~
+cooccur_unit.cpp:954:10: note: suggested alternatives:
+In file included from /usr/include/c++/7.2.0/iosfwd:39:0,
+                 from /usr/include/c++/7.2.0/ios:38,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7.2.0/bits/stringfwd.h:74:33: note:   'std::__cxx11::string'
+cooccur_unit.cpp:954:18: error: 'keys' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+cooccur_unit.cpp:954:18: note: suggested alternative: 'gets'
+   vector<string> keys = make_words(string("word"), size);
+                  ^~~~
+                  gets
+cooccur_unit.cpp:954:25: error: 'make_words' was not declared in this scope
+   vector<string> keys = make_words(string("word"), size);
+                         ^~~~~~~~~~
+cooccur_unit.cpp:955:3: error: 'CM' was not declared in this scope
+   CM cm(keys);
+   ^~
+cooccur_unit.cpp:957:10: error: expected primary-expression before 'int'
+   vector<int> select;
+          ^~~
+cooccur_unit.cpp:958:10: error: request for member 'reserve' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+   select.reserve(size / 100);
+          ^~~~~~~
+cooccur_unit.cpp:964:18: error: request for member 'push_back' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+           select.push_back(i / 2);
+                  ^~~~~~~~~
+cooccur_unit.cpp:968:18: error: request for member 'push_back' in 'select', which is of non-class type 'int(int, fd_set*, fd_set*, fd_set*, timeval*)'
+           select.push_back(size - 1 - i / 2);
+                  ^~~~~~~~~
+cooccur_unit.cpp:974:7: error: 'stringstream' was not declared in this scope
+       stringstream in = make_stream(keys, select, size / 100);
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:974:7: note: suggested alternative:
+In file included from /usr/include/c++/7.2.0/ios:38:0,
+                 from /usr/include/c++/7.2.0/istream:38,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/iosfwd:156:37: note:   'std::stringstream'
+   typedef basic_stringstream<char>  stringstream;
+                                     ^~~~~~~~~~~~
+cooccur_unit.cpp:975:7: error: 'cm' was not declared in this scope
+       cm.update(cm.readContext(in));
+       ^~
+cooccur_unit.cpp:975:7: note: suggested alternative: 'tm'
+       cm.update(cm.readContext(in));
+       ^~
+       tm
+cooccur_unit.cpp:975:32: error: 'in' was not declared in this scope
+       cm.update(cm.readContext(in));
+                                ^~
+cooccur_unit.cpp:975:32: note: suggested alternative: 'i'
+       cm.update(cm.readContext(in));
+                                ^~
+                                i
+cooccur_unit.cpp:980:7: error: 'cm' was not declared in this scope
+       cm.getVector(keys[i]);
+       ^~
+cooccur_unit.cpp:980:7: note: suggested alternative: 'tm'
+       cm.getVector(keys[i]);
+       ^~
+       tm
+cooccur_unit.cpp:984:10: error: expected primary-expression before 'double'
+   vector<double> vec1 = cm.getVector(keys[1]);
+          ^~~~~~
+cooccur_unit.cpp:985:7: error: 'vec1' was not declared in this scope
+   if (vec1[0] != 1.0 || vec1[1] != 1.0 || vec1[size / 2] != 0.0)
+       ^~~~
+cooccur_unit.cpp:15:22: error: 'cout' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:987:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:22: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                      ^
+cooccur_unit.cpp:987:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:15:42: error: 'endl' was not declared in this scope
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:987:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:15:42: note: suggested alternative:
+ #define PRINT_FAILED cout << "FAILED" << endl;
+                                          ^
+cooccur_unit.cpp:987:7: note: in expansion of macro 'PRINT_FAILED'
+       PRINT_FAILED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp:14:22: error: 'cout' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:991:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:22: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                      ^
+cooccur_unit.cpp:991:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from cooccur_unit.cpp:2:0:
+/usr/include/c++/7.2.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^~~~
+cooccur_unit.cpp:14:42: error: 'endl' was not declared in this scope
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:991:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+cooccur_unit.cpp:14:42: note: suggested alternative:
+ #define PRINT_PASSED cout << "PASSED" << endl;
+                                          ^
+cooccur_unit.cpp:991:7: note: in expansion of macro 'PRINT_PASSED'
+       PRINT_PASSED;
+       ^~~~~~~~~~~~
+In file included from /usr/include/c++/7.2.0/istream:39:0,
+                 from /usr/include/c++/7.2.0/fstream:38,
+                 from cooccur_unit.cpp:1:
+/usr/include/c++/7.2.0/ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^~~~
+cooccur_unit.cpp: At global scope:
+cooccur_unit.cpp:1009:1: error: 'stringstream' does not name a type
+ stringstream make_stream(vector<string> words, vector<int> select, int n)
+ ^~~~~~~~~~~~
+make: *** [makefile:8: Unit] Error 1

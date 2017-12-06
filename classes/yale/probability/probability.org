@@ -1,0 +1,141 @@
+* Introduction <2017-08-31 Thu>
+* Class 1 <2017-09-05 Tue>
+** R practice
+this makes a plot
+  #+BEGIN_SRC R :file test.png :results output graphics
+library(lattice)
+xyplot(1:10 ~ 1:10)
+  #+END_SRC
+
+  #+RESULTS:
+  [[file:test.png]]
+
+Defining vectors in R
+#+BEGIN_SRC R
+  # Defining a vec
+   y <- c(1,2,3)
+   # Adds one to each element
+   y + 1
+  # Accessing elements
+  y[1]
+  # Get sub vec
+  y[0:2]
+
+#+END_SRC
+
+#+RESULTS:
+| 1 |
+| 2 |
+
+
+Plotting
+#+BEGIN_SRC R
+plot(sin(2,2))
+#+END_SRC
+
+#+RESULTS:
+
+** The Birthday Paradox
+- /k/ people in the room have random bdays
+- Total number of equally likely bday assignments is $365^k$
+- number of ways to assign bdays s.t. there are NO matches: $\frac{365!}{(365 -k )!}$
+- Prob of one match: $\frac{\frac{365!}{(365 -k )!}}{365^k}$
+
+  Solving this in R
+#+BEGIN_SRC R 
+  bday <- function(k){
+  # create arithmetic sequences
+    factors <- seq(from = 365,length.out= k, by = -1)
+    1 - prod(factors) / (365^k)
+  }
+
+  for(k in 1:40){
+    print(bday(k))
+  }
+#+END_SRC
+
+#+RESULTS:
+
+
+Getting random samples
+#+BEGIN_SRC R
+  # replace = true puts number back into the mix to be sampled again
+  sample(1:10, 20, replace=TRUE)
+  k = 40
+  counter <- 0
+  reps <- 1000
+  maxs <- rep(0,reps)
+  for( i in 1:reps){
+    bdays <- sample(1:365, k , replace=TRUE)
+    maxs[i] <- max(table(bdays))
+  }
+  table(maxs)
+#+END_SRC
+
+#+RESULTS:
+|  4 |
+|  5 |
+| 10 |
+|  6 |
+|  2 |
+|  3 |
+|  8 |
+|  5 |
+|  8 |
+|  1 |
+|  2 |
+|  7 |
+|  4 |
+|  3 |
+|  6 |
+|  3 |
+|  1 |
+|  8 |
+|  1 |
+|  1 |
+* Probability <2017-09-07 Thu>
+** Sample Space
+   $S$ set of all possible outcomes
+   - e.g. Tossing a fair coin:
+     &S = {H,T}&
+   - Tossing fair coin 3 times"
+     &S = {HHH, THH, TTH, TTT, HTT,HHT,HTH,THT}&
+     
+** Event
+   A set of some possible outcomes
+   A subset of $S$
+   E.g. of three tosses: $A = {HHH,HTH}$
+
+** Probability Measure
+   A function that assigns a probability to each even (btwn 0 and 1). Has to satisfy a number of conditions.
+   If $A$ is an event, $P(A)$ dentes the probability of $A$
+
+** Long-run frequency interpretation of probability
+   Perform many independent trials ($n$), for each trial, record whether $A$ occurred
+
+*** Law of Large Numbers
+    As $ n-> \inf$ the fraction of $A's$ occurences converges to $P(A)$ 
+
+** Equally likely outcomes
+   Suppose sample space $S$ has a finite total number of elements (outcomes): write $#(S)$
+   each element in $S$ has same probability
+   
+   Then $P(A) = \frac{#(A)}{#(S)}$
+
+   Solving this amounts to solcing the counting problem
+
+** Fundamental Counting Principle
+   The total number of ways to perform the $k$ sequence of actions is $n_{1}*n_{2}...n_{k}$ where $n$ is the number of ways of performing each action.
+*** Examples
+    - Club has 25 members, how many ways are there to choose, president, secratary and treasurer?
+      
+      A: $25*24*23 = 13800$
+
+    - Club of 25 people, how many ways to choose a set of 3 members?
+      
+      $\frac{25*24*23}{3*2*1}$
+      
+      Need to divide else you over count This is [[Combination]]
+
+** Combination
+   $\frac{n!}{k!(n-k)!}$

@@ -1,0 +1,883 @@
+% Created 2015-10-07 Wed 21:38
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\date{\today}
+\title{Computer Organization}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{\textit{<2015-09-03 Thu>}}
+\label{sec-1}
+\subsection{C stuff}
+\label{sec-1-1}
+\begin{itemize}
+\item C
+\begin{itemize}
+\item C is like a portable assembly
+\item Very low level
+\item Does not trash collect automatically
+\end{itemize}
+\end{itemize}
+\begin{center}
+\begin{tabular}{ll}
+Java & C\\
+\hline
+OO & Fucntion-oriented\\
+Strongly-typed & can be overrriden\\
+polymorphsim & very limited\\
+classes fro name space & single name space, file oriented\\
+macros are external, rarely used & macros common (preprocessor)\\
+layered I/O model & byte-stream I/O\\
+automatic memory management & function calls\\
+no pointers & pointers (memory adresses) common\\
+*by-reference, by-value & by-value parameters\\
+exceptions, exception handling & if (f() <0) \{error\} OS signals\\
+concurrency (threads) & library functions\\
+length of array & on your own\\
+string as a type & just bytes (char []) , with 0 end\\
+dozens of common libraries & OS-defined\\
+\end{tabular}
+\end{center}
+
+*by-reference: functions are passed the reference to variable
+*by-value: functions are passed the value the variable represents
+
+Objects are data and operations on that data.
+
+Interpreted vs Compiled programs 
+
+\begin{center}
+\begin{tabular}{ll}
+Interepreted & Compiled\\
+\hline
+less effcient & more effcient\\
+Many layers of abstraction & Closser to the mettle\\
+Portable (targeing the VM) & portable but not as much\\
+Easier to write & Not as easy to write\\
+\end{tabular}
+\end{center}
+
+\textbf{Executing a C program}
+\begin{itemize}
+\item gcc: C compiler
+\item running programs: gcc [options] [files]
+\begin{itemize}
+\item \textbf{-Wall} prints all warnings. USE ALWAYS.
+\end{itemize}
+\end{itemize}
+
+Macros
+\begin{itemize}
+\item \#DEFINE [name] = [value]
+\begin{itemize}
+\item like a variable but more effcient
+\item compiler literally does a search an replace on text with [name]
+\end{itemize}
+\end{itemize}
+
+\textbf{C Does not have any bools}
+\begin{itemize}
+\item 0 = false
+\item 1 or non-zero  = trie
+\end{itemize}
+
+\subsubsection{Variables}
+\label{sec-1-1-1}
+-variables have addresses and values
+\begin{itemize}
+\item Memory can be thought of as a large array
+\item Each location has an address
+\item a variable is a mapping from a name to an address
+\begin{itemize}
+\item addresses of a variable can be accessed using the address symbol "\&'
+\begin{itemize}
+\item eg: \&x
+\end{itemize}
+\end{itemize}
+\item can assign addresses using the operator *
+\begin{itemize}
+\item eg: int *xp (p is a convention for pointer)
+\begin{itemize}
+\item xp stores address of x
+\end{itemize}
+\end{itemize}
+\end{itemize}
+-Can change the value of x via assignment of xp
+\section{\textit{<2015-09-08 Tue>}}
+\label{sec-2}
+\subsection{Bit}
+\label{sec-2-1}
+\begin{itemize}
+\item All data is bits
+\item bit = anything that takes on the value of 1 or 0
+\begin{itemize}
+\item represented by a 1 or 0
+\item Instantiated in hardware via a voltage range (i.e. .9-1.1v = 1, 0-.2V = 0
+\end{itemize}
+\end{itemize}
+\subsection{Bytes and Words}
+\label{sec-2-2}
+\begin{itemize}
+\item \textbf{Byte:} A collection of 8-bits
+\begin{itemize}
+\item 2$^{\text{8}}$ possible bytes
+\end{itemize}
+\item \textbf{Word:} Default space allocated to things like pointers
+\begin{itemize}
+\item in modern computers word size is 64 bit (8 bytes)
+\end{itemize}
+\item \textbf{Hexedecimal (hex)}: A base 16 representation
+\begin{itemize}
+\item A = 10, B = 11, C = 12, D = 13, E = 14, F = 15
+\end{itemize}
+\item Rightmost number in a binary string is the \textbf{Least significant bit}
+\item Leftmost is \textbf{Most Significant bit}
+\item An int is4 bytes
+\end{itemize}
+
+\subsection{Decimal --> Binary}
+\label{sec-2-3}
+Ex: 42
+\begin{itemize}
+\item 32 is the largest powr of 2 <= 42
+\begin{itemize}
+\item So theres a 1 in the 32s place
+\end{itemize}
+\item subtract 32 from 42 and do the same thing w remainder
+\end{itemize}
+
+Ex: 75
+\begin{itemize}
+\item 1 in 64s place: 1000000
+\begin{itemize}
+\item 75 - 64 = 11
+\end{itemize}
+\item 1 in 8 place: 1001000
+\begin{itemize}
+\item 11- 8 = 3
+\end{itemize}
+\item 1001011 = 75
+\end{itemize}
+
+\subsection{Binary --> Hex}
+\label{sec-2-4}
+\begin{itemize}
+\item Group Binary into sets of 4
+\item convert each set of 4bts to a hex bit (4bits = a nibble!)
+\end{itemize}
+
+\subsection{Hex --> Decimal}
+\label{sec-2-5}
+\begin{itemize}
+\item Hex number denoted by "0x"
+\begin{itemize}
+\item eg 0x8B2F6
+\end{itemize}
+\item Convert each digit into 4bits
+\end{itemize}
+
+\subsection{Some C definitions}
+\label{sec-2-6}
+\subsubsection{\textbf{Object}}
+\label{sec-2-6-1}
+\begin{itemize}
+\item A distinct region of storage
+\item Associated with a name
+\end{itemize}
+\subsubsection{\textbf{Aliases}}
+\label{sec-2-6-2}
+Multiple names fro the same object
+\begin{itemize}
+\item Different pointers to the same object are called aliases of each other
+\end{itemize}
+\subsubsection{\textbf{Definition}}
+\label{sec-2-6-3}
+Allocates storage and makes a name for it.
+\begin{itemize}
+\item Ex:
+\begin{itemize}
+\item int foo;
+\item char bar;
+\end{itemize}
+\item NOTE: The above are \uline{defined} not initialized.
+\end{itemize}
+\subsubsection{\textbf{Decleration}}
+\label{sec-2-6-4}
+Alerts the compiler that there exusts an object of some name/type, but does nto allocate the space for it.
+\begin{itemize}
+\item Ex.
+\begin{verbatim}
+extern int errno;
+int func(void)
+\end{verbatim}
+\end{itemize}
+Used when you know your gonna use a func or var from another file but have yet to link them up.
+\subsection{Object sizes (C)}
+\label{sec-2-7}
+the function: sizeof(int) will tell you the size of an for ex.
+\begin{itemize}
+\item sizeof does not return an int but a value of tpye \textbf{size$_{\text{t}}$} , which represents the number of bytes in an object
+\end{itemize}
+\subsection{Derived types}
+\label{sec-2-8}
+These are types that you build from the fundemental types (or other derived types)
+\subsubsection{\textbf{Arrays}}
+\label{sec-2-8-1}
+\begin{itemize}
+\item Defined using []
+\item Array element are laid out in contiguous memory (in order)
+\item Elements are accessed by index
+\item First element is accessed by 0
+\end{itemize}
+\subsubsection{\textbf{Structs}}
+\label{sec-2-8-2}
+Sort of similar to a pyhton object. Lets you associate objects together.
+ex
+\begin{verbatim}
+struct point {
+int x;
+int y;
+int x;
+}
+
+\* definition of a point */
+struct point p;
+\end{verbatim}
+
+\begin{enumerate}
+\item typedefs
+\label{sec-2-8-2-1}
+lets you create a new type.
+\begin{itemize}
+\item Basically the same as struct except lets you ommit "struct" in decleration
+\end{itemize}
+\begin{verbatim}
+typedef struct {
+int x;
+int y;
+} point;
+
+
+point p;
+\end{verbatim}
+\end{enumerate}
+
+\subsubsection{\textbf{Unions}}
+\label{sec-2-8-3}
+Used when you want different representations of the same data.
+\begin{verbatim}
+union data {
+int intval;
+struct {
+:w
+\end{verbatim}
+\subsubsection{Accessing parts of union/structs}
+\label{sec-2-8-4}
+We use dot or arrow operator to access diff parts of union/struct
+to access the name field in a student struct:
+\begin{verbatim}
+student jason, *jasonp;
+
+jason.name /*returns name*/
+jasonp->name /*also returns name*/
+\end{verbatim}
+\section{\textit{<2015-09-10 Thu>}}
+\label{sec-3}
+\subsection{Pointer Arithmetic}
+\label{sec-3-1}
+\begin{itemize}
+\item Given pointer, P, to something of type T, P + i is identical to \&P[i]
+\begin{itemize}
+\item P = an address, and i some = i.val * i.size.
+\end{itemize}
+\end{itemize}
+
+Take home: Arrays are closely tied to pointers
+\subsection{Boolean Algebra}
+\label{sec-3-2}
+And:
+\begin{center}
+\begin{tabular}{rrr}
+\& & 0 & 1\\
+\hline
+0 & 0 & 0\\
+1 & 0 & 1\\
+\end{tabular}
+\end{center}
+
+Or
+\begin{center}
+\begin{tabular}{rrrr}
+ &  & 0 & 1\\
+\hline
+0 & 0 & 1\\
+1 & 1 & 1\\
+\end{tabular}
+\end{center}
+
+Xor
+\begin{center}
+\begin{tabular}{rrr}
+\^{} & 0 & 1\\
+\hline
+0 & 0 & 1\\
+1 & 1 & 0\\
+\end{tabular}
+\end{center}
+
+These are \uline{bit-wise} operations, so they are done on the bit level
+
+ 0110
+\&1011
+
+\rule{\linewidth}{0.5pt}
+0010
+
+\subsection{Byte Ordering}
+\label{sec-3-3}
+
+How are bytes within a multi-byte wrd ordered in memorY?
+\subsubsection{Big Endian}
+\label{sec-3-3-1}
+Least significant byte has the highest address
+\subsubsection{Little Endian}
+\label{sec-3-3-2}
+x86 ARM, most significant byte  has the lowest address  
+\section{\textit{<2015-09-15 Tue>}}
+\label{sec-4}
+\subsection{Representing integers}
+\label{sec-4-1}
+\begin{itemize}
+\item given n bits, we can represent 2$^{\text{n}}$ values
+\end{itemize}
+\subsubsection{Overflow}
+\label{sec-4-1-1}
+when we have a result that doesnt fit in the n bits we have chosen
+\begin{itemize}
+\item eg. using 4 bits: 0xF + 0x1
+\begin{itemize}
+\item 0xF = 1111
+\item 0x1 = 0001
+\begin{itemize}
+\item = 10000
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\subsection{Representing Negative Integers}
+\label{sec-4-2}
+Three common Encodings
+\subsubsection{Sign and magnitude}
+\label{sec-4-2-1}
+Don't use this because addition and subtraction are v diff from unsigned addition and subtraction
+\subsubsection{Ones compliment}
+\label{sec-4-2-2}
+if integer k is represented by bits b$_{\text{1}}$ \ldots{}b\_, then -k is represented by 11\ldots{}11 - b$_{\text{1}}$..b$_{\text{1}}$
+\begin{itemize}
+\item This is equivalent to just flipping the bits in k
+\begin{itemize}
+\item eg. 011 = 3 --> 100 = -3
+\end{itemize}
+\item the biggest bit is always the negated AND one is added to it (-2$^{\text{(n-1)}}$ + 1) where n = num of bits
+\begin{itemize}
+\item 101 --> (-2$^{\text{2}}$ + 1) + 1 = -2
+\item to representations of 0:
+\begin{itemize}
+\item 000 = 0
+\item 111 = 0
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\subsubsection{Two's Compliment}
+\label{sec-4-2-3}
+Very similar to ones compliment 
+\begin{itemize}
+\item Difference: biggest bit is -2$^{\text{(n-1)}}$, not -2$^{\text{(n-1)}}$  + 1 where n = num of bits
+\begin{itemize}
+\item 1011 = -2$^{\text{3}}$ + 2$^{\text{0}}$ + 2$^{\text{1}}$ = -5
+\begin{itemize}
+\item Biggest value = 0111 = 7, smallest value = 1000 = -8
+\end{itemize}
+\end{itemize}
+\item How to convert positive int to negative:
+\begin{itemize}
+\item do ones compliment + 1 (flip bits and add 1)
+\item e.g. 0110 --> 1001 + 0001 = 1010 = -6
+\end{itemize}
+\item Only one 0
+\item -1 always = 111111111\ldots{}11
+\end{itemize}
+\begin{enumerate}
+\item Same implementation of arithmetic operations as unsigned numbers
+\label{sec-4-2-3-1}
+\end{enumerate}
+\subsection{Floating point representation}
+\label{sec-4-3}
+\subsubsection{Fractional binary numbers}
+\label{sec-4-3-1}
+\begin{itemize}
+\item 5 3/4 = 101.11 --> = 5 + 1/2 + 1/4
+\item 2 7/8 = 10.111 = 2 + 1/2 + 1/4 + 1/8
+\end{itemize}
+\begin{enumerate}
+\item Limitations
+\label{sec-4-3-1-1}
+\begin{itemize}
+\item Can only exactly represent numbers of the form x/(2$^{\text{k}}$)
+\begin{itemize}
+\item Other rational numbers have repeating bit representations
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+\subsubsection{encodeing}
+\label{sec-4-3-2}
+Broken up into threee sections 
+\begin{center}
+\begin{tabular}{lll}
+s (sign 1, or 0) & exp (unsigned int with a bias) & Frac\\
+\end{tabular}
+\end{center}
+
+\section{\textit{<2015-09-17 Thu>}}
+\label{sec-5}
+\subsection{Intel x86 Processor}
+\label{sec-5-1}
+x86-64, the standard architecture 
+\subsection{Architecture}
+\label{sec-5-2}
+Also known as the instruction set architecture (ISA). 
+The part of the processor design that one needs to understand machine code
+\subsubsection{Examples}
+\label{sec-5-2-1}
+\begin{itemize}
+\item Intel: x86, IA32, Itanium, x86-64
+\item ARM: Used in almost all mobile phones
+\end{itemize}
+\subsection{Microarchitecture}
+\label{sec-5-3}
+Implementation of the architecture.
+\begin{itemize}
+\item e.g. chache size and core frequency.
+\end{itemize}
+\subsection{Code forms}
+\label{sec-5-4}
+\subsubsection{Machine Code}
+\label{sec-5-4-1}
+Byte level programs that the processor executes
+\subsubsection{Assembly code}
+\label{sec-5-4-2}
+A text representation of machine code.
+\subsection{Structure}
+\label{sec-5-5}
+\subsubsection{Registers}
+\label{sec-5-5-1}
+\begin{itemize}
+\item Certain registers have certain conventions associated with them
+\begin{itemize}
+\item \%rax for ex stores return values calculated by functions.
+\end{itemize}
+\item registers that start with "e" is the lower 32-bits ofa given register.
+\item registers that start with "r" are a full 64 bits.
+\end{itemize}
+memory on the CPU that is v small, but v fast 
+\subsubsection{Memory}
+\label{sec-5-5-2}
+\begin{itemize}
+\item byte-adressable array
+\item where the programs are stored.
+\item Sends data to CPU based on address stored in the \texttt{program counter}
+\end{itemize}
+
+\subsubsection{Program counter}
+\label{sec-5-5-3}
+A special type of register that points to next instruction to be executed 
+in \texttt{memory} (stores the address)
+\subsubsection{Condition codes}
+\label{sec-5-5-4}
+\begin{itemize}
+\item Stores status information about most recent arithmetic or logical operation
+\end{itemize}
+\subsection{Assembly characteristics}
+\label{sec-5-6}
+\begin{itemize}
+\item integer data of 1 (char), 2 (short), 4(int), or 8(long)
+\begin{itemize}
+\item pointers are untyped, just addresses.
+\end{itemize}
+\end{itemize}
+\subsubsection{Operations}
+\label{sec-5-6-1}
+\begin{itemize}
+\item Perform arithmetic function on register or memory data
+\item Transfers data between memory and register
+\item Transfer controls
+\begin{itemize}
+\item if statements, for ex
+\end{itemize}
+\end{itemize}
+\section{\textit{<2015-09-22 Tue>}}
+\label{sec-6}
+\subsection{Assembly Basics}
+\label{sec-6-1}
+\subsubsection{Moving data}
+\label{sec-6-1-1}
+\texttt{movq source, dest} 
+\begin{itemize}
+\item moves a copy of source to a destination register
+\item source and dest are examples of \texttt{operands}
+\end{itemize}
+NOTE: Cannot move a value from one memory location to another
+
+\uline{Examples}
+\begin{itemize}
+\item \texttt{movq \$0x4, \%rax} --> \texttt{temp = 0x;}
+\item \texttt{movq \$-147 , \%rax)} --> \texttt{*p = -147;}
+\item \texttt{movq \%rax, \%rdx} --> \texttt{temp2 =temp1;}
+\item \texttt{movq \%rax, (\%rdx)} \texttt{*p = temp;}
+\end{itemize}
+\begin{enumerate}
+\item Operand types
+\label{sec-6-1-1-0-1}
+\begin{enumerate}
+\item Immediate
+\label{sec-6-1-1-0-1-1}
+constant integer data 
+\begin{itemize}
+\item denoted by prefixed "\$"
+\begin{itemize}
+\item \$0x400, \$-533
+\end{itemize}
+\item Encoded by up to 4 bytes
+\end{itemize}
+\item Register
+\label{sec-6-1-1-0-1-2}
+\begin{itemize}
+\item 16 in all
+\item eg \%rax
+\item always prefixed byy "\%"
+\end{itemize}
+\item Memory
+\label{sec-6-1-1-0-1-3}
+\begin{itemize}
+\item denoted by "()"
+\item e.g. (\%rax)
+\item treats whats inside parens register as an address and gets value at that address
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+\subsubsection{Instruction suffixes}
+\label{sec-6-1-2}
+Most assembly instructions take instructions
+\begin{itemize}
+\item b (byte: 1 byte)
+\item e (word: 2 bytes)
+\item l (long word: 4 bytes)
+\item q (quad word: 8 bytes)
+\end{itemize}
+
+ex: \texttt{movb \$-17, \%al} 
+
+In general only the specific register or bytes are modified
+\begin{itemize}
+\item NOTE: The exception being "l" which will 0 all the uper bits
+\end{itemize}
+\subsubsection{Normal memory addressing modes}
+\label{sec-6-1-3}
+All these things calculate MEMORY ADDRESSES to be accessed
+\begin{enumerate}
+\item Normal (R) Mem[Re[R]]
+\label{sec-6-1-3-1}
+\begin{itemize}
+\item R: register
+\item Reg[R]: value at R (address)
+\item Mem[Reg[R]]: value in memory at a address Reg[R]
+\end{itemize}
+
+Equivalent to dereferencing a pointer in C!
+\item Displacement D(R) Mem[Reg[R] + D]
+\label{sec-6-1-3-2}
+\begin{itemize}
+\item R: specifies start of memory address
+\item D: Add D to value at R
+\end{itemize}
+\item Indexed (R$_{\text{b}}$, R$_{\text{i}}$) Mem[Reg[R$_{\text{b]}}$ + Reg[Reg$_{\text{i]]}}$
+\label{sec-6-1-3-3}
+Calculates the memory address to be accessed by adding values stored at R$_{\text{b}}$ and R$_{\text{i}}$ 
+\begin{itemize}
+\item R$_{\text{b}}$ often spcifies a base memory address
+\item R$_{\text{i}}$ acts as the index
+
+\texttt{movq (\%rcs, \%rdx), \%rax}
+\end{itemize}
+
+Good for accessingchar arrays
+\item Scaled Index (R$_{\text{b}}$, R$_{\text{i}}$, s) Mem[Reg[R$_{\text{b]}}$ + Reg[R$_{\text{i]}}$* s]
+\label{sec-6-1-3-4}
+\begin{itemize}
+\item s: the scaling factors
+\item Must be 1, 2, 4 , 8
+\item Allows to iterate through arrays containing vals >= 1 byte
+\end{itemize}
+\item Most general form D(R$_{\text{b}}$, R$_{\text{i}}$, s) Mem[Reg[R$_{\text{b]}}$ + Reg[R$_{\text{i]}}$* s + D]
+\label{sec-6-1-3-5}
+\item Adressing Practice
+\label{sec-6-1-3-6}
+\begin{itemize}
+\item 0x8(\%rdx) --> 0x8 + 0xf000 --> 0xf008
+\item (\%rdx, \%rcx ) --> 0xf000 + 0x0100 --> oxf100
+\item (\%rdx, \%rcx, 4) ---> 0xf000 + 4*0x0100 --> 0xf400
+\end{itemize}
+\end{enumerate}
+\subsection{Arithmetic Instructions}
+\label{sec-6-2}
+\subsubsection{leaq Src, dest}
+\label{sec-6-2-1}
+computes the address at src and stores it at dst
+
+\section{\textit{<2015-09-24 Thu>}}
+\label{sec-7}
+\subsection{Arithmetic operations}
+\label{sec-7-1}
+\subsubsection{==instruct src,dest}
+\label{sec-7-1-1}
+DEST SHOULD ALWAYS COME FIRST
+\subsection{Condition Codes}
+\label{sec-7-2}
+\subsubsection{Single bit registers}
+\label{sec-7-2-1}
+\begin{enumerate}
+\item CF (Carry flag)
+\label{sec-7-2-1-1}
+set when there's unsigned overflow
+\item ZF (zero flag
+\label{sec-7-2-1-2}
+if t == 0
+\item SF (sign flag)
+\label{sec-7-2-1-3}
+t < 0
+\item OF (overflow flag)
+\label{sec-7-2-1-4}
+Same as CF but for signed numbers
+\end{enumerate}
+\subsubsection{Explicitly set by compare instruction: \texttt{cmpq src1, src2}}
+\label{sec-7-2-2}
+test b-a without changing dest
+\subsubsection{Test instruction: test1 sc1, src2}
+\label{sec-7-2-3}
+equivalent to a\&b but does not change the destination
+\subsubsection{SetX instruction}
+\label{sec-7-2-4}
+\begin{itemize}
+\item set low-order byte of destination to 0 or 1 based on combination of conditioned codes.
+\item Does not alter remianing bytes
+\end{itemize}
+\subsubsection{movzbl}
+\label{sec-7-2-5}
+zeroes the upperlevel bytes (excluding the lowest order bytes)
+\subsubsection{Register mnemonic}
+\label{sec-7-2-6}
+Diane Silk Dress Cost \$89
+\begin{itemize}
+\item rDi
+\item rSi
+\item rDx
+\item rCi
+\item r8
+\item r9
+\end{itemize}
+\subsection{Conditional Branching}
+\label{sec-7-3}
+\subsubsection{Jumping}
+\label{sec-7-3-1}
+Jump to different part of the code depending on condition codes
+\subsection{Loops}
+\label{sec-7-4}
+\subsection{Switch statement}
+\label{sec-7-5}
+Allows you define multiple cases (sort of like conds)
+\subsubsection{Jump table}
+\label{sec-7-5-1}
+A bunch of addresses that match up with the case values of the switch function.
+\begin{itemize}
+\item addresses lead to body of each case.
+\end{itemize}
+\subsubsection{Indirect jump}
+\label{sec-7-5-2}
+\texttt{jmp *0xfff901} 
+\begin{itemize}
+\item star designates that you should jump to the address at address 0xff901
+\end{itemize}
+\section{\textit{<2015-09-29 Tue>}}
+\label{sec-8}
+COMPUTER DIES. MISSED SOME GOOD SHIT 
+\section{\textit{<2015-10-01 Thu>}}
+\label{sec-9}
+\subsection{Function calls}
+\label{sec-9-1}
+When \texttt{callq} calls a function, it pushes its address on the stack so that when the embedded function
+returns, itll return to the next instruction after callq.
+\subsection{Function inputs}
+\label{sec-9-2}
+When you have more than 6 input arguments, the rest are pushed on the stack IN REVERSE ORDER. 
+\begin{itemize}
+\item i.e. if you have 9 arguments, the 9th will be pushed first, than 8th, etc.
+\end{itemize}
+\subsection{Register saving conventions}
+\label{sec-9-3}
+Registers assigned specific values by the caller are pushed to the stack so that the callee
+can modify the contents of that register with impunity.
+\begin{itemize}
+\item What if a certain value is not being modified? Will it still be pushed to the stack ? (inefficient)
+\end{itemize}
+\subsubsection{Caller saved registers}
+\label{sec-9-3-1}
+caller-saved registers are used to hold temporary quantities that need not be preserved
+across calls.
+\begin{itemize}
+\item For that reason, it is the caller's responsibility to push these registers onto
+the stack if it wants to restore this value after a procedure call.
+\end{itemize}
+\subsubsection{Callee saved registers}
+\label{sec-9-3-2}
+Holds long-lived values that should be preserved across calls.
+\begin{itemize}
+\item rbx, r12-r14, rbp
+\end{itemize}
+\subsection{Arrays}
+\label{sec-9-4}
+\texttt{T A[L]}
+\begin{itemize}
+\item Array of data type T and length L
+\item contiguously allocated region of L* sizeof(T) byes of memory
+\end{itemize}
+-"A"  by itself is an address
+\begin{itemize}
+\item E.g. A --> 0x0ff0345
+\end{itemize}
+
+\textbf{C does not care if you index thats not in the array!}
+\begin{itemize}
+\item e.g. \texttt{int val[5];}
+\begin{itemize}
+\item \texttt{val[10]}
+\end{itemize}
+\end{itemize}
+\subsubsection{Pointer arithmetic}
+\label{sec-9-4-1}
+\texttt{int val[5];}
+\begin{itemize}
+\item \&val --> x
+\begin{itemize}
+\item val+1 --> x+4
+because its an int array
+\end{itemize}
+\item 
+\end{itemize}
+\subsubsection{Multidimensional arrays}
+\label{sec-9-4-2}
+Syntax \texttt{int A[R] [C];}
+\begin{enumerate}
+\item Row-major order
+\label{sec-9-4-2-1}
+Rows are laid out in memory sequentially 
+\begin{itemize}
+\item eg  |Row 1|Row 2|Row 3| etc.|
+\item \texttt{A[1] [2];} == row 2, column 3
+\end{itemize}
+\item Nested Array Access
+\label{sec-9-4-2-2}
+\end{enumerate}
+\subsubsection{Multilevel array}
+\label{sec-9-4-3}
+An array of pointers to other arrays
+\begin{enumerate}
+\item Multilevel array access
+\label{sec-9-4-3-1}
+Accessed the same as a nested array
+\begin{itemize}
+\item first index location of the correct pointer
+\item then you access the correct element at the pointer location
+\end{itemize}
+\end{enumerate}
+
+\subsection{Structure Representation}
+\label{sec-9-5}
+\begin{itemize}
+\item represented as a block of memory
+\item fields ordered according to decleration
+\end{itemize}
+\subsection{Structures and alignments}
+\label{sec-9-6}
+Inefficient to load or store datum that spans quad word boundaries 
+\begin{itemize}
+\item Therefore alignment rules are enforced for efficiency
+\end{itemize}
+\subsubsection{Aligned data}
+\label{sec-9-6-1}
+A primitive data type of K bytes must have an address that is a multiple of K
+\begin{itemize}
+\item In order to accomplish this, sometimes the compiler adds byte "padding" between fields of a structure.
+\item Entire struct needs to be aligned properly as well
+\end{itemize}
+\subsubsection{You can save space (minimize padding) by putt largest data types first in struct.}
+\label{sec-9-6-2}
+\section{\textit{<2015-10-06 Tue>}}
+\label{sec-10}
+\subsection{Buffer Overflow}
+\label{sec-10-1}
+When exceeding the memory size allocated for an array
+\begin{itemize}
+\item \#1 technical cause of security vulnerabilities
+\end{itemize}
+
+Overflowing the buffer will overwrite return address to a function. This means that you overtly change the return 
+address to e your malicious code and reek havoc.
+\subsubsection{Most common forms}
+\label{sec-10-1-1}
+Unchecked lengths of string inputs
+\subsubsection{Avoiding Buffer Overflows}
+\label{sec-10-1-2}
+\begin{itemize}
+\item Use library routines that limit string lengths
+\end{itemize}
+\begin{enumerate}
+\item System level protection
+\label{sec-10-1-2-1}
+\begin{enumerate}
+\item Randomized stack offsets
+\label{sec-10-1-2-1-1}
+\item Nonexecutable code segments
+\label{sec-10-1-2-1-2}
+Can designate regions of the stack as nonexecutable 
+\item Stack canaries
+\label{sec-10-1-2-1-3}
+\begin{itemize}
+\item Places a special value between stack and return address.
+\item Checks to see if the value has changed after function calls.
+\item If it does change, throws an error.
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

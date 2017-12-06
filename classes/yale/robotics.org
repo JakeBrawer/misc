@@ -1,0 +1,1065 @@
+#+TITLE: Robotics with Scaz
+
+* HW
+** HW1
+*** Question 3
+It is impossible to make vehicle 3 do a figure 8 around a single light source. For the vehicle to make a figure 8, it needs to do one complete circle around the light source and then veer off its path to complete the other loop. However for the entirety of the initial loop, the vehicle's sensors are recieving consistent input, so there is no external singal causing the change in trajectory. Thus there must be some nonlinear dependence between light intensity and the motors, which is a functionality that is not introduced until vehicle 4. 
+*** Question 4
+Both Turing tests seem pretty challenging, but it seems like the original version has the potential to be a little easier. For the original version, how wel lthe computer does is partially dependent on how convincing (or unconvincing) the human participant is. That is, a very dumb or unconvincing human might make the robot seem more convincing in comparison. However, a very convincing human might make the robot less convincing in comparison as well. Therefore the modern interpertation has fewer confounding varaibles
+** HW2
+
+* Papers
+*** Goodrich & Schultz (2007)
+https://liris.cnrs.fr/~amille/survey_robotique.pdf
+**** Abstract
+The goal of this paper is to provide a 'story' of HRI from many perspectives and to predict the course
+of future research
+**** Introduction 
+- HRI is the study of robots that can be used to interact with humans
+- Two main types of interaction:
+- teleoperation
+- Proximate interaction (colaocation of human and robot)
+- Here interaction could include a human modifying a robots algorithms based on its behaviors
+**** Emergence of HRI as a field 
+- NSF and DARPA sponsored an HRI conference in 2001 which is considered what spurred the belief that HRI was its own discipline
+- Competitions have also helped spur the emergence of HRI as a field
+- assistive robotics
+- space exploration
+- search and rescue
+**** What defines HRI?
+*The HRI problem is to understand and shape the interactions between one or more humans and one or more robots*
+- A designer can affect 5 attributes of HRI:
+- level of autonomy
+- One characterization of autonomy: /neglect tolerance/
+  - Only useful insofar as it supports beneficial HRI
+  - *In order for a robot to exhibit peer-to-peer collaboration it must be able to flexibly exhibit full autonomy*
+- Nature of information exchange 
+- Structure of the team
+- Adaptation, learning and training
+- Shape of the task
+*** Vision for Mobile Robot Navigation: A Survey
+   [[http://www.cs.uu.nl/docs/vakken/aibop/G.N.DeSouza%20A.C.Kak,%20Vision%20for%20mobile%20robot%20navigation.pdf][link to paper]]
+**** Abstract
+     - surveys the last 20 years of vision for mobile robots
+**** Introduction
+     - Writing a survey in this area is hard because of the large volume of papers in this area
+     - Also, what constitutes progress in vision for mobile robots differs wildly from person to person
+     - Two major division in the field *vision based navigation for indoor robots* and for *outdoor robots*
+**** Indoor Navigation
+     - Early on it became clear that computer vision systems *need some idea of what theyre supposed to see*
+       - usually this was modeled via CAD models or a series of images
+     - Can classify into 3 groups:
+       1) Map based navigation (maps desgined by humans)
+       2) Map building-based navigation
+       3) Mapless navigation
+***** Map-based approaches 
+      - early systems represented objects as existing in a 2D plane (occupancy maps)
+      - Vector force fields were added later to assist in navigation
+****** Absolute navigation
+       Robot has no a priori knowledge of its initial location and must figure it out.
+*** A survey of robot learning from demonstration
+
+**** Abstract
+- Survey of *Learning from Demonstration* (LfD), a technique that develops policies from example state to action mappings
+**** Introduction
+- Mapping between world state and action is called a *policy*
+- policies are difficult to develop by hand so machine learning is used
+- can attempt to teach policies via demonstration or example
+- LfD can be broken up into two fundemental phases:
+  1) Gathering the examples
+  2) Deriving policy from examples
+- Traditional approaches to robot control derive mathematical-based policies from domain models
+  - This is bad because its based on the assumption that the models are good
+- Reinforcement learning is hard because its v difficult to design a good feedback function
+- LfD is good because it does not require the teacher to have expert domain knowledge like the above two methods do
+  - Also v intuitive to interact w
+- LfD is a subset of supervised learning
+**** 2. Design choices
+- Commonalities between all LfD systems:
+  - Teacher demonstrates execution
+  - Learner is provided with a set of these demonstrations
+- Differences:
+  - Choice of a continuous or discrete action representation
+**** 2.2 Action space continuity
+- Continuity of state and action space is an important consideration in LfD
+  - A discrete representation of a state might be a boolean (e.g. box is in robot hands == TRUE)
+  - A continuous state would have a state represented by the 3D position of robot end effector and the box 
+* FINAL PAPER
+  :LOGBOOK:
+  CLOCK: [2016-12-10 Sat 16:24]--[2016-12-10 Sat 16:49] =>  0:25
+  :END:
+Goodrich and Schultz (2007) is a survey of Human-Robot Interaction (HRI) literature that seeks to provide a "'story' of HRI from many perspectives and to predict the course of future research." In so doing, the authors attempt to justify the existence of HRI as field in its own right in part by unifying HRI under a set of goals and definitions they see as characterizing the field. I assert here that that author's characterization of HRI is overly constraining and omits the perceived agency as a crucial driver in HRI.
+
+Goodrich and Schultz begin by delineating HRI into two distinct categories: remote interaction--interaction between non co-located individuals--and proximate interaction--interaction between co-located individuals. Additionally they argue that a designer can further influence HRI by manipulating: the level and behavior of autonomy of the robot, the nature of the information exchange, the structure of the team, adaptation, learning and training of people and the robot, and the shape of the task at hand. Remote and proximate interaction are surely different on at least a superficial level (remote interaction generally involves teleoperation, which may require a joystick or computer interface, while proximate interactions are likely linguistic or visual in nature.) and implementation-wise would come with their own design challenges. However, it is not clear if these differences entail that these two mode of interaction are necessarily different on a /fundamental/ level. Broadly speaking, the ideal proximate system and remote system are interfaced with in the same way: naturally and efficiently, indistinct from human-human interaction. The authors observe that only proximate interaction tends to have a social component, but one has to wonder whether this is inherent to the method of interaction or perhaps a technological limitation (notice how remote interactions between humans, e.g. via telephone or social media, are still social). Proximate and remote interaction, in other words, differ in degree, not in kind.
+
+The influence of the manipulations on HRI mentioned above, while nontrivial, is mostly pragmatic. What I believe fundementally alters the nature of the interaction between a human and robot is the degree of perceived agency of the robot by the human. This belief is partially embedded in the word "interaction" itself. Semantically, "interaction" evokes a reciprocal exchange between things though the sense changes slightly depending on the participants of the interaction. The sense of a human interacting with an object is that of unilateral manipulation, while two individuals interacting imparts a sense of the word more in line with reciprocity and contingency. Whether a person is interacting with a robot in the former or latter sense not only colors the interaction in a nontrivial way, but is in part under the controller of the robot's designer. Short, Hart, Vu, and Scassellati (2010), for example, found that when a robot was allowed to cheat at a game of rock-paper-scissors participants were more likely to attribute mental states to the robot as well as produce more robot-directed utterances. That is, by unambiguously cheating, the robot became more agentic in the eyes of the participants, and their behavior towards it reflected that. Indeed, Warta, Kapalo, Best, and Fiore (2016) surveyed HRI literature related to the perceived social agency of robots and concluded that robots can exhibit social cues that can elicit behaviors from humans usually reserved for human-human interactions.
+
+Short, E., Hart, J., Vu, M., & Scassellati, B. (2010, March). No fair!! an interaction with a cheating robot. In 2010 5th ACM/IEEE International Conference on Human-Robot Interaction (HRI) (pp. 219-226). IEEE.
+
+Warta, S. F., Kapalo, K. A., Best, A., & Fiore, S. M. (2016, September). Similarity, Complementarity, and Agency in HRI Theoretical Issues in Shifting the Perception of Robots from Tools to Teammates. In Proceedings of the Human Factors and Ergonomics Society Annual Meeting (Vol. 60, No. 1, pp. 1230-1234). SAGE Publications.
+
+ posit that HRI research is motivated by a single question: what factors shape the interactions between humans and robots? To this, they offer
+- Its a field of dynamic agency not dynamic interaction 
+- what definition of interaction is HRI employing?
+- Agency and automation ultimately being at the center
+* Braitenberg and Walter<2016-09-02 Fri>
+** Vehicles 
+- How can you generate something complex from simple building blocks
+  - e.g neurons
+- complexity emerges from network interacting w environment
+*** Vehicle 1
+- Simple sensor to motor connection
+- the more the sensor is activated, faster motor spins
+- environment (friction) can introduce non-linear behavior
+*** Vehicle 2a
+- 2 wheels 2 sensors connected ipsalaterally
+- If head on with light, moves toward it
+- else, it turns away
+- "COWARD"
+*** Vehicle 2b
+- 2 wheels, 2 sensors, conected contrallaterally
+- always orients towards light
+- "AGGRESIVE"
+*** Vehicle 3a and 3b
+- Same as 2a and 2b except connections are inhibitory
+- "LOVE and EXPLORER"
+*** Vehicle 3b 
+*** Vehicle 7
+- Mnemortix wires
+  - Start with high resitance between units
+  - as they fire together, resitance drops
+  - formation of context and recogntion of temporal cococurrence
+*** Vehicle 8 
+- sensor arrays
+- spatial concepts
+** Observations
+*** Law of uphill analysis and downhill invention
+- Very difficult to determine internal mechanisms for even simple creatures
+- Easy to produce complexity from simple parts
+- *We tend to overestimate compexity*
+** W. Grey Walter
+- Created "tortoises" similar to braitenbots
+- usually fearful of lights
+- when battery was low, they started to like light (there was a light next to charger)
+* Sense-Think-Act <2016-09-09 Fri>
+** Shakey (SRI, '70)
+- used logic-based problem solving
+  - control of movement and sensory process was secondary
+- Usually navigated constructed environments
+  - environment was painstakingly controlled and manicured
+- computation was done offboard
+*** Planning system: STRIPS
+- world is described in first order predicate calculus
+  - had a sense of predicates
+    - onTable(x) - block is on table if its making contact w table
+  - Operators: ways to change the state of the world
+    - operators need preconditions to be true to be enacted
+- really a search tree
+  - expand tree of possible states until goal state is found
+*** Minor  Problems
+- Exponential growth of moves
+- Most trees have an infinite depth (cycles)
+- incompatable subgoals
+  - local maxima
+*** Serious Problems
+- Real-time constraints
+  - 1 hour to compute each step
+- Robustness and generalization
+  - Only worked in static environments
+  - No noise tolerance
+- Sequential processing model
+- Central monolithic model
+*** The really big problems
+- STRIPS was designed in a formal model of the world
+  - precisely defined states
+  - All the rules are known and well represented
+- Real world does not have such formalisms
+*** The frame problem (Dennett)
+**** R1
+- Cant deduce the implications of its actions
+- fails
+**** R1D1
+- Can deduce implications
+- fails because it sits thinking of millions of implications
+**** R2D1
+- Ignores irrelevent implications
+- fails because this also takes a ton of time
+** STA: design via introspection
+- Take in sensory data and construct an internal of model of the world
+  - use that model to plan behaviors
+* Animal Behavior <2016-09-12 Mon>
+** Neuroscience
+Study of the nervous system, anatomy, physiology, etc
+** Psychology
+Study of the mind
+** Ethology
+Study of animal behavior in its natural environment 
+- Animal only important in the context of its environment
+*** Tinbergen
+- Came up with the concept of ecological niche
+**** Causation
+What stimuli illicit that response
+**** Development
+how does the behavior change w organisms age?
+**** Function
+How does the behavior affect survivability
+**** Evolution
+** Classes of animal behaviors
+*** Reflex
+- Rapid automatic, involuntary process triggered by a stimulus
+- Temporal and intensity correlations to the stimulus
+- Can be highly complex behavior
+*** Taxes
+- Behaviors that orient an organism towards or away from an attractive stimulus
+- Can be initiated by chemical, visual, electromagnetic, etc.
+- different from reflex in that you can overide a taxis
+*** Fixed Action Pattern (behavioral pattern)
+- Time extended response patterns striggered by a stimulus
+**** FAPs in humans
+- The eybrow flash
+*** Innate releasing mechanisms 
+- Simplified rendering of a complex stimulus
+- Attention to certain aspects of the stimulus while ignoring all other
+- originally called schemas
+*** Homeostasis
+- Organisms will strive to maintain "just right-ness"
+** Lessons for robots
+*** Situatedness
+All animals are situated from an environment and we cannot divorce intelligence from its context/environment
+**** Implications
+- The perceptions of the agent may differ significantly from our own, and from the physical world
+- Perceptions of a behavior does not give complete insight in to the behavior
+*** Embodiement 
+A robot has a physical presence. This spatial reality has consequences in it dynamic interactions with the world that cannot be simulated faithfully
+**** Implications
+- "The world is its own best model"
+- "Simulations are doomed to succeed"
+
+* Subsumption and Genghis <2016-09-14 Wed>
+** Behavior based architectures
+- A behavior is an encapsulated object that exists in tandem with many other behaviors
+** Subsumption
+*** Behaviors are augmented FSMs
+- multiple inputs and outputs
+- Addition of local timer
+  - how long are we in each state?
+- Inputs are buffered in registers
+  - Can always access most recent input
+- Feedback can be achieved through registers
+*** Wiring
+**** Inhibition 
+Prevents a message from beging passed (by the inferior wire)
+- A dominant wire inhibits an inferior wire
+**** Supressrion 
+Replaces a message with a new message (from dominant wire)
+- A dominant wire inhibits an inferior wire
+**** Defaulting
+Same as supresion but with wire switches
+- Dominant wire still goes through
+*** Architecture
+- Behaviors are inherently modular
+- messages are asynchronous 
+  - No need for global coordination
+- Higher level layers subsume lower level ones
+- Layering allows fro sub-division by processor
+  - limited communiccation between layers
+** Genghis 
+- Six legs, each with two dofs
+  - alpha: advance (front to back)
+  - beta: balance (up to down)
+*** Standing up beavior
+- Want alpha motors in the middle, beta pusing down
+* Learning to Walk <2016-09-16 Fri>
+- How to scale BBAI to more complex tasks?
+  - Has to be able to learn
+** Genghis II
+*** Feedback mechanisms for learning
+- two touch sensors on the underside for negative feedbac (i.e. the robot is laying down)
+- trailing wheel for positive feedback
+everytime it rotates it counts the rotation
+- binary and global feedback
+*** Basic components
+- 12 behavior components part of the learning algorithm
+  - 6 swing-forwards
+  - 6 swing-backwards
+- 1 protected behavior that is not subject to learning
+  - alpha (horizontal) balance
+*** Learning details
+- Desirable properties
+  - Distributed
+  - Computationally inexpensive
+  - capable of readaptation as the robots conditions change
+  - deal with noise
+- Assumptions
+  - immediate feedback
+  - only learn conjunctions
+*** Learning Task
+- Change the *precondition list* of the beahviors so that gradually only behaviors beome active that fulfill two constraints
+  - Relevant: when positive feedback occurs, the behavior is likely to be active
+    - Relevance = Corr(Positive, active) - Corr(negative, active)
+      - Corr calculated using Pearsons corelation
+  - Reliable: when behavior is active, feedback is likely to occur
+*** Learning algorithm
+- Every timestep a few entries are updated
+  - A count of how m
+*** Behavior selection during learning
+- Select behaviors probabilistically based on :
+  - relevance
+  - reliability
+  - small random factor
+** Why did Genghis two always learn the same sorts of gaits
+*** Stick insect locomotion
+- Wave gaits in insects
+**** Cruse model of locomotion
+- interesting because only local connections between legs mattered
+*** Atilla
+- Modeled after cruse's model
+- Insectoid gaits started to emerge when connections between legs were altered
+**** Lesions and fault tolerance
+- Simulate the failiure of a legs
+- Messages are re-routed to the neighboring legs
+*** Pearsin's neural circuit
+- central oscillator controls the step movement of a single leg
+- Change in phase results in different gaits
+- family of wave gaits
+- can easily change between gaits in realtime
+*** Static stability
+- if you froze an insects limbs, would it stay standing or fall down?
+**** polygon of support
+- formed by linkking all ground contact points
+- if the center of gravity is in center of polygon, its statically stable
+- *Only three gaits are statically stable for hexapods*
+** Dynamic stability
+- agent constantly changes center of mass to remain stable (i.e. humans) bb
+
+* Motor Schemas <2016-09-19 Mon>
+** Schemas, Intuitively
+Background knowledge/intuitive context learned through experience
+** Schema
+- Pattern of action as well as a pattern fro action
+- A functional unit recieving special infromation, anticipating a possible perceptual content, matching itself to the percieved infromation
+- basic unit of behavior from which complex ction can be constructed. `
+** Motor schemas 
+- all behavior responses are representedd in a ingle uniform format (potential fields)
+- No behavior arbitration
+  - Coordination view vector addition
+  - Relative strengths fo behaviors determine the robot's overall response.
+- No pre-defined hierarchy
+- Representation of uncertainty
+  - Treat as another input to the behavior
+*** Defining behaviors
+- Generally analogous to animal behaviors used for navigational tasks
+** Why add noise?
+There are cases where vectors sum to 0 (local minimum) at a non-goal location, causing the robot to stay still
+- Noise helps mitigate this problem to ensure there are no 0 vector sums
+  - Noise has to be time-varying in the case that the three vecotrs sum to 0
+- However, this results in behaviors that "jitter"
+- Avoid-Past
+  - short-term representation of location to push the robot away from current locations
+  - Still can be stuck in cycles, as there is no global way to solve this problem
+
+* Other BBAIs  <2016-09-21 Wed>
+** Strengths
+*** Modularity
+- incremental development
+*** Awareness
+- Tight sesnor-motor coupling
+*** Robustness
+- works well in dynamic environments
+** REX
+*** Principles
+- Subsumption
+- Shakey
+- formal logic (STRIPS)
+*** Strengths
+- Formal logic expresion of behaviors permits compilation into hardware
+*** REX language
+- Connections (wires) can carry integrers
+- Overloading of types
+  - 1 is also true
+  - 0 false
+- Elements are:
+  - Simple arithmetic units
+    - multiplication, addition..
+  - simple logic elements
+  - Delay element
+    - delays by 1 timestep
+    - outputs n (n - whats stored in the delay)
+    - Anytime there is a loop, there must be a delay
+    - delays can be broken by input-output registers
+*** Distributed Architecture for Mobile Navigation (DAMN)
+- want responsiveness and reactivity of lowlevel architecture, but also the capability for deliberation
+**** Using DAMN to drive
+- vehicles had over arching goals (go to this location)
+  -  but its moment by moemnt behaviors were determined reactively 
+**** Architecture
+- Distrubuted asynchronous behaviors
+- communicate between nodes via an central arbiter
+- arbiter essentially tallied votes for and against certain actions
+- Mode manager
+  - provides high-level context changes (in parking lot vs on highway)
+  - modifes process by which votes are tallie
+**** Voting and arbitration
+- modules can only vote for whats "currently on the ballot"
+  - can vote for as many times and for as many things as you want
+- winner-takes-all (Max(sum(for) - sum(against)))
+- Can have multiple arbiters if there are multiple different output types (one for steering, one for speed)
+***** Turning arbiter
+- can be represented as a discrete set of choices or a continuous distribution
+***** Sample voting
+- votes are re-cast as Gaussians to prevent "bang-bang" control
+* Representional Issues for Behavior-Based Systems <2016-09-23 Fri>
+** What is Knowledge
+- Environmental correlation
+- Predictive power
+- Emphazie the approporiate use of knowledge
+** What is a Knowledge Representation
+- Role 1: A surrogate
+  - A way of taking action without actual doing
+  - *Fidelity* How close is it to the real thing
+- Role 2 A set of ontological commitments
+- Role 3: A fragmentary theory of intelligent reasoning
+- Role 4: A medium fro pramatically efficent computing
+- Role 5: Medium for human expression
+** Tradeoffs of Knowledge use
+- In highly static environments, knowledge is very helpful because the world is incredibly predictable
+- As the environment gets more and more dynamic, knowledge becomes less useful and sensing becomes more important
+** Taxonomy of knowledge
+*** Symbolic
+- Your moms name
+*** Subsymbolic
+- How to throw a baseball
+*** Durability
+- Persistent
+- Transitory
+- Instantaneous
+- Can be good or bad
+
+** Symbol Grounding Problem
+- Its easy to create a symbol for something
+- Its difficult to attach that symbol to something in the real world though.
+- Meaning is not an intrinsic property of objects
+** Toto (Mataric ,1992)
+- Construct maps based on landmarks
+- Behavior based
+*** Hardware
+- 12 sonars around base
+- compass
+*** Competency
+**** level 1: basic navigation 
+  - liked to stay close walls for localization purposes
+**** Level 2: Landamark detection
+- Dynamic approach
+  - look for a configuration
+- Note landmark when
+  - Compass: moving straight
+  - Sonar: persistent boundary on the side
+  - detect left wall, right all, or corridor
+**** Level 3: map-related computation
+- Treat each landmark as currently active behavior 
+  - Store sensory information collected at level 2
+- links encode a topological relationship
+- MAP IS DECENTRALIZED
+- Goal directed navigation is accomplished via spreading activaion
+  - The goal node spreads activation until it reaches currents node
+*** Why not build a metric map?
+- Sensors are noisy
+* Descibing and Evaluating Architectures <2016-09-26 Mon>
+** Evaluation Dimensions
+- Support for parallelism 
+- Hardware targetability 
+- Niche targetability
+- Supports modularity
+- Robustness
+- Runtime flexibility
+- Performance effictiveness
+** Main points of comparison
+*** Behavioral modularity
+**** Subsumption 
+- Every behavior is an AFSM
+**** DAMN
+- Anything that can vote is a behavior
+**** Motor Schema 
+- A behavior produces a vector
+  - Behavior can be anything as long as a vector is produced
+**** REX
+- A behavior is a single operation (add, multiply, or, etc)
+  - behavior choice is v constrained 
+*** Encoding of Behavioral response
+How is the action space encoded?
+**** Subsumption 
+- Action state space are exactly the outputs of the AFSM
+  -  No restrictions
+**** DAMN
+- Behaviors produce discrete voting states over the list of candidates on a ballot 
+**** Motor Schema 
+- Potential field
+**** REX
+- Can only produce integers
+*** Action selection mechanisms
+**** Command fusion
+- cooperative
+- multiple behaviors contribute to the action
+- Allow behaviors to meld together (i.e. motor schema)
+- Not directly traceable to one behavior
+  - Means you can have an infinite number of responses
+**** Arbitration
+- Competitive
+- Activation of relevant subset of behaviors
+***** Pros
+ - behavior sequencing(One thing after another)
+ - effective use of resources 
+***** Cons
+- No cooperative mechanisms 
+**** Subsumption
+- Arbitration
+- Wichever behavior subsumes/defaults/inhibit
+***** Pros
+- cooperative
+- blending behaviors
+- handle multiple objectives at once
+***** Cons
+- No support for sequencing
+**** DAMN
+- Arbitrtion
+- Arbitor uses winner-take-all mechanisms 
+**** Motor Schema
+- All behaviors contribute to the behavior
+- Command fusion
+**** REX
+- Does not necessitate either arbitration or command fusion
+- Can recreate any architecture in REX
+
+*** What do we want out of these architectures
+- "Fast, cheap and out of control"
+- Realtime
+- Response to the environment
+- Mechanisms for adding new behaviors incrementally
+- Great complexity from simple components
+***** Emergence
+- Complexity that comes out of the interactions between simple parts and the environment
+*** Flocking (Reynolds)
+**** Boids
+- Flocking behavior emerged from simple local rules
+**** Behaviors
+- Steer towards average heading of local neighbors
+- Steer to avoid crowding neighbors
+- Steer towards average beahviors of local neighbors
+- Results in a vector
+*** Emegence and Architectures
+- Reactive systems aim to exploit emergence
+- Deliberative systems always aim to eliminate them
+  - Sequential composition
+  - Function decomposition
+* [ktmsui] Designing HRI for people w disabilities <2016-09-28 Wed>
+** Telepresence Robots
+- serves as a proxy for another person
+- creates the illusion of presence
+- 300ms+ delay in teleoperation incurs a high cognitive workload
+*** Robot system
+- designed for people wth cognitive and or physical impairments
+- Telepresence helps lower social inhibitions in seniors
+- Design is purposefully humanlike/not mechanical 
+  - people tend to shy away from mechanical
+- Has three cameras that create a vertical panorama
+*** User Interface
+- First person video centric
+- semi autnomous movement
+- main interface is a touch screen
+- Doesnt have an omnidirectional wheel so side movement is awkward
+
+*** Experiment 
+- people were able to work around the physical liitations of the robot to create an optimal experience 
+
+** Signing Creatures
+*** Motivation
+- Language is most efficiently learned when interacting face-to-face
+  - Contingent
+    - Interactive
+  - Situated 
+  - Social
+- Deaf infants often experience minimal linguistic input or none at all
+- Why not just a screen?
+  - Screens are not interactive
+*** RAVE (Robot AVatar thermal Enhanced tool)
+*** Indication so agency 
+- Corporeality
+- Anthropomorphic 
+- Motion 
+- Response appropriateness 
+- Intention 
+* [Chein-Ming] Help Robots Help People  <2016-09-30 Fri>
+** How can we build robots that are caable of interacting w people naturally?
+*** Modeling interaction dynamics
+- Interplay of speech, gaze & gesture
+*** Enabbling adaptive interaction 
+- How can robots interpret gaze cues
+- Anticipatory gaze control
+  - Can predict what people will order next 75% accuracy based on gaze location/prediciton
+- anticipatory movements made people feel like the robot had *more awareness* and was *more intelligent*  
+
+* Hybrid Deliberative-Reactive Architectures <2016-10-03 Mon>
+** Assumptions of behavior based systems
+- Environment lacks temporal consistency 
+- Robots immediate sensing is adequate for the task at hand
+- Symbolic representation is not useful
+- *when these assumptions are wrong, than purely reactive systems may not be so good*
+** Hybrid Architectures
+- "What if we can get the best of both worlds?"
+  - Sometimes reactive sometimes planning
+- requires compromises on both sides
+  - Interface between two systems is critical or else whole system fails
+- *STIL NOT A SOLVED PROBLEM*
+** What Happens at the Interface Level?
+*** Selection
+The planner selects different configurations for the reactive control architectures
+- Deliberative system has ultimate authority
+*** Advising
+The planner suggests changes to the behavior which the reactive control system may or may not use 
+- reactive system has the ultimate authority 
+*** Adaptation 
+The planner continuously modifies the configuration of the reactive control system
+*** Postponing 
+The planner leaves making decisions  until as late as possible, allowing recent sensor data to affect decisions 
+** AUtonomous Robot Architecture (AURA)
+- Developed by Arkin 
+- Based on Schema theory
+- Originally applied to navigation
+- First real hybrid architecture
+*** Big Picture
+- Delierative planner takes info from user and computes a high level plan
+- Plan gets passed down to the reactive system
+  - controls moment to moment behavior
+*** Navigation Example
+- Top level: Human would provide a task
+- Mission planner transforms goal into symbolic representation to be manipulated
+- Hands of symbols to spatial reasoner which generates path components
+- Path segments are passed one at a time to sequencer, which translates them to schema representations.
+- Reactive controller takes schemas and enacts them
+- Once one leg of the trip is completed, Path sequencer passes the next leg of the trip to reacive system
+- When a plan fails, plan seequencer is reactivated and new route is determined based on local info
+  - If a new route cannot be determined, it activates spatial reasoner to find a new global route
+  - If spatial reasoner fails, it passes the problem up to the mission planner (asks human for help)
+*** Strengths
+- Potential to substitute improved methods at each level independently
+  - different layers of AURA allow you to deal with one layer of abstraction at a time
+- Rich options for user interaction
+- Can introduce learning mechanisms at different levels
+  - Might want the top level to learn recognize certain preferences
+*** DARPA HUMVEE project instantiating AURA
+**** How to maintain formation?
+- Keep track of unit-center reference
+  - This is really hard
+  - need to keep track of all cars in formation
+  - if one car is compromised, all cars change 
+- designate 1 car leader and act in relation to itself
+  - Only need to keep track of 1 vehicle
+  - Only one vehicle needs to know the plan
+  - However, if vehicle 1 dies, everyone is fucked
+- Neighbor-Referenced
+  - Only 1 vehicle needs to know the plan
+  - Need to keep track of neighbors
+* Other Hybrid Architecture (Atlantis, 3T, SSS) <2016-10-05 Wed>
+** 3-T architectures
+Three-tiered architectures (deliberative, Sequencing, control)
+** Why do all 3-T architecture look alike
+- All address the same criticisms with BBAI
+- Internal state is really an *implicit prediciton* that information contained will remain true for some time
+- They all proposed that you should use internal states, but only at high levels of abstraction
+  - Internal models should give us guidelines for behavior, but reactive architecures should control moemnt-to=moment behaviors
+** Is Internal State Bad?
+- Actions based on these states sometimes fail
+- This happens to humans all the time and its ok
+- Generally, we engineer our environments to eliminate mistakes that have permanent consequences
+  - e.g. falling off a cliff
+** Atlantis architecture 
+- each layer dealt with behaviors with a different timescale 
+  - Lowest layer dealt with moment-to-moment behaviors
+  - higher up you go, the more and abstract and longer the timeframe
+- deliberative layer had no internal state
+- Sequencing layer had internal states about past
+- deiberative layer had internal states about future
+- *Easier to build something that fails cognizantly than one that never fails *
+
+* Evolutionary Algorithms <2016-10-07 Fri>
+** The Problem 
+- How do we design a system when we dont know where to start?
+- Maximize the value of "emergence"
+** Solution 
+- Evolution
+- Start with a set of solutions called a population
+- mix and match them
+** Parameters of a GA
+- Pop size
+- Encoding choices
+- Crossover probability
+- Mutation probability
+** Types of encoding
+*** Permutation encoding
+- every chromosome is a string of numbers which represents numbers in a sequence 
+- useful for ordering problems
+*** Tree representation
+- Every chromosome is a tree objects, such as functions or commands
+** Defining fitness functions
+- *evolution is only as good as your fitness function*
+* Evolutionary Controllers <2016-10-10 Mon>
+** Arkin evolutionary motor schema architecure 
+- Take homes
+  - If you give GAs too easy a problem, what you get is a lot of mess
+  - *Often getting a good behaviors requires evolving in difficult environments*
+** Evolutionary physical robots
+- Essentially used a botball robot
+- Encode arbitrary neural network for linking sensors to actuators
+- evolved in simulation to maximize area traversed by robot
+- Lesson: *Evolution will give you a solution, but it may not be elegant or understandable*
+  - Criticism: *These simulation studies do not transfer to real robotic systems*
+** Lipson and Pollack 
+- Evolved morphologies
+  - Initially this was just evolving lego bricks to span a gap.
+* Ale on iCUB <2016-10-12 Wed>
+** iCUB
+- Full humanoid
+- 53 dof
+- Very complex hands
+*** Force torque sensors
+- places on on the proximal part of the arm
+- allows icub to detect interaction with much of the arm
+*** Software
+*** Inverse kinematics and Cartesian control 
+- 
+** Why humanoids?
+- natural h-r-i
+- the world is designed for humans
+* Laura: The role of robots for autism 
+** Autism
+- Neurodevelopmental disorder that impairs childs ability to interact
+** What is the role of the robot in this domain?
+- consistent delivery of stimuli
+- Sensing
+- Toy-like
+- Objective
+- Simplistic interface
+** Robot as a facilitator 
+- Child practices social skills with robot
+- imitation
+- turn taking
+- Verbal utterances
+- joint attention
+*** Charile
+- a robot robust enough withstand children
+- Hypothesis: Augmenting traditional interventions with a robot leads to more improved social/communication skills
+*** Game
+- Put hats on a robot
+*** results
+- 35% gain in number of word utternaces
+- Increase in play and interaction 
+** Robot as a student 
+- child is placed in position of authority
+- Hypothesis: learning by teaching
+*** Experiment
+ robot did the following:
+- bad eye contact
+- terse responses
+- change topic
+- etc.
+- Child had to indicate when a child did one of these things
+*** Results
+- robot condition performed fewer disruptive behaviors
+- robot condition kids recognized social norms violation
+- Low iq and high iq kids scored similarly.
+  - *Maybe a human adminatrator affects peformance on IQ test*
+** Robot as an early screener for Autism 
+- Kids with autism dont recognize emotions like anger very well
+*** Design
+- Have sphero robot represent 4 behaviors (anger, happiness, sadness, fear)
+- Compare typically developing kids responses to autistic kids
+*** Results
+- Autistic kids held the robot more, did not recognize when the robot was sad
+* Olivier: Beyond the symbol grounding problem 
+- where does the structure of perception come from
+** Cocktail party problems
+- Can somehow still tell who is talking at a party when everyone around you is talking
+** Research: is it possible for an agent to decompose gestures into a dict of primitive gestures
+- Shows gestures accompanied by lingusitic labels
+- wants to see if it can produce the right symbols for a novel gesture 
+* False Assumptions that AI makes about human intelligence <2016-10-31 Mon>
+** Why dont we have super intelligent robots yet?
+- Doesnt seem to be an engineering problem
+*** Fundemenal error in Early AI
+- Equating a description with a mechanisms
+- Early AI was based on introspection of the creators
+  - e.g. Shakey (worked terribly)
+- Humans are general purpose processors
+  - FALSE!
+  - Stroop Effect
+    - A general purpose machine should not fall for this
+  - Audition impacts perception and vice versa
+    - McGurk effect
+  - context effects Reasoning
+    - Griggs and Cox 1982
+  - Introspection is reliable
+    - Separating the corpus callosum  
+* Sensing technology part II <2016-11-07 Mon>
+** Somatosensory system
+ Controlled by somatosensory cortex
+*** cutaneous sensation 
+- diff neves beneath the skin that give us sensations that we call 'touch'
+  - diff cells allow us to experience diff forces (e.g. vibration, stretching, etc)
+*** Tactile sensing 
+- piezoelectric films deform and change voltage
+- Touch sensors arent often used in robot because it requires a ton of wiring
+*** Artificial skin 
+- electronic skin
+  - ultrathin stretchable electronic membranes
+*** Kinesthetic system
+- senses bodily positio, weight movement, etc
+*** Artificial kinesthetic system
+- home switches that tell you when a joint is 'home'
+- potentiometer
+- these systems must be hardwired into joints and therefore have mechanical reprocusions
+**** encoders
+- use optical systems to calculate changes in angular position of joint
+  - does not affect mechanics of joint
+  - Only provides relative measure of movement
+** Semi human sensing
+- range finding
+  - humans can only estimate distance
+  - laser striper
+  - projects laser on ground in front of robot
+    - lasers deform if object intersects it
+  - Pulse timing
+    - measure amount of time it takes a signal to return
+    - kinect does this as well
+  - LIDAR
+    - single laser beam that sweeps across the environment and does pulse timing
+  - Phase comparison 
+    - Look at difference in phase between outbound signal and inbound signal
+      - Can know distance within fraction of a wavelength
+  - Doppler shift
+  - GPS
+    - a bunch of satellites constantly sending position and time signals
+    - used to triangulate your position
+  - Infrared cameras
+    - Human corneas reflect infrared light (which is why old pictures result in red eyes)
+    - This allows robots to easily detect human eyes
+* Visual Perception <2016-11-09 Wed>
+** Central problem of vision
+- Vision is so easy for us that we underestimate its difficulty
+** Image formation
+*** Pinhole camera
+** Simple edge detector
+- Robert Cr
+** Pre-attentive vision
+- Things that just 'appear' or popout rather than actively being searched for
+  - e.g. red line amongst many blue lines
+  - color
+    - skin tones all fall within some rgb range and are easy to pick up
+  - symmetry
+  - motion
+    - simple solution: subtract two images in time and the differencing operation will select or only moved objects
+  - orientation and texture
+** postattentive vision
+- Things that need to actively need to search for
+** Motion tracking
+*** optic flow
+- array of vectors representing the motion of points in a scene
+*** region segmentation 
+- region growing
+  - start with a seed location within an objet
+  - 'grow' outward to adjacent pixels until dissimilar pixels are reached
+- k-means clustering
+** Pattern recognition
+- structural pattern recognition
+  - data is turned into discrete structures and these are matched
+- statistical pattern recognition
+  - Throw a lot of data at it
+* Motor Control <2016-11-14 Mon>
+** Basics of DC electric motors
+- Rely on opposing magnetic fields 
+- constantly switch the direction of current of the interior electro magnet (armeture)
+  - Caused by 'brushes'`
+- causes smooth continuous movement of armeture
+- Brushless motors reverse the process
+  - exteriror static magnets change direction of current.
+  - This can be done in tandem with optical encoders to reduce mechanical friction
+** Fundemental problem of motor control
+- What you want to control is not what you actually control
+  - All you can control is voltage, when really we want to control speed and position
+** relationship between speed and voltage
+- back emf depends only on motor speed
+- torque only depends on current
+- *speed proportional to voltage*
+- As you change the voltage, you change the speed and torque
+** Pulse width modulation
+- variable voltage sources are hard to generate
+- However, if you alter how long the voltage source is turned on you can create the illusion of a variable voltage source
+** What happens of motors suck?
+*** open loop control
+  - input some desired speed
+  - output some desired speed based on some apriori models and apriori voltage
+*** Closed loop
+  - controller operates on the difference between desired speed and produced speed (error) and alters voltage accordingly
+**** How to get the error?
+- use a Resolver
+  - Measure magnetic field directly
+  - V. expensive
+- Potentiometers 
+  - measure position of the drive shaft directly
+  - introduces friction
+- Optical encoder
+  - Measure orientation of drive shaft 
+  - No physical contact
+**** What do with Error?
+- Use it to compute proporitonal gain (constant used in voltage computation)
+- if the gain is wrong (high error), change it until you reach desired output
+- This process causes 'ringing' where the controller overshoots and undershoots correct speed
+  - Really bad for motors
+**** Evaluating Performance
+- Steady state error
+  - How far is steady state from desired value
+- Overshoot
+  - % of final value exceeded on first oscillation 
+- Rise time
+- Setting time 
+**** Proportional errors
+- Proportional and integral controller
+- calculate constant of proportionallity partially based on the integral of error w respect to time (The *i-gain*
+- The longer the error persists , the higher the constant
+- The higer the i-gain, the more oscillations (bad!)
+**** Derivative control
+- The *d-gain* is proportional to the derivative of the controller
+- eliminates the oscillations
+- *This is called a PID controller*
+**** Finding the right PID parameters
+- Try out different parameters until the system looks good
+* Kinematics <2016-11-16 Wed>
+** Basic Joint Types
+- Revolute joint
+- Prismatic joint
+- Spherical joint
+** Forward kinematics
+- Take the angle of each joint and length of each link
+- Compute the position of the end effector
+*** Jacobian
+- Matrix equations for finding velocity 
+** Inverse kinematics
+- Given the position of end effector
+- Compute the angles of joint
+- Often has multiple solutions
+  - finding some solution is not hard, but finding the best one is
+    - Can enforce some optimization process
+      - limit search space to quickest solution, smoothest velocitiy, etc.
+    - ususal approach to decompose problem and control only a few DOFs at a time
+*** Workspace
+- Set of all points reachable by the end effector
+  - Shaped by:
+    - limits of joints
+    - Obstacles
+** Dynamics
+What if we need to worry about the forces as well as the geometry?
+- Effect of all forces on a robots manipulator
+dds
+* Introduction to Machine Learning Part I <2016-11-28 Mon>
+  Machine learning is a set of hypothesis given some bias
+** Unsupervised learning
+No indication is given when an output was correct or incorrect
+- goal is to find useful representations of the data
+  - finding clusters, e.g. k-means
+*** K-means
+- tries to find clusters of data that are more similar to themsleves than to others
+- minimizes the distance from cluster centers to data points
+**** Overfitting
+- Happens when the dimensionality of your model becomes too high.
+- e.g. when using a high order polynomial to fit your data when a quadratic would suffice
+- Just because we can make a better and better fit, doesnt mean we should
+** Supervised learning
+When an error occurs, agent recieves correct output
+- Given a training set of annotataed instances
+- Induce: A hypothesis
+- Try to maximize number of true positives and true negatives and minimize false positive and false negative
+*** Decision trees
+- Hypothesis is a predicate
+  - e.g _Willwait_ for a table at a restaurant
+- Test the most important feature first
+- Information theory can be used to create efficient tree
+  - Tells us how much more information is needed to make a decision about something
+*** Neural Nets
+Have nothing to do with biology anymore
+**** Activation
+- Sigmoid
+**** Typical Network
+- Input Node
+- Output Nodes
+- Hidden Nodes
+- Connection types
+  - Feedforward: no loops
+  - Recurrent: loops allowed
+**** Perceptron
+- Only allowed inputs of value 0 or 1
+- Feedforward only
+- Activation is step function (therefore output is binary as well)
+- Can imagine the input space as being divided by a decision boundary
+  - Good inputs on one side and bad inputs on other
+- Learning:
+  - Change weights based on error value
+    - Scale it by the input value of the neuron (if the node didnt contribute anything dont change weight)
+    - Scale by learning rate ⍶
+  - guaranteed to learn any linearly seperable function 
+- *A Perceptron cannot ever learn XOR because it requires two decision boundaries*
+**** Multi-layered feedforward Networks
+**** Back-propagation
+- Is essentially gradient descent
+  - Problematic because can get stuck in local minima
+** Reinforcement learning
+When an error occurs, agent receives an evalutaiton of its output, but not the correct answer 
+- Agents learn a *policy*
+  - Based on input, what action should i take?
+*** Goals and reward
+- Is a scalar reward goo?
+  - Its suprisingly good.
+- *Goal should specify what we want to achieve, not how we want to achieve it*
+*** Q-learning 
+
+When an error occurs, agent recieves an evaluaion of its output, but not told the correct output
+* Social Interface Design <2016-12-02 Fri> 
+How do you build systems that can interact with people?
+** Interpreting behavior 
+- People essentially automatically treat computers like humans
+- All the social psychological phenomena btw humans hapens btw humans and computers
+** Providing Feedback
+- Speech Synthesis
+- If you try and make feedback (facial features) cartoonish, they look much more realistic
+- Kismet
+  - Tightly coupled dynamic contingent responses enables humans to attribute complex communication skills
+  - when you get social cues just right, robots dont have to be too complex to create a convincing illusions
+* Multi-robot Systems <2016-12-05 Mon>
+- Why would you want more than one robot for a task?
+- What makes a robotic team?
+  - Architecture
+    - Centralized or decentralzed control?
+    - Different types of agents?
+    - Communication structures
+  - Characteristics of Social Behavior
+    - Reliability
+    - Social orginization
+    - Communication
+    - Congregation
+      - Agents utilize some strategy to maintain proximity
+    - Performance
+      - Speedup
+    - Spatial Distribution
+  - *Sometime more information (in terms of multiagent communication) is not always better*
+* Humanoid Robots <2016-12-07 Wed>
+** Why build humanoids?
+** Service Humanoids
+- If youre designing system for human environments, they need to be designed like humans
+*** Robonaut
+- Is a humanoid because everything on the ISS was designed to be used with gloved hands.
+** Commercial Humanoids
+*** Asimo 
+- Exists as a marketing tool
+  - Show the superiority of Honda technology
+** Research Humanoids
+*** Waseda
+- Pretty much  kicked off humanoid research
+*** Cog 

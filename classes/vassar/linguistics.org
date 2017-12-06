@@ -1,0 +1,217 @@
+#+Title: Computaional Linguistics
+#+Author: Jake Brawer
+* Morphology, Tokenization, Finite State Transducers <2016-02-02 Tue>
+** Morphology
+The study of the ways that th words are built up from smaller meaningful units called morphemes
+*** Morpheme
+The smallest unit of meaning
+**** Examples
+*Unladylike*
+- Morphemes:
+  - " n-" not
+  - "ladyl ke" a woman
+  - "-like" similar
+*** Inflectional morphology
+Adds tense, number, person, mood, etc.
+- These are called "affixes"
+- Word class does NOT change
+*** Derivational morphology
+**** Nominilization
+Formation of new nouns from other parts of speech, primarily from English verbs
+*** Concatinative morphology
+Morpheme+morpheme+morph....
+**** Stems (lemmas, bases, or roots)
+- *hope*+ing
+****  Affixes
+- Prefixes
+- Suffixes
+- Infixes
+- Circumfixes
+**** Agglutanitive Languages
+A single word composed of many morphemes that constitue whole sentances
+- e.g. Turkish
+*** Templatic morphology
+Form words by sticking vowels in the middle of "template" consonants
+** Sentence segmentation
+Divide text into sentences
+-!, ? unambiguous
+- Period "." is ambiguous
+  - Could be a sentence boundary or could be an abbreviation
+** Tokenization
+Segmenting text into individual words
+- Can be used in two different ways
+  - To refer to an individual occurances of words
+  - To refer to abstract vocabulary items
+*** Token
+An occurence of a word
+*** Type
+A vocabulary type
+** Finite State Transducer
+An FSM with two tapes, an input tape and an output tape
+*** Finite-state morphological parser
+Need the follwing to build a morphological parser
+*** Lexicon
+*** Morphotactics
+*** Orthographic rules
+
+#+BEGIN_SRC python :results output
+import nltk
+from nltk.book import text6
+
+print len(text6)
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+*** Introductory Examples for the NLTK Book ***
+Loading text1, ..., text9 and sent1, ..., sent9
+Type the name of the text or sentence to view it.
+Type: 'texts()' or 'sents()' to list the materials.
+text1: Moby Dick by Herman Melville 1851
+text2: Sense and Sensibility by Jane Austen 1811
+text3: The Book of Genesis
+text4: Inaugural Address Corpus
+text5: Chat Corpus
+text6: Monty Python and the Holy Grail
+text7: Wall Street Journal
+text8: Personals Corpus
+text9: The Man Who Was Thursday by G . K . Chesterton 1908
+16967
+#+end_example
+
+* Probability, Collocations, and Ngrams <2016-02-09 Tue>
+** Corpora
+- Must be large to be stastically meaningful
+- Should be representitive of langauge across genres
+- Machine learning reqcuires annotated corpora
+** Conditional frequency distribution
+Condition specifies the context in which an experiment is performed
+#+BEGIN_SRC python :results output
+  import nltk
+  from nltk.corpus import brown
+  from nltk.probability import ConditionalFreqDist
+
+  cfd = ConditionalFreqDist(
+      d)
+
+
+#+END_SRC
+** Prediction
+Why do we want to predict a word, given som preceding words?
+- Rank the likelihood  of sequences containing various alterantive hypothesis
+*** Predicting next words
+#+BEGIN_SRC python
+  import nltk
+  cfd = nltk.ConditionalFreqDist(nltk.bigrams(masc_tagged.words()))
+
+  cfd['sand'].max()
+
+#+END_SRC
+
+#+RESULTS:
+*** Probability part of speech tags
+- P(drawing a verb) = (# of ways to get a word) / (all words)
+
+*** condtional probability
+The probability of outcome A given that B has occured
+- 1st letter of a word is 't', whats prob that next letter  is 'h'?
+- P(A|B) = P( A \intersect B)/P(B)
+  - P(a \intersect B) = P(A)P(B)
+  - similarly P(A \intersect B) = P(A|B) * P(B)
+
+*** Bayes Theorem
+P(B|A) = (P(A|B)*P(B))/P(A)
+** Language models (LM)
+A probability distribution over entire sentences or texts
+** Ngrams
+- sequences of words of length n
+- predict the next word from the previous word n - 1
+*** Word prediction
+*** Chain rule
+P(A1, A2, ..An) =
+*** N-gram model is a markov chain
+**** Markov assumptions
+dont need to know whole sequences, just a couple of steps beforehand
+- bi-gram model
+only looks back one token
+- not very feasible to do ngram > 3
+*** Maximum likelihood estimation
+Number or times ngram occured/number of time previous word appeared
+- (chinese|eat)/eat
+*** Overfitting
+ngrams only work well fro words prediction if the test corpus looks like the training corpus.
+- in reallife, this is not the case
+*** How do you handle unseen Ngrams??
+**** Smoothing
+- Never trust a sample under 30
+- Steals the probability of the most probable outcome and distributes it amongst other less probable words
+***** Laplace's laws
+- Add one to all the counts
+- items with a count of 0 now have a count of 1
+- If you have data w lots of 0s, its not so good
+***** good-Turing discounting
+Good estimate for the prob of unseen ngrams is the totla number of unigrams seen = N_1/N
+***** Interpolation
+Given Ngram hierarchy
+P(W3| w1, w2) = P(w3| w1, w2) + P(w2|w1)... etc.
+***** Held-out estimation
+
+*** Evaluation
+How do you evaluate how well your model fits a corpus once its done?
+* Machine Learning <2016-02-16 Tue>
+** In NLP
+NLP is essentially a machine learning problem
+** Procedure
+- hand annotate data
+- ML program trains on data
+- Test it on unannotated data
+- See if annotates correctly
+** Overview
+*** Supervised learning
+Generates a function mapping from inputs to a fixed set of labels
+*** Unsupervised
+Tries to find structure
+** Tradeoffs
+*** Assumptions
+**** There is a probability distribution that exist
+**** Each example is independent
+*** Bias and variance
+The more bias, the less variance and vice versally
+*** Classification and clustering
+**** Classification
+Know how many classes there are and have examples for each class
+- supervied
+*** Clustering
+**** No labeled data
+**** Assumes there is a natural division in data
+** Classifier algorithms
+Takes a bundle of feautres as input and outputs class labels associated with these features
+*** Binary vs multi-way classification
+- Binary: Distinguish between two classes
+- Multi-way: Distinguish between many classifications
+  - Sometimes helpful to treat multiway as just many binary classifications
+*** Linear vs nonlinear algorithms
+**** Linearly seperable
+Data demarcated by geometric line
+**** Nonlinearly seperable
+Data demarated by curves and intersecting lines
+- Not as clean
+* WEKA
+Machine learning/data mining software
+* Sentiment Analysis
+** Vector space models
+- Idea:
+Important aspects of meaning are latentt in its distribution (pattterns of cooccurnece with other words)
+*** Word- ord matricies
+An nxn matrix where n = |V|, the size of a vocabulary
+** Cosine similarity
+A measure of how similar two vectors are
+- Not interms of magnitude but orientation (i.e. the angle between them)
+** ASSIGNMENT 2 bb
+
+#+BEGIN_SRC ditaa
+
+
+
+#+END_SRC

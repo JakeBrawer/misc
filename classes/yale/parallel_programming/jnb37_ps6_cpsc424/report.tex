@@ -1,0 +1,212 @@
+% Created 2017-05-07 Sun 14:08
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\addtolength{\textwidth}{2in}
+\addtolength{\hoffset}{-1in}
+\addtolength{\voffset}{-1in}
+\author{Jake Brawer}
+\date{\today}
+\title{Assignment 6\\\medskip
+\large CPSC424}
+\hypersetup{
+ pdfauthor={Jake Brawer},
+ pdftitle={Assignment 6},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.0.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Software and Development Environment}
+\label{sec:org1a76bb8}
+
+All the programming for this assignment was done in vim. This document was made using emacs. The only modules used in this assignment were Langs/Intel/15 and GPU/CUDA/8.0.
+
+\subsection{How to run the code}
+\label{sec:org96bdbe5}
+
+To compile the code and load the appropriate modules do the following:
+\begin{verbatim}
+cd jnb37_ps6_cpsc424
+sh setup.sh
+\end{verbatim}
+
+In order to run code, run
+\begin{verbatim}
+qsub runTask<N><subtask>.sh
+\end{verbatim}
+Where \emph{N} is the task (1-3) and \emph{subtask} is a subtask (a-c).
+
+\section{Task 1}
+\label{sec:orgb32f4b8}
+\subsection{A}
+\label{sec:org5a1cf7d}
+
+\begin{center}
+\begin{tabular}{lrrrr}
+ & Run 1 & Run 2 & Run 3 & Run 4\\
+\hline
+Time & 37 ms & 18589 ms & 305 ms & 2292 ms\\
+GPU & M2070 & M2070 & M2070 & M2070\\
+Block Dim & 32 & 32 & 32 & 32\\
+Grid X & 32 & 256 & 32 & 256\\
+Grid Y & 32 & 256 & 32 & 256\\
+\end{tabular}
+\end{center}
+
+Unfortunately my code segfaulted for run 5 so I could not get timings. Here I chose my Grid Xs and Grid Ys as a function Block Dim (e.g. Grid X = n / Block Dim. 
+
+\subsection{B}
+\label{sec:org498a1a8}
+
+GPU:M2070
+
+Task B took \textasciitilde{}28645 ms, a little more than twice as long than the single precision run. This is not surprising given that double is twice as long as a float and therefore takes up more cache space.
+
+\subsection{C}
+\label{sec:org83cb2c0}
+The largest matrices I was able to multiple together without any clear sort of error had the following dimension: \(n = 32768, m = 32768, p = 8192\)
+
+\section{Task 2}
+\label{sec:org9cb9378}
+
+\subsection{A}
+\label{sec:orgd3b76bd}
+\begin{center}
+\begin{tabular}{lrrrr}
+ & Run 1 & Run 2 & Run 3 & Run 4\\
+\hline
+Time & 16 ms & 8301 ms & 129 ms & 1042 ms\\
+GPU & M2070 & M2070 & M2070 & M2070\\
+Block Dim & 32 & 32 & 32 & 32\\
+Grid X & 32 & 256 & 32 & 256\\
+Grid Y & 32 & 256 & 32 & 256\\
+\end{tabular}
+\end{center}
+
+Unfortunately my code segfaulted for run 5 so I could not get timings. Unsurprisingly, The tiling algorithm is much quicker than the untiled algorithm; the tiling algorithm is doing far fewer reads from main memory which causes considerable speed up.
+\subsection{B}
+\label{sec:orgd4ee2c2}
+
+GPU:M2070
+
+TaskB took \textasciitilde{}11221 ms, slower than floating point version of the tiling algorithm, but considerably faster than the floating point untiled version. Clearly, less shared memory is still better than no shared memory.
+
+\subsection{C}
+\label{sec:org12806bf}
+The largest matrices I was able to multiple together without any clear sort of error had the following dimension: \(n = 16384, m = 16384, p = 8192\)
+
+\section{Task 3}
+\label{sec:orgc8db272}
+I was not able to get my Task 3 code to give me the correct answers, but conceptually I think I was on the right track. Basically the idea was to add another loop in the tiling code. This loop would loop through all adjacent B tiles and multiply them with the corresponding A tile. Afterwards, you'd read in the new a tile and repeat the process. This way your doing multiple computations with a single memory read in of your A tile. 
+
+\section{Environment}
+\label{sec:org747303a}
+
+\begin{verbatim}
+MKLROOT=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl
+MANPATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/share/man:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/man/en_US:/home/apps/fas/Langs/Intel/201
+5_update2/composer_xe_2015.2.164/debugger/gdb/intel64/share/man/:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/share/man/:/usr/s
+hare/man:/opt/moab/share/man:
+GDB_HOST=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/bin/gdb-ia-mic
+HOSTNAME=login-0-0.local
+IPPROOT=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp
+INTEL_LICENSE_FILE=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/licenses:/opt/intel/licenses:/home/apps/fas/Licenses/intel_site.lic
+TERM=xterm
+SHELL=/bin/bash
+HISTSIZE=1000
+GDBSERVER_MIC=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/target/mic/bin/gdbserver
+SSH_CLIENT=172.27.42.118 46332 22
+LIBRARY_PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/lib:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/../compiler/lib/intel64:/home/apps/fa
+s/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/compiler/lib/intel64:/home/apps/fas/Langs
+/Intel/2015_update2/composer_xe_2015.2.164/mkl/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4
+PERL5LIB=/opt/moab/lib/perl5
+FPATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/include:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/include
+QTDIR=/usr/lib64/qt-3.3
+QTINC=/usr/lib64/qt-3.3/include
+MIC_LD_LIBRARY_PATH=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/lib/mic:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/lib/mi
+c:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/compiler/lib/mic:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/lib/mic:/opt/intel/mi
+c/coi/device-linux-release/lib:/opt/intel/mic/myo/lib:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb/lib/mic
+SSH_TTY=/dev/pts/34
+ANT_HOME=/opt/rocks
+USER=jnb37
+LD_LIBRARY_PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/lib:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/lib/intel64:/home/apps/fas/Langs
+/Intel/2015_update2/composer_xe_2015.2.164/ipp/../compiler/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/lib/intel64:/home/apps/fas/Langs
+/Intel/2015_update2/composer_xe_2015.2.164/ipp/tools/intel64/perfsys:/opt/intel/mic/coi/host-linux-release/lib:/opt/intel/mic/myo/lib:/home/apps/fas/Langs/Intel/2015_upda
+te2/composer_xe_2015.2.164/compiler/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/com
+poser_xe_2015.2.164/tbb/lib/intel64/gcc4.4:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/ipt/intel64/lib
+MIC_LIBRARY_PATH=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/compiler/lib/mic:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/lib/
+mic:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb/lib/mic
+ROCKS_ROOT=/opt/rocks
+CPATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/include:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/include:/home/apps/fas/Langs/Intel/2015_
+update2/composer_xe_2015.2.164/mkl/include:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb/include
+YHPC_COMPILER=Intel
+OMPI_MCA_orte_precondition_transports=f20cd2d28f432704-15e3f8c3bb8e89d6
+NLSPATH=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/compiler/lib/intel64/locale/%l_%t/%N:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164
+/ipp/lib/intel64/locale/%l_%t/%N:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/lib/intel64/locale/%l_%t/%N:/home/apps/fas/Langs/Intel/2015_update2/co
+mposer_xe_2015.2.164/debugger/gdb/intel64_mic/share/locale/%l_%t/%N:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64/share/locale/%l_%t
+/%N
+MAIL=/var/spool/mail/jnb37
+PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/bin:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/bin/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/bin/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/bin:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64/bin:/home/apps/fas/Modules:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/s
+MAIL=/var/spool/mail/jnb37
+PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/bin:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/bin/intel64:/home/apps/fas/Langs/Intel/2015_updat
+e2/composer_xe_2015.2.164/mpirt/bin/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/bin:/home/apps/fas/Langs/Intel/2015_up
+date2/composer_xe_2015.2.164/debugger/gdb/intel64/bin:/home/apps/fas/Modules:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/s
+bin:/usr/java/latest/bin:/opt/rocks/bin:/opt/rocks/sbin:/home/apps/bin:/home/fas/cpsc424/jnb37/bin
+YHPC_COMPILER_MINOR=164
+TBBROOT=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb
+C_INCLUDE_PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/include
+F90=ifort
+PWD=/home/fas/cpsc424/jnb37
+_LMFILES_=/home/apps/fas/Modules/Base/yale_hpc:/home/apps/fas/Modules/Langs/Intel/15:/home/apps/fas/Modules/MPI/OpenMPI/1.8.6-intel15
+YHPC_COMPILER_MAJOR=2
+JAVA_HOME=/usr/java/latest
+GDB_CROSS=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/bin/gdb-mic
+DOMAIN=omega
+LANG=en_US.iso885915
+MODULEPATH=/home/apps/fas/Modules
+MOABHOMEDIR=/opt/moab
+YHPC_COMPILER_RELEASE=2015
+LOADEDMODULES=Base/yale_hpc:Langs/Intel/15:MPI/OpenMPI/1.8.6-intel15
+F77=ifort
+MPM_LAUNCHER=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/mpm/bin/start_mpm.sh
+CXX=icpc
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+HISTCONTROL=ignoredups
+INTEL_PYTHONHOME=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/python/intel64/
+SHLVL=1
+HOME=/home/fas/cpsc424/jnb37
+FC=ifort
+LOGNAME=jnb37
+QTLIB=/usr/lib64/qt-3.3/lib
+CVS_RSH=ssh
+SSH_CONNECTION=172.27.42.118 46332 172.18.89.8 22
+MODULESHOME=/usr/share/Modules
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+arch=intel64
+INFOPATH=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64/share/info/:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/share/info/
+CC=icc
+DISPLAY=localhost:14.0
+INCLUDE=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/include
+MPI_PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15
+G_BROKEN_FILENAMES=1
+BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`
+}
+_=/bin/env
+\end{verbatim}
+\end{document}

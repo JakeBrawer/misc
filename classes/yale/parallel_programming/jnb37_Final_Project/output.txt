@@ -1,0 +1,65 @@
+------------------------------Serial Code------------------------------
+
+n: 4 b: 50.000000 Gen Size: 40
+
+Gen: 1000000 TOTAL TIME: 57.046349
+Avg time per gen: 0.000057
+Max fitness : -3405.492199:
+
+n: 4 b: 0.000000 Gen Size: 40
+Gen: 1000000 TOTAL TIME: 56.779105
+Avg time per gen: 0.000057
+Max fitness : 0.854547:
+
+n: 10 b: 1000000000.000000 Gen Size: 40
+Gen: 1000000 TOTAL TIME: 485.149637
+Avg time per gen: 0.000485
+Max fitness : -82984293197723920.000000:
+
+n: 10 b: 10000000.000000 Gen Size: 40
+Gen: 1000000 TOTAL TIME: 481.510195
+Avg time per gen: 0.000482
+Max fitness : -781311900686980.625000: 
+\n------------------------------Island  Code------------------------------
+
+n: 4 b: 50.000000  Pop size: 40
+Rank 0 finished in 1000000 gens. TOTAL TIME: 33.437202
+Avg time per gen: 0.000033
+Max fitness : -0.185503: 1.585117 1.167117 3.422543 -1.035539 
+
+n: 4 b: 0.000000  Pop size: 40
+Rank 0 finished in 1000000 gens. TOTAL TIME: 32.113396
+Avg time per gen: 0.000032
+Max fitness : 0.489339: 2.716043 4.094158 0.492336 1.927774 
+
+n: 10 b: 1000000000.000000  Pop size: 40
+Rank 0 finished in 1000000 gens. TOTAL TIME: 273.130168
+Avg time per gen: 0.000273
+Max fitness : -20813725570.588406: -0.147020 0.902487 -0.280298 0.117643 0.454414 8.226979 -3.891576 -0.972744 -1.834927 2.506102 
+
+n: 10 b: 10000000.000000  Pop size: 40
+Rank 0 finished in 1000000 gens. TOTAL TIME: 280.859075
+Avg time per gen: 0.000281
+Max fitness : -55597420967800.304688: -1.241191 0.194413 0.821670 -4.467857 -4.710215 0.419173 -10.343811 -4.077389 -1.764776 -5.324227 
+
+\n------------------------------Stepping Stone  Code------------------------------
+
+n: 4 b: 50.000000 pop Size: 40
+Rank 0 finished in 1000000 gens. TOTAL TIME: 35.121407
+Avg time per gen: 0.000035
+Max fitness : 0.999786: -0.192613 3.404074 0.202184 0.465155 
+GLOBAL STOP 1
+GLOBAL STOP 1
+n: 4 b: 0.000000 pop Size: 40
+Rank 1 finished in 617256 gens. TOTAL TIME: 21.359969
+Avg time per gen: 0.000035
+Max fitness : 1.000000: 0.547200 -4.337218 -0.129404 -0.247215 
+n: 10 b: 1000000000.000000 pop Size: 40
+Rank 0 finished in 1000000 gens. TOTAL TIME: 278.686093
+Avg time per gen: 0.000279
+Max fitness : -4641776.172950: -0.373936 0.983793 -1.333408 5.516333 2.849226 1.933087 2.201521 -1.702853 1.336497 -0.494987 
+n: 10 b: 10000000.000000 pop Size: 40
+Rank 0 finished in 1000000 gens. TOTAL TIME: 291.925783
+Avg time per gen: 0.000292
+Max fitness : -2719959773.602571: -0.723937 2.210705 -2.930233 8.228770 -1.293938 2.896408 1.812161 -3.815684 -2.197105 -2.908652 
+$

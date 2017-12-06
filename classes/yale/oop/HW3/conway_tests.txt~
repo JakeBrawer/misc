@@ -1,0 +1,317 @@
+### SpinOut
+##!executable SpinOut
+##!path /c/cs427/hw2/Final/
+##Basic Execution (60 points)
+#! score linear 30
+#! score threshold 6 30
+# interactive
+! args -i
+5
+6
+3
+# interactive, first move illegal
+! args -i
+0
+# interactive, last move illegal
+! args -i
+6
+0
+# interactive, input after illegal move
+! args -i
+6
+0
+4
+# interactive, multiple illegal moves
+! args -i
+0
+0
+0
+# interactive, solved
+! args -i
+6
+4
+6
+5
+6
+2
+6
+5
+6
+4
+6
+5
+6
+3
+6
+5
+6
+4
+6
+5
+6
+0
+6
+5
+6
+4
+6
+5
+6
+3
+6
+5
+6
+4
+6
+5
+6
+2
+6
+5
+6
+4
+6
+5
+6
+3
+6
+5
+6
+4
+6
+5
+6
+1
+6
+5
+6
+4
+6
+5
+6
+3
+6
+5
+6
+4
+6
+5
+6
+2
+6
+5
+6
+4
+6
+5
+6
+3
+6
+5
+6
+4
+6
+5
+6
+# interactive, start state
+! args -i /-/-/--
+6
+# interactive, start state, solved
+! args -i ----/-/
+5
+6
+4
+6
+5
+6
+#interactive, empty input
+! args -i
+#interactive, moves after solved
+! args -i ------/
+6
+6
+# non-interactive
+! args 5 6 3
+! noinput
+# non-interactive, empty input
+! args
+! noinput
+# non-interactive, illegal move
+! args 0
+! noinput
+# non-interactive, multiple illegal moves
+! args 0 6 0
+! noinput
+# non-interactive, solved
+! args 6 4 6 5 6 2 6 5 6 4 6 5 6 3 6 5 6 4 6 5 6 0 6 5 6 4 6 5 6 3 6 5 6 4 6 5 6 2 6 5 6 4 6 5 6 3 6 5 6 4 6 5 6 1 6 5 6 4 6 5 6 3 6 5 6 4 6 5 6 2 6 5 6 4 6 5 6 3 6 5 6 4 6 5 6
+! noinput
+# non-interactive, start state
+! args /-/-/-- 6
+! noinput
+# non-interactive, start state, solved
+! args ----/-/ 5 6 4 6 5 6
+# non-interactive, moves go past solved
+! args ------/ 6 6 5
+## Invalid input (15 points)
+#! score linear 15
+#interactive, multiple moves on line
+! args -i
+! check graceful
+6 4 6 5
+#interactive, move is not integer
+! args -i
+! check graceful
+5.3
+#too-long start state non-interactive
+! args ---//-------------
+! noinput
+! check graceful
+#too-long start state interactive
+! args -i --////--------
+! check graceful
+#too-short start state non-interactive
+! args ---
+! noinput
+! check graceful
+#too-short start state interactive
+! args -i ----
+! check graceful
+#illegal characters in start state non-interactive
+! args -a-----
+! noinput
+! check graceful
+#illegal characters in start state interactive
+! args -i -a-----
+! check graceful
+#1st argument is not -i or start state
+! args hello
+! noinput
+! check graceful
+#first move is non-integer non-interactive
+! args /////-/ 3.5
+! noinput
+! check graceful
+#last move is non-integer non-interactive
+! args /////// 6 6 6.5
+! noinput
+! check graceful
+#non-interactive, first move is non-number
+! args /////-/ THREE
+! noinput
+! check graceful
+#non-interactive, last move is non-number
+! args /////-/ 6 THREE
+! noinput
+! check graceful
+#first move is non-integer interactive
+! args -i /////-/
+! check graceful
+3.5
+#last move is non-integer interactive
+! args -i ///////
+! check graceful
+6
+6
+6.5
+#interactive, first move is non-number
+! args -i /////-/
+! check graceful
+THREE
+#interactive, last move is non-number
+! args -i /////-/
+! check graceful
+6
+THREE
+#interactive, extra input on line
+! args -i
+! check graceful
+6 6
+#interactive, blank line
+! args -i
+! check graceful
+6
+
+6
+#interactive, leading space
+! args -i
+! check graceful
+ 6
+## Unit Tests (25 points)
+#! copy student spinout.h
+#! copy student spinout.cpp
+#! copy staff unit.cpp
+#! score linear 23
+#! score threshold 3 2
+#! executable Unit
+# default constructor (implicitly tests toString too)
+! args 0
+! noinput
+# string constructor
+! args 1
+! noinput
+# string constructor with too-short value
+! args 2
+! noinput
+# string constructor with too-long value
+! args 3
+! noinput
+# string constructor with invalid characters
+! args 4
+! noinput
+# isLegalMove on each position for starting configuration
+! args 5
+! noinput
+# isLegalMove on each position for some other configuration
+! args 6
+! noinput
+# isLegalMove(-1)
+! args 7
+! noinput
+# isLegalMove(7)
+! args 8
+! noinput
+# isLegalMove(1000000)
+! args 9
+! noinput
+# makeMove for each legal move in starting position
+! args 10
+! noinput
+# makeMove for each legal move in some other configuration
+! args 11
+! noinput
+# makeMove for illegal move
+! args 12
+! noinput
+# makeMove(-1)
+! args 13
+! noinput
+# makeMove(7)
+! args 14
+! noinput
+# makeMove(1000000)
+! args 15
+! noinput
+# totalMoves for default starting configuration
+! args 16
+! noinput
+# totalMoves for some other starting configuration
+! args 17
+! noinput
+# totalMoves for sequence of legal moves
+! args 18
+! noinput
+# totalMoves for sequence including illegal move
+! args 19
+! noinput
+# isSolved for starting configuration
+! args 20
+! noinput
+# isSolved for other configuration
+! args 21
+! noinput
+# isSolved for solved configuration
+! args 22
+! noinput
+# isSovled for object moved into and then past solved configuration
+! args 23
+! noinput

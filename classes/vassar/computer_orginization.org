@@ -1,0 +1,923 @@
+#+TITLE: Computer Organization
+
+* <2015-09-03 Thu>
+** C stuff
+- C
+  - C is like a portable assembly
+  - Very low level
+  - Does not trash collect automatically
+| Java                             | C                                 |
+|----------------------------------+-----------------------------------|
+| OO                               | Fucntion-oriented                 |
+| Strongly-typed                   | can be overrriden                 |
+| polymorphsim                     | very limited                      |
+| classes fro name space           | single name space, file oriented  |
+| macros are external, rarely used | macros common (preprocessor)      |
+| layered I/O model                | byte-stream I/O                   |
+| automatic memory management      | function calls                    |
+| no pointers                      | pointers (memory adresses) common |
+| *by-reference, by-value          | by-value parameters               |
+| exceptions, exception handling   | if (f() <0) {error} OS signals    |
+| concurrency (threads)            | library functions                 |
+| length of array                  | on your own                       |
+| string as a type                 | just bytes (char []) , with 0 end |
+| dozens of common libraries       | OS-defined                        |
+
+*by-reference: functions are passed the reference to variable
+*by-value: functions are passed the value the variable represents
+
+Objects are data and operations on that data.
+
+Interpreted vs Compiled programs 
+
+| Interepreted               | Compiled                 |
+|----------------------------+--------------------------|
+| less effcient              | more effcient            |
+| Many layers of abstraction | Closser to the mettle    |
+| Portable (targeing the VM) | portable but not as much |
+| Easier to write            | Not as easy to write     |
+
+*Executing a C program*
+- gcc: C compiler
+- running programs: gcc [options] [files]
+  - *-Wall* prints all warnings. USE ALWAYS.
+
+Macros
+- #DEFINE [name] = [value]
+  - like a variable but more effcient
+  - compiler literally does a search an replace on text with [name]
+
+*C Does not have any bools*
+- 0 = false
+- 1 or non-zero  = trie
+
+*** Variables
+-variables have addresses and values
+- Memory can be thought of as a large array
+- Each location has an address
+- a variable is a mapping from a name to an address
+  - addresses of a variable can be accessed using the address symbol "&'
+    - eg: &x
+- can assign addresses using the operator *
+  - eg: int *xp (p is a convention for pointer)
+    -  xp stores address of x
+-Can change the value of x via assignment of xp
+* <2015-09-08 Tue>
+** Bit
+- All data is bits
+- bit = anything that takes on the value of 1 or 0
+  - represented by a 1 or 0
+  - Instantiated in hardware via a voltage range (i.e. .9-1.1v = 1, 0-.2V = 0
+** Bytes and Words
+- *Byte:* A collection of 8-bits
+  - 2^8 possible bytes
+- *Word:* Default space allocated to things like pointers
+  - in modern computers word size is 64 bit (8 bytes) 
+- *Hexedecimal (hex)*: A base 16 representation
+  - A = 10, B = 11, C = 12, D = 13, E = 14, F = 15
+- Rightmost number in a binary string is the *Least significant bit*
+- Leftmost is *Most Significant bit*
+- An int is4 bytes
+
+** Decimal --> Binary
+ Ex: 42
+- 32 is the largest powr of 2 <= 42
+  - So theres a 1 in the 32s place
+- subtract 32 from 42 and do the same thing w remainder
+
+Ex: 75
+- 1 in 64s place: 1000000
+  - 75 - 64 = 11
+- 1 in 8 place: 1001000
+  - 11- 8 = 3
+- 1001011 = 75
+
+** Binary --> Hex
+- Group Binary into sets of 4
+- convert each set of 4bts to a hex bit (4bits = a nibble!)
+  
+** Hex --> Decimal
+- Hex number denoted by "0x"
+  -  eg 0x8B2F6
+- Convert each digit into 4bits
+
+** Some C definitions
+*** *Object*
+- A distinct region of storage
+- Associated with a name
+*** *Aliases*
+Multiple names fro the same object
+- Different pointers to the same object are called aliases of each other
+*** *Definition*
+Allocates storage and makes a name for it.
+- Ex:
+  - int foo;
+  - char bar; 
+- NOTE: The above are _defined_ not initialized.
+*** *Decleration*
+Alerts the compiler that there exusts an object of some name/type, but does nto allocate the space for it.
+- Ex.
+  #+BEGIN_SRC c
+extern int errno;
+int func(void)
+  #+END_SRC
+Used when you know your gonna use a func or var from another file but have yet to link them up.
+** Object sizes (C)
+the function: sizeof(int) will tell you the size of an for ex.
+- sizeof does not return an int but a value of tpye *size_t* , which represents the number of bytes in an object
+** Derived types
+These are types that you build from the fundemental types (or other derived types)
+*** *Arrays*
+- Defined using []
+- Array element are laid out in contiguous memory (in order)
+- Elements are accessed by index
+- First element is accessed by 0
+*** *Structs*
+Sort of similar to a pyhton object. Lets you associate objects together.
+ex
+#+BEGIN_SRC c
+struct point {
+int x;
+int y;
+int x;
+}
+
+\* definition of a point */
+struct point p;
+#+END_SRC
+
+**** typedefs
+lets you create a new type.
+- Basically the same as struct except lets you ommit "struct" in decleration
+#+BEGIN_SRC c
+typedef struct {
+int x;
+int y;
+} point;
+
+
+point p;
+#+END_SRC 
+
+*** *Unions*
+Used when you want different representations of the same data.
+#+BEGIN_SRC c
+union data {
+int intval;
+struct {
+:w
+
+#+END_SRC
+*** Accessing parts of union/structs
+We use dot or arrow operator to access diff parts of union/struct
+to access the name field in a student struct:
+#+BEGIN_SRC c
+student jason, *jasonp;
+
+jason.name /*returns name*/
+jasonp->name /*also returns name*/
+#+END_SRC
+* <2015-09-10 Thu>
+** Pointer Arithmetic
+- Given pointer, P, to something of type T, P + i is identical to &P[i]
+  - P = an address, and i some = i.val * i.size. 
+
+Take home: Arrays are closely tied to pointers
+** Boolean Algebra
+And:
+| & | 0 | 1 |
+|---+---+---|
+| 0 | 0 | 0 |
+| 1 | 0 | 1 |
+
+Or
+| | | 0 | 1 |
+|---+---+---|
+| 0 | 0 | 1 |
+| 1 | 1 | 1 |
+
+Xor
+| ^ | 0 | 1 |
+|---+---+---|
+| 0 | 0 | 1 |
+| 1 | 1 | 0 |
+
+These are _bit-wise_ operations, so they are done on the bit level
+
+ 0110
+&1011
+-----
+ 0010
+
+** Byte Ordering 
+
+How are bytes within a multi-byte wrd ordered in memorY?
+*** Big Endian
+Least significant byte has the highest address
+*** Little Endian 
+x86 ARM, most significant byte  has the lowest address  
+* <2015-09-15 Tue>
+** Representing integers 
+- given n bits, we can represent 2^n values
+*** Overflow 
+when we have a result that doesnt fit in the n bits we have chosen
+- eg. using 4 bits: 0xF + 0x1
+  - 0xF = 1111
+  - 0x1 = 0001
+    - = 10000
+** Representing Negative Integers
+Three common Encodings
+*** Sign and magnitude 
+Don't use this because addition and subtraction are v diff from unsigned addition and subtraction
+*** Ones compliment 
+if integer k is represented by bits b_1 ...b_, then -k is represented by 11...11 - b_1..b_1
+- This is equivalent to just flipping the bits in k
+  - eg. 011 = 3 --> 100 = -3
+- the biggest bit is always the negated AND one is added to it (-2^(n-1) + 1) where n = num of bits
+  - 101 --> (-2^2 + 1) + 1 = -2 
+  - to representations of 0:
+    - 000 = 0
+    - 111 = 0
+*** Two's Compliment
+Very similar to ones compliment 
+- Difference: biggest bit is -2^(n-1), not -2^(n-1)  + 1 where n = num of bits
+  - 1011 = -2^3 + 2^0 + 2^1 = -5
+    - Biggest value = 0111 = 7, smallest value = 1000 = -8
+- How to convert positive int to negative:
+  - do ones compliment + 1 (flip bits and add 1) 
+  - e.g. 0110 --> 1001 + 0001 = 1010 = -6
+- Only one 0
+-  -1 always = 111111111...11
+**** Same implementation of arithmetic operations as unsigned numbers
+** Floating point representation
+*** Fractional binary numbers
+- 5 3/4 = 101.11 --> = 5 + 1/2 + 1/4
+- 2 7/8 = 10.111 = 2 + 1/2 + 1/4 + 1/8
+**** Limitations
+- Can only exactly represent numbers of the form x/(2^k)
+  - Other rational numbers have repeating bit representations
+*** encodeing
+Broken up into threee sections 
+                               | s (sign 1, or 0) | exp (unsigned int with a bias) | Frac |
+  
+* <2015-09-17 Thu>
+** Intel x86 Processor
+ x86-64, the standard architecture 
+** Architecture
+Also known as the instruction set architecture (ISA). 
+The part of the processor design that one needs to understand machine code
+*** Examples
+- Intel: x86, IA32, Itanium, x86-64
+- ARM: Used in almost all mobile phones 
+** Microarchitecture 
+Implementation of the architecture.
+- e.g. chache size and core frequency.
+** Code forms
+*** Machine Code
+Byte level programs that the processor executes
+*** Assembly code
+A text representation of machine code.
+** Structure
+*** Registers
+- Certain registers have certain conventions associated with them
+ - %rax for ex stores return values calculated by functions.
+- registers that start with "e" is the lower 32-bits ofa given register.
+- registers that start with "r" are a full 64 bits.
+memory on the CPU that is v small, but v fast 
+*** Memory
+- byte-adressable array
+- where the programs are stored.
+- Sends data to CPU based on address stored in the [[program counter]]
+
+*** Program counter
+A special type of register that points to next instruction to be executed 
+in [[memory]] (stores the address)
+*** Condition codes
+- Stores status information about most recent arithmetic or logical operation
+** Assembly characteristics
+- integer data of 1 (char), 2 (short), 4(int), or 8(long)
+  - pointers are untyped, just addresses.
+*** Operations
+- Perform arithmetic function on register or memory data 
+- Transfers data between memory and register
+- Transfer controls
+  - if statements, for ex
+* <2015-09-22 Tue>
+** Assembly Basics
+*** Moving data
+=movq source, dest= 
+- moves a copy of source to a destination register
+- source and dest are examples of [[operands]]
+NOTE: Cannot move a value from one memory location to another
+
+_Examples_
+- =movq $0x4, %rax= --> =temp = 0x;=
+- =movq $-147 , %rax)= --> =*p = -147;=
+- =movq %rax, %rdx= --> =temp2 =temp1;=
+- =movq %rax, (%rdx)= =*p = temp;=
+***** Operand types
+****** Immediate
+constant integer data 
+- denoted by prefixed "$"
+  - $0x400, $-533
+- Encoded by up to 4 bytes
+****** Register 
+- 16 in all
+- eg %rax
+- always prefixed byy "%"
+****** Memory
+- denoted by "()"
+- e.g. (%rax) 
+- treats whats inside parens register as an address and gets value at that address
+*** Instruction suffixes 
+Most assembly instructions take instructions
+- b (byte: 1 byte)
+- e (word: 2 bytes)
+- l (long word: 4 bytes)
+- q (quad word: 8 bytes)
+
+ex: =movb $-17, %al= 
+
+In general only the specific register or bytes are modified
+- NOTE: The exception being "l" which will 0 all the uper bits 
+*** Normal memory addressing modes
+All these things calculate MEMORY ADDRESSES to be accessed
+**** Normal (R) Mem[Re[R]]
+- R: register
+- Reg[R]: value at R (address)
+- Mem[Reg[R]]: value in memory at a address Reg[R]
+
+Equivalent to dereferencing a pointer in C!
+**** Displacement D(R) Mem[Reg[R] + D]
+- R: specifies start of memory address
+- D: Add D to value at R
+**** Indexed (R_b, R_i) Mem[Reg[R_b] + Reg[Reg_i]]
+ Calculates the memory address to be accessed by adding values stored at R_b and R_i 
+- R_b often spcifies a base memory address
+- R_i acts as the index
+  
+ =movq (%rcs, %rdx), %rax=
+
+Good for accessingchar arrays
+**** Scaled Index (R_b, R_i, s) Mem[Reg[R_b] + Reg[R_i]* s]
+ - s: the scaling factors
+ - Must be 1, 2, 4 , 8
+ - Allows to iterate through arrays containing vals >= 1 byte
+**** Most general form D(R_b, R_i, s) Mem[Reg[R_b] + Reg[R_i]* s + D]
+**** Adressing Practice
+- 0x8(%rdx) --> 0x8 + 0xf000 --> 0xf008
+- (%rdx, %rcx ) --> 0xf000 + 0x0100 --> oxf100
+- (%rdx, %rcx, 4) ---> 0xf000 + 4*0x0100 --> 0xf400
+** Arithmetic Instructions
+*** leaq Src, dest
+computes the address at src and stores it at dst
+
+* <2015-09-24 Thu>
+** Arithmetic operations
+*** ==instruct src,dest
+DEST SHOULD ALWAYS COME FIRST
+** Condition Codes
+*** Single bit registers
+**** CF (Carry flag)
+set when there's unsigned overflow
+**** ZF (zero flag
+ if t == 0
+**** SF (sign flag)
+t < 0
+**** OF (overflow flag)
+Same as CF but for signed numbers
+*** Explicitly set by compare instruction: =cmpq src1, src2=
+test b-a without changing dest
+*** Test instruction: test1 sc1, src2
+equivalent to a&b but does not change the destination
+*** SetX instruction
+- set low-order byte of destination to 0 or 1 based on combination of conditioned codes.
+- Does not alter remianing bytes
+*** movzbl 
+zeroes the upperlevel bytes (excluding the lowest order bytes)
+*** Register mnemonic 
+Diane Silk Dress Cost $89
+- rDi
+- rSi
+- rDx
+- rCi
+- r8
+- r9
+** Conditional Branching
+*** Jumping
+Jump to different part of the code depending on condition codes
+** Loops
+** Switch statement
+Allows you define multiple cases (sort of like conds)
+*** Jump table
+A bunch of addresses that match up with the case values of the switch function.
+- addresses lead to body of each case.
+*** Indirect jump
+=jmp *0xfff901= 
+- star designates that you should jump to the address at address 0xff901
+* <2015-09-29 Tue>
+COMPUTER DIES. MISSED SOME GOOD SHIT 
+* <2015-10-01 Thu>
+** Function calls
+When =callq= calls a function, it pushes its address on the stack so that when the embedded function
+returns, itll return to the next instruction after callq.
+** Function inputs 
+When you have more than 6 input arguments, the rest are pushed on the stack IN REVERSE ORDER. 
+- i.e. if you have 9 arguments, the 9th will be pushed first, than 8th, etc.
+** Register saving conventions
+Registers assigned specific values by the caller are pushed to the stack so that the callee
+can modify the contents of that register with impunity.
+- What if a certain value is not being modified? Will it still be pushed to the stack ? (inefficient)
+*** Caller saved registers
+ caller-saved registers are used to hold temporary quantities that need not be preserved
+ across calls.
+- For that reason, it is the caller's responsibility to push these registers onto
+ the stack if it wants to restore this value after a procedure call.
+*** Callee saved registers
+Holds long-lived values that should be preserved across calls.
+- rbx, r12-r14, rbp
+** Arrays
+=T A[L]=
+- Array of data type T and length L
+- contiguously allocated region of L* sizeof(T) byes of memory
+-"A"  by itself is an address
+- E.g. A --> 0x0ff0345
+
+*C does not care if you index thats not in the array!*
+- e.g. =int val[5];=
+  - =val[10]=
+*** Pointer arithmetic 
+ =int val[5];=
+- &val --> x
+  - val+1 --> x+4
+   because its an int array
+- 
+*** Multidimensional arrays 
+Syntax =int A[R] [C];=
+**** Row-major order
+Rows are laid out in memory sequentially 
+- eg  |Row 1|Row 2|Row 3| etc.|
+- =A[1] [2];= == row 2, column 3
+**** Nested Array Access
+*** Multilevel array
+An array of pointers to other arrays
+**** Multilevel array access
+Accessed the same as a nested array
+- first index location of the correct pointer
+- then you access the correct element at the pointer location
+
+** Structure Representation
+- represented as a block of memory
+- fields ordered according to decleration
+** Structures and alignments
+Inefficient to load or store datum that spans quad word boundaries 
+- Therefore alignment rules are enforced for efficiency
+*** Aligned data
+A primitive data type of K bytes must have an address that is a multiple of K
+- In order to accomplish this, sometimes the compiler adds byte "padding" between fields of a structure.
+- Entire struct needs to be aligned properly as well
+*** You can save space (minimize padding) by putt largest data types first in struct.
+* <2015-10-06 Tue>
+** Buffer Overflow
+When exceeding the memory size allocated for an array
+- #1 technical cause of security vulnerabilities 
+  
+Overflowing the buffer will overwrite return address to a function. This means that you overtly change the return 
+address to e your malicious code and reek havoc.
+*** Most common forms
+Unchecked lengths of string inputs
+*** Avoiding Buffer Overflows
+- Use library routines that limit string lengths
+**** System level protection
+***** Randomized stack offsets
+***** Nonexecutable code segments
+Can designate regions of the stack as nonexecutable 
+***** Stack canaries
+- Places a special value between stack and return address.
+- Checks to see if the value has changed after function calls.
+- If it does change, throws an error.
+* Y86-64  <2015-10-20 Tue>
+** Registers
+15 registers (omit %r15). Each 64 bits
+** Condition codes
+- ZF: Zero flag
+- SF: Negative
+- OF: Overflow
+** Program Counter 
+- Indicates address to next instruction
+** Memory
+- [[Little endian]] ( lowest order byte has lowest address)
+** Instructions 
+- The byte-size of instructions differ from instruction to instruction (1-10 bytes).
+- All 15 registers can be encoded in 4 bits. Each number corresponds to a register.
+- Immediates always 8 bytes.
+** Encoding Registers
+- Each reister has a corresponding 4-bit ID
+- 0xf corresponds to no register (because there are 15 registers)
+  - This is used for example, when moving an immediate into a register (there is no source register, so 0xf is used).
+** Stack
+- Equivalent to x86 stack
+- Stack grows down
+- rsp always points to top of the stack
+** Subroutine call and return 
+- Push address of next intrsuction on the stack (when calling a function)
+- Start executing a functions
+** Status conditions 
+*** Code 1: AOK
+normal operation
+*** Code 2: Halt
+Halt instruction encountered
+*** Code 3: ADR
+Bad address encountered (e.g. out of range) 
+*** Code : INS
+Invalid instruction encountered 
+** CISC Instruction Sets
+- Complex instruction set computer
+- x86-64 is an example
+*** Many specfic, complex instructions
+*** Stack-oriented 
+*** status code
+** RISC Instruction Sets
+- Reduced instruction set computers
+***  Fewer simpler instructions
+*** Resgister-oriented
+q
+
+* Circuit and CPU Design<2015-10-22 Thu>
+** FPGA
+A reprogrammable chip.
+- Can litterally download the circuit design onto it (and gates, or gates, etc)
+** Nand gate
+an and with a not gate at the end
+- known as a universal gate because it can be used to build any other gate.
+** Rising and Failling Delay
+Delay between gate recieving inputs and the gatre outputting appropriately.
+** Acyclic Netwrok of Logic Gates
+Circuit should have no cycles 
+** Hardware Control Language (HCL)
+Simple hardware description language
+- can be then be translated easily into hardware
+** Bit-level multiplexor
+Three inputs, s, a, and b
+- s decides whether a or b will be the output
+  - s is a "switch"
+** Arithmetic Logic Unit (ALU)
+- Combinitational Logic
+  - Continuously responding to input
+- Control signal selects function computed by ALU
+  - In Y86, the first bit in machine code instruction is this control signal 
+** Storing 1-bit
+*** Bistable element
+- A cyclic circuit that essentially sends a signal through two not-gates, resulting
+in the original signal back at origin point.
+- cycles through the circuit bring the signal closer to 0 or 1
+*** R-S latch
+-contains a bistable element
+*** Edge-triggered latch
+Creates a synchronization barrier
+- i.e. data can only be saved on the rising edge of the clock (clocks vascillate btw 1 and 0)
+** Random Access Memory
+** Hardware Control Language (HCL)
+** SEQ Stages 
+*** Fetch 
+Reads instruction from Program Counter
+*** Decode
+Read program registers
+- rA -->valA
+- rB-->valB
+*** Execute
+Compute value or address
+- Computes valE
+*** Memory
+Read or write memory (optional)
+*** Write Back
+Write program registers
+*** PC
+Updates program counter
+** Instruction Decoding
+*** Format
+- Instruction byte icode:ifun
+- Optional register byte
+
+* Pipelined Implemention <2015-11-03 Tue>
+** Basic Idea
+- Divide process into independent stages
+- multiple objects being processed at different stages
+** Throughput
+- Number of objects processes per unit time
+** Latency
+Time it takes to process a single object
+
+** 3-way pipelines version
+Break up computation into 3 stages. Save each stage at a register.
+- This allows the first stage, for example, to do more computations more quickly, because it has been freed up by the register
+- Results in much larger throughput, but higher latency
+
+** Limitations
+*** Nonuniform Delays
+- Throughput limited by slowest stage
+- Other stages then sit idle for a lot of time
+- Difficult to partion system into balanced system
+*** Register overhead
+As you try to deepen the pipeline (add more stages), the writing to registers becomes more significant
+- Therefore pipelining is limited by the write speed of the registers.
+** Data Dependency 
+If operations in stage A depend on results of stage C, stage A depends on C
+- Therefore pipeline needs to handle this properly, or risk getting the computaton wrong
+** Pipline architure stuff
+*** S_field
+ Value of field held in stage S pipeline registers
+*** s_field
+Value of field computed in stage S
+** Feedback path
+Anywhere that a particular value goes back to a particular stage
+** PC prediciton strategy
+*** Instructions that dont transfer control
+- Predict next PC to be valP
+- always reliable
+*** Call and Unconditional jumps
+- Predict next Pc to be valC
+** Stalling for data dependencies 
+*** Bubble
+If instruction follows too closely after one that writes to a register, slow it down.
+- hold instruction in decode
+- dynamically inject nop into execute stage
+- stalled instruction is held in DECODE stage
+- Sucessive instructions held in the FETCH stage
+** Implementing Stalling
+** Data forwarding 
+ValE or ValM have been calculated in EXECUTE stage, but have yet to be written to a register 
+- Therefore, therefore the write stage can be bypassed, by forwarding these values to earlier stages if they need them
+- eliminates the need fro nops and bubbles
+*** Priority
+If for some reason there are multiple choices, the earlies stage has priority (EXECUTE has highest priority)
+*** Limitation 
+When a register that gets its value from a memory location, and a following instruction needs the value in the registers
+- have to wait to the memory stage to get the value
+- need a bubble
+-
+
+** Control Hazards
+*** Missed Prediction
+When a coditional jump is executed is executed prematurally 
+- Fixed by replacing instructions in decode and execute stages with bubbles.
+- instructions effectively cancelled.
+- Waste two cycles
+*** Return
+Return address is saved on the stack, so need to wait till MEMORY stage is complete
+- solved by simply placing a few bubbles until address is retrieved.
+- Waste 3 cycles
+*** Load/use 
+When we retrieve something from memory and the destination of this call is being used as the source in the next call
+** Control conditions
+Can have combnations of hazards
+- Combination A
+  - jump in the EXECUTE stage and a return in the Decode
+ - Combination B
+   - loading is in EXECUTE stage and a return in the DECODE stage (use)
+** Exceptions
+*** Causes
+- Halt instruction
+- Bad address for instruction for data
+- Invalid Instruction 
+*** Detection
+ Sometimes an exception will be detected but it shouldnt be triggered
+*** Maintaning exception ordering
+- Add status field to pipeline register
+Set by FETCH:
+- AOK: ok 
+- ADR: when bad fetch address
+  Also set by MEMORY
+- HLT: Halt instruction
+- INS: Illegal instruction
+*** Avoiding sideeffects
+- Invalid inst. are converetd into bubbles
+** Performance Metrics
+*** Clockrate 
+- Measured in GhZ
+*** Rate at which instructions executed
+- CPI: cycles per instruction
+  - on avergae, how many clock cycles does each instruction recquire?
+- in PIPE architecure we want as close to 1 instuct. per clock cycle.
+* Memory hierarchy <2015-11-17 Tue>
+** RAM
+Is "random" because you can access any byte in any order
+- Baisc unit of storage is a cell
+  - 1 bit = 1 cell
+  - multiple chips form memory
+** SRAM (Static RAM)
+- 6 transitors per bit
+- Very stable, no leakage
+- Very fast
+- More expensive 
+** DRAM (Dynamic RAM)
+One transistor per bit
+- can have much larger memory per cost
+- Charge stored on a capicitor, which will leak after a while
+  - Therefore the controller has to habitually read entier memory and refresh memory
+** Nonvolatile Memory 
+- SRAM and DRAM are volatile memory
+  - Will lose data if powered off
+*** Read-only memory (ROM)
+Code is hardcoded into the circuitry of the chip.
+- Thus, it is nonvolatile and will never change
+*** Flash memory
+- Electrically erasbale programmable ROM, with partial erase capability.
+  - Wears out after 100,000 erasings
+** Memory Read Transaction
+** Harddisk Geometry
+- Disk consists of platters eachwith two surfaces
+- Each track consists of multiple tracks (concentric circles)
+- Each track is divided into sectors, which are the basic unit of the disk
+** Disk access time
+- Average time to access some target sector:
+  - T_access = T_avg_seek + T_avg_rotation + T_avg_transfer
+- Seek time for head is biggest limiting factor
+- At 7200 RPM, T_access = 13.02ms
+- SRAM takes about 4ns to access a 4-bit word
+** SSD
+- Organized into pages and blocks
+  - Page: 512-4kbs
+  - Blocks: 32-128 pages
+  - data read/written in units of pages
+- Reads much faster tahn HDD
+- Erasing takes long though
+
+* Caches <2015-11-19 Thu>
+** Memory hierarchy 
+Registers at the top, the fastest memory
+- L1 cache acts as cache for regs
+- L2 cache acts as chache for L1
+- L3 cache acts as cache for L2
+** Cache
+A smaller faster storage device that acts as a stagining area for a subset 
+of the data in a larger, slower device
+** General cache concepts
+*** Hit
+When a data block is requested, and said blokc happens to be in the cahce
+*** Miss 
+When a data block is requested, but the block is in main memory, not in a cahce.
+- needs to be transfered to cache
+**** Cold miss
+Occurs because the chace is empty (youve just turned on ypur computer)
+**** Conflict miss
+Space available in the cache, but because a particular block has restrictions on where it can go, you miss
+** Cache organiztion
+*** Lines
+lines are blocks plus a little bit of record keeping data
+- 2^e lines per set
+*** Sets
+Lines are organized in groupings called sets
+- 2^s sets
+*** Cahce size 
+C = S x E x B
+- C - cache
+- S - number of sets
+- E - number of lines per set
+- B - block size
+** Cache Read
+*** Tag bits
+unique indentifier for a line
+- How blocks are located
+*** Set index
+the particular set the data is at
+-helps locate the correct set
+*** Block offset
+- how many bits within the block the particular piece of data is located in
+*** Valid bit
+a boolean that denotes whether a block is valid memory
+- if 0, then theres a miss
+** 2-way associative cache
+*** Match
+- Set-bits identify the set where the block should be
+- tag-bits uniquely identify lines in the set (in this case there are two lines per set)
+- block offset indeicates which byte in the block to start reading at
+*** No match
+- One line is selected for eviction
+  - Evict the one that was accessed the least/least recently (LRU)
+    - Would need to increase non-block field in a line that keeps time
+  - Randomly select
+** Cache write
+*** Write-hit
+**** Write-through
+Write immediately to corresponding memory location
+- extremely slow if memory in cache is constantly being manipulated
+**** Write-back
+defer write to memory until replacement of line
+- This is useful when you are constantly updating a piece of data in the cache
+***** Dirty bit
+an extra bit in a line to denote if a block has been modified
+- If yes, then memory needs to be updated before eviction.
+- if no, then no memory update
+*** write-miss
+**** write-allocate
+load into cache, update line in cache
+**** No-write-allocate
+Writes directly to memory
+** Cache performance metrics
+*** Miss rate
+- miss/accesses
+- 3-10% for L1
+- <1% for L2
+In terms of average access time 99% hit rate is TWICE as good as  97% miss rate
+*** Hit Time 
+Time to deliver a line in the cache to the processor
+*** Miss penalty
+Additional time recquired because of miss
+  
+* Virtual memory <2015-12-01 Tue>
+** Physical addressing
+CPU puts memory address of memory of interest on memory bus to main memory
+-Memory is sent back to CPU 
+** Memory management unit (MMU) 
+Takes a virtul address from CPU and maps it to a physical address
+- presents the illusion to the program that the program has free-reign of
+all of main memory
+- This is why disassembled code has the the same hex adresses every time its dissassembled
+** Address space
+*** Linear address space
+Ordered set of contiguous nonnegative addresses
+- {0, 1, 2...}
+*** Virtual address space
+Set of N=2^n virtual addressing
+- In a 64 bit comp n = 64
+- {0, 1, 2, 3 ... n-1}
+*** Physical address space
+Set of M = 2^m physical addresses 
+- How much memory you ACTUALLY have in comp
+** Why virtual memory
+- conceptually virtual memory sits on disk 
+- DRAM as a cache for parts of virtual address space
+- Each process gets the same uniform linear address space
+** VM caching 
+- VM cached by DRAM
+- VM partioned into pages
+- A page in VM can be cached or uncached
+  - If cached, then there is a corresponding physical page in DRAM
+  - If uncached, then data is still on the disk
+** DRAM cache organization 
+*** DRAM cache organization
+Enormous miss penalty because pulling from disk
+*** Consequences
+- large page size: typically 4-8kb, sometimes 4mb
+- Fully associative (essentially a cache with one set)
+  - any VP can be placed in any PP
+- Write-back rather than write-through
+** Page table 
+An array of page table entries (PTEs) that maps virtual pages to physical pages
+- Each entry has a valid bit
+  - If 1, entry points to a physical page in memory
+  - If 0, it may have a address pointing to the disk
+- Lives in DRAM
+- O(1) time because its an array access,
+*** Page hit
+Reference to a VM word that is in memory (DRAM cache hit)
+- Virtual address is partioned into two sections
+  - first part acts as an index into page table
+  - last few bits act as offset into that page
+  - valid bit is set to 1
+*** Page fault
+
+Reference to a VM word that is not in phsyical memory (DRAM cache miss)
+- Address is in page table but valid bit is 0
+  - therefore data is on disk and not in DRAM
+  - ergo some page needs to be evictedfrom DRAM and written to disk
+  and new page needs to be cached
+*** Multileveld Page Table
+Need multileveled page table or else memory recquired would be huge
+- Have the PTEs in min PT point to other page tables, that themselves have data
+  - This allows you to pull in pages more efficiently.  
+** Memory protection
+Page table entries (PTEs) have permission bits
+- bits cooresponding to:
+  - SUP: kernel code
+  - READ
+  - WRITE
+  - EXECUTE
+** Address translation
+- Maps virtual address space to physical address space unioned w null space
+*** Basic parameters 
+- N: 2^n number of addresses in V
+- M = 2^m number of addresses in P
+- P = 2^p page size
+*** Components of a VA
+- TLBT (TLB tag)
+  -  which page in in the set?
+- TLBI (TLB index)
+  - which set in the TLB?
+- VPO: virual page offset (p bits)
+  - index into the page itself (which byte of memory do we want?)
+- VPN: Virtual page number  (n-p bits)
+  - index into page table
+*** Components of a PA
+- PPO: Physical page offset (p bits)
+- PPN: Physical page number (m-p bits)
+*** Address translation within a Page Table
+*** Translation lookaside buffer (TLB)
+- A special cache for MMU
+- caches page table entries
+- Generally few TLB misses
+  - due to locallity
+    - Each page refers to a 4k piece of memory 
+so it pulls in a lot of data. 
+** 

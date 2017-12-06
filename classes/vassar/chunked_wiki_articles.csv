@@ -1,0 +1,213 @@
+ARTICLE: Venture Stores  Best Noun: Stores   TYPE:  facility
+--LINKS:
+Advertising slogan,slogan,event
+Ames (discount stores),discount,event
+Bankruptcy,status,event, 1,1
+Burlington Coat Factory,burlington,location, 1,2
+"Chapter 11, Title 11, United States Code",chapter,organization,2,1
+Chicago,city,location,3,2
+"Corsicana, Texas",city,location,4,3
+"Davenport, Iowa",Cities,location,5,4
+Department store,establishment,organization,6,5
+Home Depot,home,structure,6,6
+Icee,company,organization,7,7
+Jewel (supermarket),supermarket,structure,8,7
+John F. Geisse,businessman,person,9,8
+John Geisse,businessman,person10,9
+Julian Seeherman,Seeherman,U
+"Kansas City, Kansas",city,location,11,10
+Kmart,discount,event
+Kohl's,kohl,medium
+May Department Stores,store,facility,12,10
+Missouri,state,location,13,11
+New York Stock Exchange,exchange,location,13,10
+"O'Fallon, Missouri",city,location1
+"Overland, Missouri",city,location15,12
+Retail chain,chain,organization,16,13
+Retail stores,stores,facility,17,14
+Retailer,retailer,person,18,14
+Robert Wildrick,robert,person,18,15
+ShopKo,stores,facility,19,15
+Slogan,phrase,concept,20,16
+St. Louis,st.,U
+Target Corporation,retailer,person,21,16
+Texas,state,location,22,17
+The Museum of Classic Chicago Television,museum,facility,22,17
+Ticker symbol,abbreviation,event,23,18
+Turn Style,discount,event,23,19
+Types of business entity,entity,U,24,19
+United States Department of Justice,department,feature,25,19
+Venture (department store),discount,event
+Wal-Mart,corporation,organization,26,20
+Zayre,discount,event
+Correct NEs: 26
+Correct classifications: 20
+Total num of links: 40
+================================================
+--LINKS:
+Bosnia and Herzegovina,country,organization,1,0
+Central European Summer Time,time,time,2,1
+Central European Time,time,time,3,2
+Coordinated Universal Time,standard,money
+Daylight saving time,clocks,plant
+Geographic coordinate system,system,concept,4,3
+Municipalities of Republika Srpska,municipalities,location,5,4
+Political divisions of Bosnia and Herzegovina,divisions,concept,6,5
+Republika Srpska,Srpska,U
+Serbian Cyrillic language,adaptation,event
+Time zone,region,location,6,6
+Village,community,organization
+Correct NEs: 6
+Correct classifications: 6
+Total num of links: 13
+================================================
+ARTICLE: Liborio Bellomo  Best Noun: boss   TYPE:  structure
+--LINKS:
+116th Street Crew,crew,organization,1,1
+Adolfo Bruno,mobster,person,2,2
+Affidavit,fact,concept,2,3
+Alan Longo,caporegime,U
+Albert Facchiano,mobster,person,3,4
+Albert Gallo,Gallo,U
+Alphonse Malangone,caporegime,U
+American Mafia,society,organization,4,5
+Angelo DeCarlo,member,organization,5,5
+Angelo Ponte,angelo,U
+Angelo Prisco,mobster,person,6,6
+Anthony Antico,captain,person,7,7
+Anthony Carfano,gangster,person,7,7
+Anthony Federici,Queens,animal
+Anthony Provenzano,Caporegime,U
+Anthony Russo (mobster),figure,concept,8,7
+Anthony Salerno,mobster,person,9,8
+Anthony Strollo,mobster,person,10,9
+Antonio DiLorenzo,boss,structure,11,9
+Apalachin Meeting,summit,location,12,9
+Athan Theoharis,historian,person,13,10
+Atlantic City Conference,leaders,person,13,11
+Attilio Bitondo,associate,person,14,12
+Bagman,person,person,15,12
+Bonanno crime family,family,organization,16,13
+Boss (crime),charge,person
+Broadway Mob,gang,organization,17,14
+Bufalino crime family,family,organization,18,15
+Buffalo crime family,family,organization,19,16
+Bugsy Siegel,mobster,person,20,17
+Bumpy Johnson,bookmaker,person,21,18
+Capo di tutti capi,capi,U
+Caporegime,term,concept,22,19
+Carmine Romano,captain,person,23,20
+Castellammarese War,control,concept,23,21
+Charles Tuzzo,mobster,person,24,22
+Chicago,city,location,25,23
+Chicago Outfit,syndicate,organization,26,24
+Ciro Terranova,underboss,person,27,25
+Cleveland crime family,family,organization,28,26
+Colombo crime family,Families,organization,29,27
+Consigliere,position,location,30,27
+Crime family,unit,organization,31,28
+Dallas crime family,family,organization,32,29
+Daniel Leo (mobster),boss,structure,33,29
+Daniel Pagano,caporegime,U
+DeCavalcante crime family,family,organization,34,30
+Denver crime family,family,organization,35,31
+Detroit Partnership,family,organization,36,32
+Dominick Canterino,caporegime,U
+Dominick Cirillo,member,organization,37,33
+Double cousin,child,person,38,34
+East Coast of the United States,coastline,location,39,35
+East Harlem Purple Gang,hit-men,U,40,35
+Ernest Rupolo,hitman,person,41,36
+Ernest Varacalli,Varacalli,U
+Federal Bureau of Investigation,service,organization,42,37
+Federal Bureau of Prisons,law,concept
+Feud,fight,event,43,38
+Five Families,Families,organization,44,39
+Florida,state,location,44,40
+Frank Costello,boss,structure,45,40
+Frank Illiano,capo,person,46,41
+Frank Lucas (drug dealer),dealer,organization,47,41
+Frank Tieri (mobster),mobster,person,48,42
+Frankie Yale,employer,person,49,43
+French Connection,scheme,concept,50,44
+Gambino crime family,family,organization,51,45
+Genna crime family,family,organization,52,46
+Genovese crime family,family,organization,53,47
+Genovese crime family New Jersey faction,mobsters,person,54,48
+Gerard Pappa,gerard,U
+Gerardo Catena,member,organization,55,49
+Giuseppe Morello,boss,structure,56,49
+Glossary of Mafia-related words,words,concept,57,50
+Grand Hotel des Palmes Mafia meeting 1957,meeting,organization,58,50
+Greenwich Village Crew,crew,organization,59,51
+Havana Conference,meeting,organization,60,52
+Ignazio Lupo,leader,person,61,53
+Informant,person,person,62,54
+James Galante,associate,person,63,55
+James Ida,consigliere,U,64,56
+James Napoli,mobster,person,65,57
+Joe Adonis,mobster,person,66,58
+Joe Masseria,Boss,structure,67,59
+John Ardito,caporegime,U
+John Barbato,captain,person,68,60
+John DiGilio,john,structure
+Joseph Galizia,mobster,person,69,61
+Joseph Lanza,member,organization,70,61
+Joseph Luco Pagano,member,organization,71
+Joseph Rao,mobster,person,72,62
+Joseph Valachi,member,organization,73
+Kansas City crime family,family,organization,74,63
+La Guardia Airport,airport,facility,75,64
+Lawrence Dentico,captain,person,76,65
+Lawrence Ricci,caporegime,U,77
+Lewis A. Kaplan,Judge,person,78,66
+List of Italian American mobsters,mobsters,person,67
+List of Italian American mobsters by organization,list,event,79,67
+List of Mafia crime families,crime,event,68
+Los Angeles crime family,organization,organization,80,68
+Louis DiNapoli,soldier,animal,81,68
+Louis Gigante,priest,personm,82,68
+Louis Manna,consigliere,U,83
+Lucchese crime family,family,organization,84,69
+Lucky Luciano,mobster,person,85,70
+Made man,term,concept,86,71
+Mafia-Camorra War,war,event,87,71
+Mafia Commission Trial,mafia,organization,72
+Mafia bibliography,bibliography,event,88,72
+Mafia initiation ritual,initiation,event,89,73
+Mario Gigante,mobster,person,90,74
+Matthew Ianniello,mobster,person, 91,75
+Meyer Lansky,figure,concept,92,76
+"Michael ""Trigger Mike"" Coppola",mobster,person,93,77
+Michael Clemente,mobster,person,94,78
+Michele Miranda,consigliere,U,95
+Midwestern United States,midwestern,U
+Mikey Coppola,captain,person,96,79
+Milwaukee crime family,family,organization,97,80
+"Murder, Inc.",murder,event,81
+Mustache Pete,name,organization,98
+New England,area,structure,99,81
+New Jersey,state,location100,82
+New Orleans crime family,family,organization,1,83
+New York City,city,location2,84
+Nicholas Morello,nicholas,concept
+Nunzio Provenzano,soldier,animal,3
+Patriarca crime family,family,organization,4,84
+Pennsylvania,state,location,5,85
+Peter DeFeo,mobster,person,6,86
+Peter LaTempa,associate,person,7,87
+Philadelphia,city,location,8,88
+Philadelphia crime family,organization,organization,9,89
+Philip Lombardo,boss,structure,10
+Phillip Kastel,mobster,person,11,90
+Pietro Inzarillo,figure,concept,12
+Pittsburgh crime family,family,organization,13,91
+Pizza Connection Trial,pizza,person
+Polygraph,polygraph,medium,92
+Racket (crime),service,organization,14,92
+Racketeer Influenced and Corrupt Organizations Act,law,concept,15,93
+Ralph Coppola,boss,structure,16,
+Correct NEs: 116
+Correct classifications: 92
+Total num of links: 178
+================================================

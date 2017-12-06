@@ -1,0 +1,39 @@
+
+#+LaTeX_CLASS: article
+#+OPTIONS: ':nil *:t -:t ::t <:t  \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:nil todo:t |:t
+#+TITLE: One Culture HW 5
+#+DATE: \today
+#+AUTHOR:Jake Brawer
+#+EMAIL: jabrawer@vassar.edu
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.1)
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+#+LATEX_HEADER: \usepackage[margin=2.54cm]{geometry}
+
+* Scheer
+- "Meaning is no longer immanent in geometry; it has devolved into an instrument for describing form" (72)
+- "The origin of architectural ideas is not purely intellectual or visual but also haptic, i.e. eminating from our embodied perception" (pg 74)
+- "The qualities of drawing media have profound effects on the experience of drawing and thereby on the architect' design process.." (pg 75)
+- "At every stage of a project, drawing gives the architecyt control of the folwo of information and thus the abilit to see the integrity of the design intent throughout the process" (98)
+  - Drawing gave architect power through knowledge/ability
+    - architects are losing power
+    - "Technical matter in which the architect is usually not an expert exerts a greater influence" (98)
+    - *DOES THIS MATTER*
+      - No more "coherent design intent" (pg 99)
+
+** Is it bad that simulation is overtaking representation?
+** TODO Can the deficiencies w computers be overcome w better tech?
+-"computers seem to lack many of the characteristics of drawing that has made it so fundimental for architectural design." (pg 82)
+
+
+* TODO Essay
+
+While Schreer did a good job of making me sympathetic to his plight, i.e. that the architect, and thus meaningful architectural projects with a unified vision, was being replaced by computation. Indeed, his argument was reminiscent of Weiseltier's assertion that art-science consilience would only result in the cannibalization of the arts by the sciences. However, one has to wonder if the "death" of drawing actually matters to anyone besides architects? Assuming for the moment that both computational and traditional methods can produce equally beautiful designs in the eyes of the public (I realize this is a very big assumption; this may not be the case at all), why does it matter that buildings no longer carry any symbolic content? Were the majority of people even cognizant of this representational aspect of architecture? More broadly, who does consilience really affect? If science does indeed end up canabilizing art, will this radically affect culture, or just artists?
+
+One has to wonder also if the loss of expressiveness of architecture as a result of computational methods is a /fait accompli/ or something that can be remedied with more advanced technology. That is current architectural software privileges performative aspects of design over form. However, one could imagine that in the near future software could exist that better integrates the two. For example, this software could, for example could dynamically could provide performative evaluations to a sketch inputted by the user (perhaps using some type of CAD/sketching software). Though not perfect, this type of software would retain some of the representational aspects of traditional architecture, but with the added pragmatic benefits of the computational approach. Indeed technologies like Microsoft's Hololens or the Oculus Rift already provide tools that allow individuals to actually sketch images in a three-dimensional virtual (or augmented reality) space, providing an embodied design processes unmatched by traditional pen-and-paper drawing. I thinks this ties in to the distinction we have been making between vertical and horizontal consilience. The type of consilience Schreer seems to be documenting, and the type Weiseltier seems to fear, is some type of vertical consilience. That is, the current architectural epistemology with its emphasis on performance is inherently grounded in things like math and physics; its bottom-up rather than top down. The software I have just proposed here as a thought experiment would be more akin to horizontal consilience in the sense that 

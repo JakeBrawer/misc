@@ -1,0 +1,223 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007"
+Relation:     tweets-sentiment-weka.filters.unsupervised.attribute.NumericToNominal-Rfirst-last
+Instances:    10989
+Attributes:   20
+              First_person_pronouns
+              Second_person_pronouns
+              Third_person_pronouns
+              Coordinating conjunctions
+              Past_tense_verbs
+              Future_tense_verbs
+              Commas
+              Positive_words
+              Negative_words
+              Colon_semi-colon_ellipsis
+              Dashes
+              Parentheses
+              Common_nouns
+              Proper_nouns
+              Adverbs
+              Wh_words
+              Modern_slang_acronyms
+              Upper_case
+              Average_token_length
+              Sentiment
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: 0, 4
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.4663 * (normalized) First_person_pronouns=0
+ +       0.4655 * (normalized) First_person_pronouns=1
+ +       0.4653 * (normalized) First_person_pronouns=2
+ +       0.4645 * (normalized) First_person_pronouns=3
+ +       0.4614 * (normalized) First_person_pronouns=4
+ +       0.2011 * (normalized) First_person_pronouns=5
+ +      -1.524  * (normalized) First_person_pronouns=6
+ +      -1      * (normalized) First_person_pronouns=7
+ +      -0.0025 * (normalized) Second_person_pronouns=0
+ +       0.002  * (normalized) Second_person_pronouns=1
+ +       0.0024 * (normalized) Second_person_pronouns=2
+ +       0.0005 * (normalized) Second_person_pronouns=3
+ +      -0.0024 * (normalized) Second_person_pronouns=4
+ +       0      * (normalized) Second_person_pronouns=5
+ +      -0.0017 * (normalized) Third_person_pronouns=0
+ +      -0.0013 * (normalized) Third_person_pronouns=1
+ +       0.0005 * (normalized) Third_person_pronouns=2
+ +      -0.0011 * (normalized) Third_person_pronouns=3
+ +       0.0029 * (normalized) Third_person_pronouns=4
+ +       0.0007 * (normalized) Third_person_pronouns=5
+ +      -0.0002 * (normalized) Coordinating conjunctions=0
+ +      -0.0005 * (normalized) Coordinating conjunctions=1
+ +      -0.0001 * (normalized) Coordinating conjunctions=2
+ +       0.0012 * (normalized) Coordinating conjunctions=3
+ +      -0.0004 * (normalized) Coordinating conjunctions=4
+ +       0.5015 * (normalized) Past_tense_verbs=0
+ +       0.5005 * (normalized) Past_tense_verbs=1
+ +       0.4973 * (normalized) Past_tense_verbs=2
+ +       0.5003 * (normalized) Past_tense_verbs=3
+ +       0.4948 * (normalized) Past_tense_verbs=4
+ +      -1.4943 * (normalized) Past_tense_verbs=5
+ +      -1      * (normalized) Past_tense_verbs=7
+ +      -0.0711 * (normalized) Future_tense_verbs=0
+ +      -0.0691 * (normalized) Future_tense_verbs=1
+ +      -0.0608 * (normalized) Future_tense_verbs=2
+ +       0.2011 * (normalized) Future_tense_verbs=4
+ +      -0.3355 * (normalized) Positive_words=0
+ +      -0.3324 * (normalized) Positive_words=1
+ +      -0.3304 * (normalized) Positive_words=2
+ +      -0.3279 * (normalized) Positive_words=3
+ +      -0.3282 * (normalized) Positive_words=4
+ +       1.6543 * (normalized) Positive_words=5
+ +       0      * (normalized) Positive_words=6
+ +      -0      * (normalized) Positive_words=7
+ +       1.711  * (normalized) Negative_words=0
+ +      -0.2845 * (normalized) Negative_words=1
+ +      -0.2869 * (normalized) Negative_words=2
+ +      -0.2862 * (normalized) Negative_words=3
+ +      -0.2892 * (normalized) Negative_words=4
+ +      -0.2868 * (normalized) Negative_words=5
+ +      -0.2774 * (normalized) Negative_words=7
+ +      -0.0003 * (normalized) Colon_semi-colon_ellipsis=0
+ +      -0.0003 * (normalized) Colon_semi-colon_ellipsis=1
+ +       0.003  * (normalized) Colon_semi-colon_ellipsis=2
+ +      -0.0024 * (normalized) Colon_semi-colon_ellipsis=3
+ +      -0.2519 * (normalized) Dashes=0
+ +      -0.2515 * (normalized) Dashes=1
+ +      -0.2478 * (normalized) Dashes=2
+ +      -0.2488 * (normalized) Dashes=3
+ +       1      * (normalized) Dashes=4
+ +      -0.2533 * (normalized) Parentheses=0
+ +      -0.2488 * (normalized) Parentheses=1
+ +      -0.2517 * (normalized) Parentheses=2
+ +       1      * (normalized) Parentheses=3
+ +      -0.2462 * (normalized) Parentheses=4
+ +      -0.001  * (normalized) Common_nouns=0
+ +      -0.0014 * (normalized) Common_nouns=1
+ +      -0.0007 * (normalized) Common_nouns=2
+ +      -0.0018 * (normalized) Common_nouns=3
+ +      -0.0009 * (normalized) Common_nouns=4
+ +      -0.0011 * (normalized) Common_nouns=5
+ +      -0.0009 * (normalized) Common_nouns=6
+ +       0.0006 * (normalized) Common_nouns=7
+ +      -0.0013 * (normalized) Common_nouns=8
+ +       0.002  * (normalized) Common_nouns=9
+ +       0.0037 * (normalized) Common_nouns=10
+ +       0.0027 * (normalized) Common_nouns=13
+ +      -0.0024 * (normalized) Proper_nouns=0
+ +      -0.0016 * (normalized) Proper_nouns=1
+ +      -0.0012 * (normalized) Proper_nouns=2
+ +      -0.0003 * (normalized) Proper_nouns=3
+ +      -0.0008 * (normalized) Proper_nouns=4
+ +       0.0012 * (normalized) Proper_nouns=5
+ +      -0.0006 * (normalized) Proper_nouns=6
+ +      -0.0028 * (normalized) Proper_nouns=7
+ +       0.0022 * (normalized) Proper_nouns=8
+ +       0.0062 * (normalized) Proper_nouns=9
+ +       1      * (normalized) Proper_nouns=10
+ +      -1      * (normalized) Proper_nouns=15
+ +       0.2021 * (normalized) Adverbs=0
+ +       0.201  * (normalized) Adverbs=1
+ +       0.1999 * (normalized) Adverbs=2
+ +       0.1988 * (normalized) Adverbs=3
+ +       0.1981 * (normalized) Adverbs=4
+ +       0      * (normalized) Adverbs=5
+ +       0      * (normalized) Adverbs=6
+ +      -1      * (normalized) Adverbs=7
+ +       0.0007 * (normalized) Wh_words=0
+ +       0.0006 * (normalized) Wh_words=1
+ +      -0.0025 * (normalized) Wh_words=2
+ +       0.0012 * (normalized) Wh_words=3
+ +      -0.002  * (normalized) Modern_slang_acronyms=0
+ +      -0.0011 * (normalized) Modern_slang_acronyms=1
+ +      -0.0002 * (normalized) Modern_slang_acronyms=2
+ +       0      * (normalized) Modern_slang_acronyms=3
+ +       0.0033 * (normalized) Modern_slang_acronyms=4
+ +       0.0759 * (normalized) Upper_case=0
+ +       0.077  * (normalized) Upper_case=1
+ +       0.0764 * (normalized) Upper_case=2
+ +       0.0768 * (normalized) Upper_case=3
+ +       0.0749 * (normalized) Upper_case=4
+ +       0.0721 * (normalized) Upper_case=5
+ +       0.0765 * (normalized) Upper_case=6
+ +       0.0761 * (normalized) Upper_case=8
+ +       0.0797 * (normalized) Upper_case=9
+ +       0.0805 * (normalized) Upper_case=10
+ +      -1.9155 * (normalized) Upper_case=11
+ +       2.0738 * (normalized) Upper_case=12
+ +       0.0758 * (normalized) Upper_case=19
+ +      -1      * (normalized) Upper_case=20
+ +      -1.5701 * (normalized) Average_token_length=0
+ +      -1      * (normalized) Average_token_length=1
+ +      -1.5706 * (normalized) Average_token_length=2
+ +       0.4215 * (normalized) Average_token_length=3
+ +       0.4256 * (normalized) Average_token_length=4
+ +       0.4269 * (normalized) Average_token_length=5
+ +       0.4272 * (normalized) Average_token_length=6
+ +       0.4293 * (normalized) Average_token_length=7
+ +       0.429  * (normalized) Average_token_length=8
+ +       0.4296 * (normalized) Average_token_length=9
+ +       0.4298 * (normalized) Average_token_length=10
+ +       0.4293 * (normalized) Average_token_length=11
+ +       0.4291 * (normalized) Average_token_length=12
+ +       0.4299 * (normalized) Average_token_length=13
+ +      -1.5699 * (normalized) Average_token_length=14
+ +       0.4297 * (normalized) Average_token_length=16
+ +       0.4302 * (normalized) Average_token_length=17
+ +      -1      * (normalized) Average_token_length=19
+ +       0.4269 * (normalized) Average_token_length=20
+ +       0.4265 * (normalized) Average_token_length=21
+ +       0.4301 * (normalized) Average_token_length=24
+ +       0.4297 * (normalized) Average_token_length=25
+ +      -1      * (normalized) Average_token_length=28
+ +       0.4301 * (normalized) Average_token_length=31
+ -       1.4652
+
+Number of kernel evaluations: 429269452 (29.695% cached)
+
+
+
+Time taken to build model: 163.06 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.03 seconds
+
+=== Summary ===
+
+Correctly Classified Instances         543               71.5415 %
+Incorrectly Classified Instances       216               28.4585 %
+Kappa statistic                          0.4301
+Mean absolute error                      0.2846
+Root mean squared error                  0.5335
+Relative absolute error                 56.9169 %
+Root relative squared error            106.6929 %
+Coverage of cases (0.95 level)          71.5415 %
+Mean rel. region size (0.95 level)      50      %
+Total Number of Instances              759     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.646    0.217    0.745      0.646    0.692      0.434    0.715     0.657     0
+                 0.783    0.354    0.693      0.783    0.735      0.434    0.715     0.652     4
+Weighted Avg.    0.715    0.286    0.719      0.715    0.714      0.434    0.715     0.654     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 243 133 |   a = 0
+  83 300 |   b = 4
+

@@ -1,0 +1,99 @@
+#+BEGIN_SRC python :results output table 
+  import math as m
+  import numpy
+
+
+  def f_test(x):
+      return x*x
+
+  def f1(x):
+      return m.log(m.exp(x) + m.exp(-1*x))
+
+  def df1(x):
+      return (m.exp(2*x)- 1)/(m.exp(2*x)+1)
+
+  def d2f1(x):
+      return(4*m.exp(2*x))/(m.exp(2*x)+1)**2
+
+
+  def derivative(f):
+      def df(x, h=0.1e-5):
+          return(f(x+h/2)-f(x-h/2))/h
+      return df
+
+
+  test = derivative(f_test)
+
+  def newt_step(x_curr):
+      x_nt = df1(x_curr)/d2f1(x_curr)
+      return x_curr - x_nt
+
+
+  x = 1.1
+  # P* == log(2) ~.693
+  print("{},{}\n".format('x','f(x) - P*'))
+  for i in range(0,5):
+      try:
+          print("{},{}\n".format(x,f1(x)- f1(0)))
+          x = newt_step(x)
+      except ZeroDivisionError:
+          print("x: {}".format(x))
+      except OverflowError:
+          pass
+
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+|                   x |          f(x) - P* |
+|                     |                    |
+|                 1.1 | 0.5119361392087508 |
+|                     |                    |
+| -1.1285525852679466 |  0.534936662546477 |
+|                     |                    |
+|   1.234131133039099 | 0.6223168792455797 |
+|                     |                    |
+| -1.6951659799227943 |  1.035160968649203 |
+|                     |                    |
+|    5.71536010037962 |  5.022223776547119 |
+#+end_example
+
+
+|                   x |          f(x) - P* |
+|---------------------+--------------------|
+|                     |                    |
+|                 1.1 | 0.5119361392087508 |
+|                     |                    |
+| -1.1285525852679466 |  0.534936662546477 |
+|                     |                    |
+|   1.234131133039099 | 0.6223168792455797 |
+|                     |                    |
+| -1.6951659799227943 |  1.035160968649203 |
+|                     |                    |
+|    5.71536010037962 |  5.022223776547119 |
+
+
+
+|                     x |             f(x) - P* |
+|-----------------------+-----------------------|
+|                       |                       |
+|                     1 |    0.4337808304830272 |
+|                       |                       |
+|   -0.8134302039235093 |    0.2997218287983928 |
+|                       |                       |
+|   0.40940231658338555 |   0.08156361618530006 |
+|                       |                       |
+| -0.047304916455615575 | 0.0011184605136171921 |
+|                       |                       |
+| 7.060280364459826e-05 | 2.492377859653061e-09 |
+
+
+
+#+BEGIN_SRC python
+
+  def derivative(f):
+      def df(x, h=0.1e-5):
+          return(f(x+h/2)-f(x-h/2))/h
+      return df
+#+END_SRC

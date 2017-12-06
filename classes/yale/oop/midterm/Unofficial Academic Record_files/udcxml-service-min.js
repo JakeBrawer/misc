@@ -1,0 +1,8 @@
+
+function callback(){var endpoint=AuroraService.url+AuroraService.endpoints[0]+"/"
++sessionToken+"?depth=10"+"&dadName="+Application.getDadName()+"&url="+Bannerservice.url+Bannerservice.endpoints[3]+"&locale="+Context.locale_settings;if(Context.sslTrustStoreType!=null&&(typeof(Context.sslTrustStoreType)!="undefined")){endpoint=endpoint+"&trustStorePassword="+Context.sslTrustStorePassword
++"&trustStore="+Context.sslTrustStore+"&trustStoreType="+Context.sslTrustStoreType;}
+var _options={url:endpoint,type:'GET',dataType:'jsonp',data:"callback=?",success:function(data){var options={formatOutput:true};var xmlData=$.json2xml(data,options);xmlData=xmlData.replace(/\+/g,'%20');xmlData=xmlData.replace(/%27+/g,'&lsquo;');xmlData=xmlData.replace(/%22+/g,'&quot;');xmlData=unescape(decodeURIComponent(xmlData));xmlData=xmlData.replace(/&(?!amp;)/g,'&amp;');var tempString=xmlData;if(jQuery.browser.msie)
+{var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");xmlDoc.loadXML(tempString);tempString=xmlDoc;}
+$(tempString).find('navigationEntryValueObject').each(function(){var tempStr=$(this).attr("name").replace(/&/gi,"&amp;");var new_src=$(this).attr("name").replace("&lsquo;","").replace(/-/gi," ccccc ").replace("&quot;","").replace(/[^(a-z_)/\u00D1\u00F10-9]/ig,'').replace(/ ccccc /gi,"-");xmlData=xmlData.replace('name="'+tempStr+'"','name="'+new_src+'"');});Navigation.handleServiceResults1(stringToDoc(xmlData));},error:function(XMLHttpRequest,textStatus,errorThrown){var error='Error in retrieving Browse';}};$.jsonp(_options);}
+function callUdcXmlService(token){callback();}

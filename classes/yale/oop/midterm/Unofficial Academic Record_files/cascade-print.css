@@ -1,0 +1,119 @@
+/*
+ ****************************************************************************
+ *                                                                          *
+ * Copyright 2010 - 2014 Ellucian Company L.P. and its affiliates           *
+ *                                                                          *
+ ****************************************************************************
+ 
+   AUDIT TRAIL: 8.6.1
+    1. Defect CR-000107581                              EM 01/24/2014
+    Added float:none to contentHolder class.
+	Add new class for infotexttable.
+  
+  AUDIT TRAIL: 8.4.1.1
+    1. Defect 1-HWI8R9 	                                 PR 05/05/2011
+    1098-T alignment off when printing from SSB using IE 7.
+    2. Defect 1-COMZFW 	                                 PR 05/05/2011
+    Unable to print multiple pages with Cascade and Firefox 3.6.3.
+    
+    
+  AUDIT TRAIL: 8.4.1
+    1. Defect 1-B37AGH                                        SVA
+     Add audit trails.
+ 
+  AUDIT TRAIL END
+
+  FILE NAME..: cascade-print.css
+  RELEASE....: 8.6.1
+  PRODUCT....: WTLWEB
+  COPYRIGHT..: Copyright (C) SunGard 2010 - 2014 Ellucian Company L.P. and its affiliates.
+*/
+/* common-platform.css*/
+html {
+	direction: ltr;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+#content {
+	overflow: visible;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	position: static;
+	top: 0px;
+	left: 0; /* rtl fix for ie */
+}
+#pageheader {
+	width:100%;
+	position: static;
+}
+#pageheader.level4 {
+	width:100%;
+	position: static;
+}
+
+
+/*cascade.css */
+#contentHolder {
+	padding: 25px; /* safari fix */ 
+	overflow: visible;
+	width: 95%;
+	float:none;
+}
+
+body {
+	display: none;
+	margin: 0px;
+	padding: 0px;
+	font: normal 100% Arial, Helvetica, sans-serif;
+	height: 100%;
+	background-image: none;
+	text-align: left;
+	overflow: visible;
+}
+
+#pagebody {
+	padding: 0 0 25px 0px;
+	min-width: 911px;
+	width: 100%;
+	margin: 29px 0 0;
+	float: none; /* Fix for Defect:1-HWI8R9,1-COMZFW */
+}
+#pagebody.level4 {
+	margin: 9px 0 0; /* Fix for Defect:1-HWI8R9,1-COMZFW */
+}
+#content.level4 {
+  position:relative; /* Fix for Defect:1-HWI8R9,1-COMZFW */
+	overflow:visible;
+}
+#navigationcontrolSmall {
+	display: none;
+}
+#header {
+	display: none;
+}
+#search {
+	display: none;
+}
+#crumb {
+	display: none;
+}
+#navigationcontrolSmall {
+	display: none;
+}
+#pageheaderlinks {
+	display: none;
+}
+#outerFooter {
+	display: none;
+}
+.infotexttable{
+    padding-left: 30px;
+}
+.infotextdiv {
+    border-color: transparent;
+    background-color: transparent;
+}

@@ -1,0 +1,532 @@
+% Created 2017-04-04 Tue 00:02
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Jake Brawer}
+\date{\today}
+\title{Assignment 4\\\medskip
+\large CPSC424}
+\hypersetup{
+ pdfauthor={Jake Brawer},
+ pdftitle={Assignment 4},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.0.3)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+
+\section{Software and Development Environment}
+\label{sec:org0f8da43}
+
+All the programming for this assignment was done in vim. This document was made using emacs. The only modules used in this assignment were Langs/Intel/15 and MPI/OpenMPI/1.8.6-intel15.
+
+\subsection{How to run the code}
+\label{sec:orgbd0ddcf}
+
+To compile the code and load the appropriate modules do the following:
+\begin{verbatim}
+cd jnb37_ps4_cpsc424
+sh setup.sh
+\end{verbatim}
+
+In order to run code, run
+\begin{verbatim}
+qsub run.sh
+\end{verbatim}
+
+\section{Data}
+\label{sec:org0c92dfd}
+\subsection{Serial}
+\label{sec:orgc05d892}
+\begin{center}
+\begin{tabular}{lrrrrrrrr}
+\(K\) & 128 & 256 & 384 & 512 & 640 & 768 & 896 & 1024\\
+\hline
+Data 1 & 0.774 & 1.554 & 2.287 & 2.963 & 3.590 & 4.189 & 4.773 & 5.349\\
+Data 2 & 3.094 & 6.205 & 9.195 & 11.968 & 14.578 & 17.103 & 19.61 & 22.178\\
+Data 3 & 12.394 & 24.882 & 36.975 & 48.382 & 59.291 & 69.975 & 9  80.708 & 91.706\\
+Data 4 & 49.498 & 99.247 & 146.893 & 191.670 & 234.006 & 274.683 & 314.476 & 353.857\\
+\end{tabular}
+\end{center}
+
+\subsection{Parallel}
+\label{sec:orgfe6fb61}
+
+\begin{center}
+\begin{tabular}{lrrrrrrrr}
+\(K\) & 128 & 256 & 384 & 512 & 640 & 768 & 896 & 1024\\
+\hline
+Data 1 & .786 & 1.543 & 2.145 & 2.566 & 2.90 & 3.170 & 3.376 & 3.549\\
+Data 2 & 3.052 & 6.045 & 8.435 & 10.187 & 11.698 & 13.096 & 14.470 & 15.834\\
+Data 3 & 12.315 & 29.748 & 39.284 & 44.656 & 50.402 & 55.465 & 62.576 & 66.764\\
+Data 4 & 54.323 & 100.875 & 135.794 & 165.012 & 190.092 & 213.097 & 234.926 & 255.97\\
+\end{tabular}
+\end{center}
+
+\section{load Balancing}
+\label{sec:org519bd5b}
+
+In order to gauge load balancing I kept track of the average number of bodies each process got. The following is a table where element corresponds to the percentage of bodies that each processes had on average
+
+\begin{center}
+\begin{tabular}{lrrrrrrrr}
+Rank & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
+\hline
+Data 1 & .060 & .053 & .184 & .211 & .166 & .199 & .059 & .063\\
+Data 2 & .058 & .053 & .178 & .206 & .198 & .186 & .057 & .061\\
+Data 3 & .0522 & .058 & .196 & .210 & .205 & .178 & .052 & .050\\
+Data 4 & 0.050 & 0.192 & .192 & .205 & .198 & .208 & .047 & .050\\
+\end{tabular}
+\end{center}
+
+Clearly the load was not distributed evenly. Given that collectives were used exclusively to communicate between processes, processes with more bodies necessarily slowed all the other processes down.
+
+\section{Raw output}
+\label{sec:orgc83aa73}
+
+\begin{verbatim}
+DATA 1
+
+N: 800
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000005)----------
+   Beginning of time step: 0
+   Current Center of Mass: [ 2.1538750e-08, 1.1488625e-09, 4.3345750e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887374e-10]
+--------- SIMULATION INFO (t: 0.808221)----------
+   Beginning of time step: 128
+   Current Center of Mass: [ -4.0885250e-08, -2.4015137e-08, 5.2500699e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887374e-10]
+--------- SIMULATION INFO (t: 1.588229)----------
+   Beginning of time step: 256
+   Current Center of Mass: [ -1.0330925e-07, -4.9179138e-08, 6.1655649e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 2.321344)----------
+   Beginning of time step: 384
+   Current Center of Mass: [ -1.6573325e-07, -7.4343138e-08, 7.0810599e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910001e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 2.996952)----------
+   Beginning of time step: 512
+   Current Center of Mass: [ -2.2815725e-07, -9.9507137e-08, 7.9965545e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 3.624232)----------
+   Beginning of time step: 640
+   Current Center of Mass: [ -2.9058125e-07, -1.2467114e-07, 8.9120495e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887374e-10]
+--------- SIMULATION INFO (t: 4.223723)----------
+   Beginning of time step: 768
+   Current Center of Mass: [ -3.5300525e-07, -1.4983513e-07, 9.8275447e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 4.808110)----------
+   Beginning of time step: 896
+   Current Center of Mass: [ -4.1542924e-07, -1.7499914e-07, 1.0743042e-08]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 5.383916)----------
+   Beginning of time step: 1024
+   Current Center of Mass: [ -4.7785323e-07, -2.0016314e-07, 1.1658541e-08]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887376e-10]
+
+
+DATA 2
+
+N: 1600
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000004)----------
+   Beginning of time step: 0
+   Current Center of Mass: [ -4.1281257e-09, -1.8359312e-10, -1.6534656e-08]
+   Current Average Velocity: [ -6.7892307e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 3.094835)----------
+   Beginning of time step: 128
+   Current Center of Mass: [ -6.8438179e-09, -1.4226103e-08, -5.5691687e-09]
+   Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 6.205870)----------
+   Beginning of time step: 256
+   Current Center of Mass: [ -9.5595104e-09, -2.8268613e-08, 5.3963187e-09]
+   Current Average Velocity: [ -6.7892307e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 9.195942)----------
+   Beginning of time step: 384
+   Current Center of Mass: [ -1.2275203e-08, -4.2311124e-08, 1.6361806e-08]
+   Current Average Velocity: [ -6.7892306e-10, -3.5106276e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 11.969422)----------
+   Beginning of time step: 512
+   Current Center of Mass: [ -1.4990896e-08, -5.6353634e-08, 2.7327293e-08]
+   Current Average Velocity: [ -6.7892306e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 14.577942)----------
+   Beginning of time step: 640
+   Current Center of Mass: [ -1.7706589e-08, -7.0396145e-08, 3.8292780e-08]
+   Current Average Velocity: [ -6.7892305e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 17.103526)----------
+   Beginning of time step: 768
+   Current Center of Mass: [ -2.0422280e-08, -8.4438653e-08, 4.9258267e-08]
+   Current Average Velocity: [ -6.7892316e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 19.619497)----------
+   Beginning of time step: 896
+   Current Center of Mass: [ -2.3137971e-08, -9.8481164e-08, 6.0223754e-08]
+   Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 22.178836)----------
+   Beginning of time step: 1024
+   Current Center of Mass: [ -2.5853664e-08, -1.1252367e-07, 7.1189242e-08]
+   Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+
+DATA 3
+N: 3200
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000005)----------
+   Beginning of time step: 0
+   Current Center of Mass: [ 2.7384375e-09, -8.9806911e-09, -3.7085991e-09]
+   Current Average Velocity: [ 3.6056231e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 12.395048)----------
+   Beginning of time step: 128
+   Current Center of Mass: [ 4.1806871e-09, 6.8289709e-08, 1.0873602e-08]
+   Current Average Velocity: [ 3.6056220e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 24.884049)----------
+   Beginning of time step: 256
+   Current Center of Mass: [ 5.6229348e-09, 1.4556011e-07, 2.5455804e-08]
+   Current Average Velocity: [ 3.6056219e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 36.977460)----------
+   Beginning of time step: 384
+   Current Center of Mass: [ 7.0651851e-09, 2.2283051e-07, 4.0038005e-08]
+   Current Average Velocity: [ 3.6056235e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 48.389388)----------
+   Beginning of time step: 512
+   Current Center of Mass: [ 8.5074340e-09, 3.0010091e-07, 5.4620206e-08]
+   Current Average Velocity: [ 3.6056229e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 59.297114)----------
+   Beginning of time step: 640
+   Current Center of Mass: [ 9.9496831e-09, 3.7737131e-07, 6.9202407e-08]
+   Current Average Velocity: [ 3.6056228e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 69.982303)----------
+   Beginning of time step: 768
+   Current Center of Mass: [ 1.1391931e-08, 4.5464171e-07, 8.3784608e-08]
+   Current Average Velocity: [ 3.6056222e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 80.715332)----------
+   Beginning of time step: 896
+   Current Center of Mass: [ 1.2834181e-08, 5.3191211e-07, 9.8366810e-08]
+   Current Average Velocity: [ 3.6056235e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 91.710556)----------
+   Beginning of time step: 1024
+   Current Center of Mass: [ 1.4276430e-08, 6.0918251e-07, 1.1294901e-07]
+   Current Average Velocity: [ 3.6056231e-10, 1.9317600e-08, 3.6455503e-09]
+
+DATA 4
+N: 6400
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000005)----------
+   Beginning of time step: 0
+   Current Center of Mass: [ -2.0187578e-08, 1.0121546e-08, -3.9576078e-09]
+   Current Average Velocity: [ -5.5401981e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 49.499988)----------
+   Beginning of time step: 128
+   Current Center of Mass: [ -4.2348368e-08, 2.4437094e-08, 2.5786471e-08]
+   Current Average Velocity: [ -5.5401967e-09, 3.5788869e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 99.245374)----------
+   Beginning of time step: 256
+   Current Center of Mass: [ -6.4509157e-08, 3.8752642e-08, 5.5530550e-08]
+   Current Average Velocity: [ -5.5401976e-09, 3.5788870e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 146.887110)----------
+   Beginning of time step: 384
+   Current Center of Mass: [ -8.6669948e-08, 5.3068191e-08, 8.5274628e-08]
+   Current Average Velocity: [ -5.5401974e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 191.660034)----------
+   Beginning of time step: 512
+   Current Center of Mass: [ -1.0883074e-07, 6.7383739e-08, 1.1501871e-07]
+   Current Average Velocity: [ -5.5401975e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 233.989914)----------
+   Beginning of time step: 640
+   Current Center of Mass: [ -1.3099153e-07, 8.1699288e-08, 1.4476279e-07]
+   Current Average Velocity: [ -5.5401974e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 274.661741)----------
+   Beginning of time step: 768
+   Current Center of Mass: [ -1.5315232e-07, 9.6014835e-08, 1.7450686e-07]
+   Current Average Velocity: [ -5.5401974e-09, 3.5788870e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 314.449315)----------
+   Beginning of time step: 896
+   Current Center of Mass: [ -1.7531310e-07, 1.1033038e-07, 2.0425094e-07]
+   Current Average Velocity: [ -5.5401975e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 353.823311)----------
+   Beginning of time step: 1024
+   Current Center of Mass: [ -1.9747390e-07, 1.2464593e-07, 2.3399502e-07]
+   Current Average Velocity: [ -5.5401974e-09, 3.5788870e-09, 7.4360197e-09]
+
+----------------------------PARALLEL ----------------------------------------
+
+DATA 1
+N: 800
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000004)----------
+   Beginning of time step: 0
+   Current Center of Mass: [ 2.1538750e-08, 1.1488625e-09, 4.3345750e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 0.786905)----------
+   Beginning of time step: 128
+   Current Center of Mass: [ -4.0885250e-08, -2.4015137e-08, 5.2500701e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2909999e-09, 2.2887376e-10]
+--------- SIMULATION INFO (t: 1.543383)----------
+   Beginning of time step: 256
+   Current Center of Mass: [ -1.0330925e-07, -4.9179138e-08, 6.1655655e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887377e-10]
+--------- SIMULATION INFO (t: 2.142623)----------
+   Beginning of time step: 384
+   Current Center of Mass: [ -1.6573325e-07, -7.4343138e-08, 7.0810601e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887382e-10]
+--------- SIMULATION INFO (t: 2.566184)----------
+   Beginning of time step: 512
+   Current Center of Mass: [ -2.2815725e-07, -9.9507139e-08, 7.9965543e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887378e-10]
+--------- SIMULATION INFO (t: 2.904153)----------
+   Beginning of time step: 640
+   Current Center of Mass: [ -2.9058125e-07, -1.2467114e-07, 8.9120486e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 3.170492)----------
+   Beginning of time step: 768
+   Current Center of Mass: [ -3.5300525e-07, -1.4983514e-07, 9.8275425e-09]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887379e-10]
+--------- SIMULATION INFO (t: 3.376870)----------
+   Beginning of time step: 896
+   Current Center of Mass: [ -4.1542925e-07, -1.7499914e-07, 1.0743038e-08]
+   Current Average Velocity: [ -1.5606000e-08, -6.2909999e-09, 2.2887381e-10]
+--------- SIMULATION INFO (t: 3.549023)----------
+   Beginning of time step: 1024
+   Current Center of Mass: [ -4.7785326e-07, -2.0016314e-07, 1.1658535e-08]
+   Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887378e-10]
+
+DATA 2
+
+N: 1600
+K: 1024
+DT: 0.031250
+
+Rank: 1  time: 0.000004 percent of bodies: 0.146250
+--------- SIMULATION INFO (t: 0.000005)----------
+   Beginning of time step: 0
+   Current Center of Mass: [ -4.1281247e-09, -1.8359309e-10, -1.6534656e-08]
+   Current Average Velocity: [ -6.7892312e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 3.052485)----------
+   Beginning of time step: 128
+   Current Center of Mass: [ -6.8438178e-09, -1.4226103e-08, -5.5691687e-09]
+   Current Average Velocity: [ -6.7892312e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 6.045031)----------
+   Beginning of time step: 256
+   Current Center of Mass: [ -9.5595105e-09, -2.8268613e-08, 5.3963188e-09]
+   Current Average Velocity: [ -6.7892323e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 8.435317)----------
+   Beginning of time step: 384
+   Current Center of Mass: [ -1.2275204e-08, -4.2311123e-08, 1.6361806e-08]
+   Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 10.187785)----------
+   Beginning of time step: 512
+   Current Center of Mass: [ -1.4990895e-08, -5.6353634e-08, 2.7327295e-08]
+   Current Average Velocity: [ -6.7892316e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 11.698229)----------
+   Beginning of time step: 640
+   Current Center of Mass: [ -1.7706587e-08, -7.0396144e-08, 3.8292782e-08]
+   Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 13.096621)----------
+   Beginning of time step: 768
+   Current Center of Mass: [ -2.0422279e-08, -8.4438654e-08, 4.9258271e-08]
+   Current Average Velocity: [ -6.7892309e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 14.470738)----------
+   Beginning of time step: 896
+   Current Center of Mass: [ -2.3137970e-08, -9.8481163e-08, 6.0223761e-08]
+   Current Average Velocity: [ -6.7892311e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 15.834821)----------
+   Beginning of time step: 1024
+   Current Center of Mass: [ -2.5853661e-08, -1.1252367e-07, 7.1189249e-08]
+   Current Average Velocity: [ -6.7892308e-10, -3.5106275e-09, 2.7413719e-09]
+
+DATA 3
+N: 3200
+K: 1024
+DT: 0.031250
+Rank: 1  time: 0.000004 percent of bodies: 0.137187
+--------- SIMULATION INFO (t: 0.000004)----------
+   Beginning of time step: 0
+   Current Center of Mass: [ 2.7384375e-09, -8.9806912e-09, -3.7085990e-09]
+   Current Average Velocity: [ 3.6056235e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 12.315910)----------
+   Beginning of time step: 128
+   Current Center of Mass: [ 4.1806864e-09, 6.8289709e-08, 1.0873602e-08]
+   Current Average Velocity: [ 3.6056221e-10, 1.9317600e-08, 3.6455502e-09]
+--------- SIMULATION INFO (t: 24.448493)----------
+   Beginning of time step: 256
+   Current Center of Mass: [ 5.6229355e-09, 1.4556011e-07, 2.5455803e-08]
+   Current Average Velocity: [ 3.6056218e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 34.284936)----------
+   Beginning of time step: 384
+   Current Center of Mass: [ 7.0651850e-09, 2.2283051e-07, 4.0038004e-08]
+   Current Average Velocity: [ 3.6056228e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 41.727228)----------
+   Beginning of time step: 512
+   Current Center of Mass: [ 8.5074333e-09, 3.0010091e-07, 5.4620206e-08]
+   Current Average Velocity: [ 3.6056225e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 48.225032)----------
+   Beginning of time step: 640
+   Current Center of Mass: [ 9.9496817e-09, 3.7737131e-07, 6.9202407e-08]
+   Current Average Velocity: [ 3.6056220e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 54.406432)----------
+   Beginning of time step: 768
+   Current Center of Mass: [ 1.1391932e-08, 4.5464171e-07, 8.3784608e-08]
+   Current Average Velocity: [ 3.6056223e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 60.553425)----------
+   Beginning of time step: 896
+   Current Center of Mass: [ 1.2834181e-08, 5.3191211e-07, 9.8366810e-08]
+   Current Average Velocity: [ 3.6056218e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 66.764520)----------
+   Beginning of time step: 1024
+   Current Center of Mass: [ 1.4276430e-08, 6.0918251e-07, 1.1294901e-07]
+   Current Average Velocity: [ 3.6056225e-10, 1.9317600e-08, 3.6455503e-09]
+
+DATA 4
+N: 6400
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000005)----------
+   Beginning of time step: 0
+   Current Center of Mass: [ -2.0187578e-08, 1.0121546e-08, -3.9576078e-09]
+   Current Average Velocity: [ -5.5401974e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 48.705346)----------
+   Beginning of time step: 128
+   Current Center of Mass: [ -4.2348368e-08, 2.4437094e-08, 2.5786471e-08]
+   Current Average Velocity: [ -5.5401973e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 96.695538)----------
+   Beginning of time step: 256
+   Current Center of Mass: [ -6.4509158e-08, 3.8752643e-08, 5.5530550e-08]
+   Current Average Velocity: [ -5.5401975e-09, 3.5788867e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 135.794347)----------
+   Beginning of time step: 384
+   Current Center of Mass: [ -8.6669947e-08, 5.3068191e-08, 8.5274629e-08]
+   Current Average Velocity: [ -5.5401975e-09, 3.5788870e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 165.009956)----------
+   Beginning of time step: 512
+   Current Center of Mass: [ -1.0883074e-07, 6.7383739e-08, 1.1501871e-07]
+   Current Average Velocity: [ -5.5401975e-09, 3.5788869e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 190.092338)----------
+   Beginning of time step: 640
+   Current Center of Mass: [ -1.3099153e-07, 8.1699287e-08, 1.4476279e-07]
+   Current Average Velocity: [ -5.5401974e-09, 3.5788870e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 213.097443)----------
+   Beginning of time step: 768
+   Current Center of Mass: [ -1.5315232e-07, 9.6014838e-08, 1.7450686e-07]
+   Current Average Velocity: [ -5.5401976e-09, 3.5788870e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 234.926483)----------
+   Beginning of time step: 896
+   Current Center of Mass: [ -1.7531311e-07, 1.1033038e-07, 2.0425094e-07]
+   Current Average Velocity: [ -5.5401975e-09, 3.5788870e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 255.974442)----------
+   Beginning of time step: 1024
+   Current Center of Mass: [ -1.9747390e-07, 1.2464593e-07, 2.3399502e-07]
+   Current Average Velocity: [ -5.5401974e-09, 3.5788870e-09, 7.4360197e-09]
+\end{verbatim}
+
+\section{Environment}
+\label{sec:org77f9ede}
+
+\begin{verbatim}
+MKLROOT=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl
+MANPATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/share/man:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/man/en_US:/home/apps/fas/Langs/Intel/201
+5_update2/composer_xe_2015.2.164/debugger/gdb/intel64/share/man/:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/share/man/:/usr/s
+hare/man:/opt/moab/share/man:
+GDB_HOST=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/bin/gdb-ia-mic
+HOSTNAME=compute-33-1.local
+IPPROOT=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp
+INTEL_LICENSE_FILE=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/licenses:/opt/intel/licenses:/home/apps/fas/Licenses/intel_site.lic
+TERM=xterm
+SHELL=/bin/bash
+HISTSIZE=1000
+GDBSERVER_MIC=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/target/mic/bin/gdbserver
+SSH_CLIENT=10.191.63.252 40510 22
+LIBRARY_PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/lib:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/../compiler/lib/intel64:/home/apps/fa
+s/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/compiler/lib/intel64:/home/apps/fas/Langs
+/Intel/2015_update2/composer_xe_2015.2.164/mkl/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4
+PERL5LIB=/opt/moab/lib/perl5
+FPATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/include:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/include
+QTDIR=/usr/lib64/qt-3.3
+QTINC=/usr/lib64/qt-3.3/include
+MIC_LD_LIBRARY_PATH=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/lib/mic:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/lib/mi
+c:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/compiler/lib/mic:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/lib/mic:/opt/intel/mi
+c/coi/device-linux-release/lib:/opt/intel/mic/myo/lib:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb/lib/mic
+SSH_TTY=/dev/pts/42
+ANT_HOME=/opt/rocks
+USER=jnb37
+LD_LIBRARY_PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/lib:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/lib/intel64:/home/apps/fas/Langs
+/Intel/2015_update2/composer_xe_2015.2.164/ipp/../compiler/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/lib/intel64:/home/apps/fas/Langs
+/Intel/2015_update2/composer_xe_2015.2.164/ipp/tools/intel64/perfsys:/opt/intel/mic/coi/host-linux-release/lib:/opt/intel/mic/myo/lib:/home/apps/fas/Langs/Intel/2015_upda
+te2/composer_xe_2015.2.164/compiler/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/lib/intel64:/home/apps/fas/Langs/Intel/2015_update2/com
+poser_xe_2015.2.164/tbb/lib/intel64/gcc4.4:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/ipt/intel64/lib
+MIC_LIBRARY_PATH=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/compiler/lib/mic:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/lib/
+mic:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb/lib/mic
+ROCKS_ROOT=/opt/rocks
+CPATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/include:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/ipp/include:/home/apps/fas/Langs/Intel/2015_
+update2/composer_xe_2015.2.164/mkl/include:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb/include
+YHPC_COMPILER=Intel
+OMPI_MCA_orte_precondition_transports=f20cd2d28f432704-15e3f8c3bb8e89d6
+NLSPATH=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/compiler/lib/intel64/locale/%l_%t/%N:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164
+/ipp/lib/intel64/locale/%l_%t/%N:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/lib/intel64/locale/%l_%t/%N:/home/apps/fas/Langs/Intel/2015_update2/co
+mposer_xe_2015.2.164/debugger/gdb/intel64_mic/share/locale/%l_%t/%N:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64/share/locale/%l_%t
+/%N
+MAIL=/var/spool/mail/jnb37
+PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/bin:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/bin/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/bin/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/bin:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64/bin:/home/apps/fas/Modules:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/s
+PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/bin:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/bin/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mpirt/bin/intel64:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/bin:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64/bin:/home/apps/fas/Modules:/usr/lib64/qt-3.3/bin:/opt/moab/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/java/latest/bin:/opt/rocks/bin:/opt/rocks/sbin:/home/apps/bin:/home/fas/cpsc424/jnb37/bin
+YHPC_COMPILER_MINOR=164
+TBBROOT=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/tbb
+C_INCLUDE_PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15/include
+F90=ifort
+PWD=/home/fas/cpsc424/jnb37/scratch/jnb37_ps4_cpsc424
+_LMFILES_=/home/apps/fas/Modules/Base/yale_hpc:/home/apps/fas/Modules/Langs/Intel/15:/home/apps/fas/Modules/MPI/OpenMPI/1.8.6-intel15
+YHPC_COMPILER_MAJOR=2
+JAVA_HOME=/usr/java/latest
+GDB_CROSS=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/bin/gdb-mic
+DOMAIN=omega
+LANG=en_US.iso885915
+MODULEPATH=/home/apps/fas/Modules
+MOABHOMEDIR=/opt/moab
+YHPC_COMPILER_RELEASE=2015
+LOADEDMODULES=Base/yale_hpc:Langs/Intel/15:MPI/OpenMPI/1.8.6-intel15
+KDEDIRS=/usr
+F77=ifort
+MPM_LAUNCHER=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/mpm/bin/start_mpm.sh
+CXX=icpc
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+HISTCONTROL=ignoredups
+INTEL_PYTHONHOME=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/python/intel64/
+SHLVL=1
+HOME=/home/fas/cpsc424/jnb37
+FC=ifort
+LOGNAME=jnb37
+QTLIB=/usr/lib64/qt-3.3/lib
+CVS_RSH=ssh
+SSH_CONNECTION=10.191.63.252 40510 10.191.12.33 22
+MODULESHOME=/usr/share/Modules
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+arch=intel64
+INFOPATH=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64/share/info/:/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/debugger/gdb/intel64_mic/share/info/
+CC=icc
+INCLUDE=/home/apps/fas/Langs/Intel/2015_update2/composer_xe_2015.2.164/mkl/include
+MPI_PATH=/usr/local/cluster/hpc/MPI/OpenMPI/1.8.6-intel15
+G_BROKEN_FILENAMES=1
+BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`
+}
+_=/bin/env
+OLDPWD=/home/fas/cpsc424/jnb37
+\end{verbatim}
+\end{document}

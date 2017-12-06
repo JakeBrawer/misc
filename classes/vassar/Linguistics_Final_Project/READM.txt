@@ -1,0 +1,5 @@
+To run, enter the following int your console:
+
+   python wikipedia_project.py <num_articles> <outfile>
+
+Where <num_articles> is an int, the number of randomly generated articles you want to classify, and <outfile> is the name of a csv file.

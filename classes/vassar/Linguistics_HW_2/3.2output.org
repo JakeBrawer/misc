@@ -1,0 +1,28 @@
+* 3.3 Output
+|     n | Accuracy  |
+|-------+-----------|
+|   500 | 70.487%   |
+|  1000 | 69.562%   |
+|  1500 | 71.045%   |
+|  2000 | 70.4875%  |
+|  2500 | 70.4875%  |
+|  3000 | 71.1462%  |
+|  3500 | 70.751%   |
+|  4000 | 71.5415%  |
+|  4500 | 72.2003 % |
+|  5000 | 72.2003 % |
+|  5500 | 72.0685 % |
+|  6000 | 72.06%    |
+|  6500 | 71.805  % |
+|  7000 | 72.2003 % |
+|  7500 | 71.5415 % |
+|  8000 | 71.805  % |
+|  8500 | 71.805  % |
+|  9000 | 71.5415 % |
+|  9500 | 71.805  % |
+| 10000 | 71.805    |
+| 10500 | 71.5415 % |
+
+
+The accuracy more more or less tended to increase with n, although the accuracy would vascilliate between increasing and decreasing. It makes sense that the accuracy increased with n becuase the bigger the training set is, the more likely the model will encounter words/tags/sentiments/etc. in the test set. Howver, larger ns will also increase the lieklyhood of encountering novelty (i.e. things not in test set) which may explain some of the dips in accuracy.
+ 

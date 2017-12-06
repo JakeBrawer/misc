@@ -1,0 +1,251 @@
+
+#+TITLE: Assignment 5
+#+AUTHOR: Jake Brawer
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage{amsmath}
+
+
+* Problem 1
+
+** a)
+
+To prove: $E(W_{n}) = c_{b}E(W_{n - 1})$
+#+BEGIN_SRC latex
+  \begin{align}
+    E(W_{n}) &= \sum_{W_{n - 1}}^{} E(W_{n} |W_{n - 1} = w_{n - 1})\\
+    &= ((1 - b)w_{n-1} + 2bw_{n-1})(0.5)\\
+    & \qquad+ ((1 - b)w_{n-1} + 1.4bw_{n-1})(0.5) \notag \\
+    &= (1 + .2b)w_{n - 1}\\
+    &= c + {b}w_{n -1}
+  \end{align}
+#+END_SRC
+Here $c_{b}$ is maximized by when $b = 1$.
+
+$E(W_{n})$ is recursively defined so:
+#+BEGIN_SRC latex  
+  \begin{align}
+    E(W_n) &= c_{b}E(w_{n-1})\\
+           &= c_{b}c_{b}E(w_{n-2})\\
+           &= c_{b}c_{b}...c_{b}E(w_{n-n})\\
+           &= c_{b}c_{b}...c_{b}(1) \tag{Given}\\\
+           &= c_{b}^{n}
+  \end{align}
+
+#+END_SRC
+
+** b)
+
+#+BEGIN_SRC R :session :file worth.png :results graphics :exports both :cache yes
+
+  worth <- function(b ){
+    w <- 1
+    for(j in 2:1460)
+    {
+      if(sample(1:2, 1) == 1)
+      {
+        w = (1-b)*w + 2*b*w
+      }
+      else
+      {
+        w = (1-b)*w +.4*b*w
+      }
+    }
+    return(w)
+  }
+
+  n <- 1000
+  ws <- rep(0, n)
+  for(i in 1:n){
+    ws[i] <- worth(1)
+  }
+  hist(log10(ws))
+
+#+END_SRC
+
+#+RESULTS[b070c3a1ffe730fae97bb7eda7a2d69d83b8735a]:
+[[file:worth.png]]
+
+** c)
+
+#+BEGIN_SRC latex
+  M_{i} =
+  \begin{cases}
+    2 & \text{prob: } .5\\ 
+    .4 & \text{prob: } .5\\ 
+  \end{cases}
+#+END_SRC
+
+So:\\
+#+BEGIN_SRC latex
+  $\log M_{i} =$
+  \begin{cases}
+    .30 & \text{$M_{i}$ } $= 2$\\ 
+   -.39 & \text{$M_{i}$ } $= .4$
+  \end{cases}
+
+#+END_SRC
+\\
+
+#+BEGIN_SRC latex
+  \text{The LLN says as} n \rightarrow \infty, \overline{L_{n}} \rightarrow E(L_{n})\\
+  \text{We are given: } L_{n} = X_{1} + ... + X_{n} \text{ so: }\\
+  \overline{L_{n}} = E(X_{1}) + ... + E(X_{n})\\
+  \begin{aligned}
+  \text{Where: } E(X_{n}) &= (.30)(.5) + (-.39)(.5)\\
+  &= -0.04846\\
+  \end{aligned}
+  \text{Thus:}\\
+  \begin{aligned}
+    $\overline{L_{n}} &= n * -0.0486$ \\
+    &= $ -\infty$ \text{ as n $\rightarrow \infty$}\\
+  \end{aligned}
+
+#+END_SRC
+
+
+** d)
+
+#+BEGIN_SRC latex
+  \begin{align}
+  E(X_{n}) &= E(\log M_{i}) \notag \\
+           &=  (0.5)(\log(1-.6b )\log(1 + b) ) \notag
+  \end{align}
+#+END_SRC
+
+Now we take the derivative of this, set to zero, and solve to be which gives us: $$b = \frac{1}{3}$$
+
+
+#+BEGIN_SRC R :session :file hist_2.png :results graphics
+  ws <- rep(0, n)
+  for(i in 1:n){
+    ws[i] <- worth(1/3)
+  }
+  hist(log10(ws))
+#+END_SRC
+
+#+RESULTS:
+[[file:hist_2.png]]
+
+* 2
+
+** a)
+
+By the linearity of expectation we know that: 
+#+BEGIN_SRC latex
+  \begin{align}
+    E(Z) &= a E(X) + b E(Y) \notag\\
+         &= a \mu + b \mu \tag{Given}\\
+         &= (a + b) \mu \notag
+  \end{align}
+#+END_SRC
+
+So in order for Z to be unbiased estimator of \mu $$ a + b = 1$$
+
+
+** b)
+
+#+BEGIN_SRC latex
+  \begin{align}
+    var(Z) &= a^{2}var(X) + b^{2}var(Y) \notag \\
+           &= a^{2} + 4b^{2} \tag{Given.} \\
+  \end{align}
+#+END_SRC
+
+
+
+* 3
+** a)
+#+BEGIN_SRC latex
+  \begin{align}
+    P\{\vline Y - \mu \vline \geq c\sigma\} &= P\{( Y - \mu )^{2} \geq c^{2}\sigma^{2}\} \notag\\
+    &\leq \cfrac{E((Y - \mu)^{2})}{c^{2}\sigma^{2}} \tag{By Markov's}\\
+    &= \cfrac{Var(Y)}{c^{2}\sigma^{2}} \notag\\
+    &= \cfrac{1}{c^{2}n^{2}} \notag\\
+    &\leq \cfrac{1}{c^{2}} \notag\\
+  \end{align}
+#+END_SRC
+
+** b)
+
+#+BEGIN_SRC latex
+  \begin{equation}
+    E(X)  = np = \frac{1}{6}6000 = 1000\\
+    var(X) = np(1-p) = 6000(\frac{1}{6})(\frac{5}{6}) = 833.33\\
+    \end{equation}
+#+END_SRC
+
+#+BEGIN_SRC latex
+  \begin{aligned}
+    &&c\sigma = 100 \text{ so:}\\
+    &&c &= \frac{100}{sigma} \notag \\
+    &=\frac{100}{\sqrt[]{833.3}} \notag \\
+    &= 3.464 \notag \\
+    \text{Thus: } P\{| X - E(X) | \geq 100\} \leq \cfrac{1}{3.454^{2}}
+  \end{aligned}
+  
+#+END_SRC
+
+** c)
+
+#+BEGIN_SRC latex
+  \begin{align}
+    P\{|X - E(X)| \geq 100\} &= P\{|\cfrac{X - E(X)}{\sigma}| \geq \frac{100}{\sigma}\}\\
+                            &= P\{|\cfrac{X - E(X)}{\sigma}| \geq c\}\\
+    \vspace{.2in}
+                            &= P\{-c \leq Z \geq c\}
+  \end{align}
+#+END_SRC
+
+$$ P\{-c \leq Z \geq c\} = 0.00053$$
+
+
+** d)
+
+#+BEGIN_SRC R :results both
+  pbinom(900, size = 6000, prob = 1/6) +
+  (1 -pbinom(1100, size = 6000, prob = 1/6))
+#+END_SRC
+
+#+RESULTS:
+: 0.000531075732137454
+
+
+* 4)
+** a)
+
+#+BEGIN_SRC latex
+  X =
+  \begin{cases}
+    0 & \text{prob: } .1\\ 
+    1 & \text{prob: } .4\\ 
+    2 & \text{prob: } .5\\
+  \end{cases}
+#+END_SRC
+Let Y be an r.v. representing senior parents. Y can take on a value between 0 and 6 with pmf:\\
+
+#+BEGIN_SRC latex
+
+  f_{y} =
+  \begin{cases}
+    0 & \text{prob: } .001\\ 
+    1 & \text{prob: } .012\\ 
+    2 & \text{prob: } .072\\
+    3 & \text{prob: } .184\\ 
+    4 & \text{prob: } .315\\ 
+    5 & \text{prob: } .3\\
+    6 & \text{prob: } .125\\
+  \end{cases}
+
+#+END_SRC
+
+** b)
+
+Let the r.v Z = X_{1} +... +  X_{1400} where X_{i} represents how many parents student i s bringing,\\
+#+BEGIN_SRC latex
+  E(X) = .4 + .5(2) = 1.4\\
+  \begin{aligned}
+    E(Z) &= E(X_{i}) + ... + E(X_{1400})\\
+    &= 1.4 * 1400\\
+    &= 1960
+  \end{aligned}
+#+END_SRC

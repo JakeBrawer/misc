@@ -1,0 +1,72 @@
+#+LaTeX_CLASS: article
+#+OPTIONS: ':nil *:t -:t ::t <:t  \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:nil todo:t |:t
+#+TITLE: One Culture HW 3
+#+DATE: \today
+#+AUTHOR:Jake Brawer
+#+EMAIL: jabrawer@vassar.edu
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.1)
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+#+LATEX_HEADER: \usepackage[margin=2.54cm]{geometry}
+
+* Fodor
+- "The key issue is this: if physics fixes all the facts there are, does it follow that all the explanations that there are are physical explanations? Would the physicalistic unity of being entail the physicalistic unity of knowledge?"
+- "Consilience is an epistemological thesis: roughly, it says that all knowledge reduces to basic science. This would appear to be very different from the metaphysical thesis that all the facts supervene on the facts of basic science."
+  - Is this true?
+  - Do different levels use differnet languages for pragmatic reasons or because emergence is a real thing?
+    - Piglucci: We do not have — nor are we ever likely to have — a quantum mechanical theory of planets or of human behaviour. Even if possible in principle, such a theory would be too complicated to compute or to understand. Chemistry might have become a branch of 
+** Is Wilson conflating verical consilience with horizontal consilience?
+Far more frequent, however, is the joining forces of scientific disciplines at more or less the same explanatory level; and in these cases, no reduction need be achieved or intended. Rather, conjoining the experimental and theoretical armamentarium of several sciences allows explanations and systematisations of phenomena that none of them is able to handle on its own
+* Pigliucci
+- "There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination"
+- Ontological vs epistemic reduction
+  - Ontological reduction:
+    The bottom level of reality is causally sufficient to account for everyhting else
+- Epistemic reduction:
+  Knowledge of the bottom level is sufficient to reconstruct knowledge of everything else
+- Seen this way, the differences between philosophy, biology, physics, the social sciences and so on might not be the result of the arbitrary caprice of academic administrators and faculty; they might instead reflect a natural way in which human beings understand the world and their role in it. 
+* Shweder
+- Argues that morals can only be understod in in non-naturalistic (i.e. non scientific) language.
+  - Argues for objective morals.
+  - Claims that saying that something is "wrong" has nothing to do with emotions 
+    - I disagree completely, all moral belief are grounded in emotions
+    - Argues against "emotivist" conceptions of morality by appealing to phenomenology 
+- Vertical integrations emergent properties is like trying to define color in an objectively colorless world
+- Argues that if we accept that a phenomenon is emergent we have to talk about in terms
+* Shore
+- Human nature is shaped by dual-inheritance i.e. genes and an culture
+  - While this idea attemps to reconcile the two cultures,it really only captures the scientific spirit
+- "Science can only illuminate the part of human nature that is open tp scientific inquiry"
+  - Is this true? Are some things only open to scientific scrutiny> What types of things my they be? What types of things are not?
+  - Human variability has been seen as a hurdle to be overcome (by science) to understand human nature, not an aspect of human nature itself
+  - Cultural relativism unified idea of fundumental human nature, but at the cost of disassociating culture from mind.
+    - Culture is treated as variable and external, while mind is not
+  - "The point is that, in adition to many shared substantive universals, signigicant human variability and mutability are themselves aspects of human nature"
+* Pinker
+- Is Pinker describing vertical consilience or horizontal consilience
+- Says that arts and sciences can inform one another
+- Says that evolutionary aesthetcs could help us understand why certain things ellicit certain responses
+  - Is this interesting question to artisits?
+ 
+* Essay
+Pinker argues that scientific analysis has a lot to offer the humanities. Indeed, he provides a few colorful examples of the so called interactions between humanistic and scientific disciplines. He explains in great length how certain cognitive constraints and biases may shape poetic lexicon and structure. The analysis was interesting and certainly a worthy one, but I wonder if it is at all relevant to the poets themselves or how we go about understanding poetry. Put another way: what value does Pinker's psyhcolinguistic analysis of poetry contribute to the poetic enterprise at large? Certainly analyzing the low-level features of a poem or a work of art is necessary for a full understanding of a work, but is not sufficient. Questions like 'What might such-and-such symbolize' or 'Which exegesis for the work is most apt?' seem to me more apposite to understanding a poem than something like 'Why did the author use this irregular verb over this regular one?' Indeed, all Pinker really demonstrates with this example is that poetical forms and aesthetic judgments are shaped by the mind, which I do not think was a revelation to anyone.
+
+
+Both Fodor and Pigliucci differentiate ontological reductionism and epistemic reductionism. According to them, ontological reductionism is essentially the idea that phenomena at the higher levels are the result of the dynamics of the lower levels. Epistemic reductionism, on the other hand, asserts that knowledge of the higher levels can be constructed out of knowledge of the lower levels. The authors claim that Wilson is wrong to assert that the two reductions are equivalent. Do you agree with them? Are ontological and epistemic reduction different?  
+
+Fodor is very critical of Wilson's vertical consilience, but his conception of reality does not seem to be antithetical to Walsh's conception of "good reductionism," i.e. the idea that the higher levels are emergent, but are constrained by the dynamics of the lower-level. Can vertical and horizontal consilience be reconciled/utilized in tandem, or are they fundamentally different approaches? In support of horizontal consilience, Fodor enumerates a number of disciplines 'on the same level' that have merged to great effect, e.g. evolutionary psychology and psycholinguistics. One has to wonder, especially with evolutionary psychology, if these elided disciplines exist on the same level. How do we determine the levels occupied by given disciplines? If there are no clear demarcations, how do we determine if two joined disciplines are typifying vertical or horizontal consilience? Does it matter?
+
+Another interesting idea briefly brought up in both Pigliucci and Fodor was the idea that difficulties associated with unifying vocabulary across levels of analysis, and the paradoxical explanatory gap between low-level causalities and emergent phenomena, do not reflect the nature of reality, but rather the limitations of the human mind. Pigliucci states that "the differences between philosophy, biology, physics, the social sciences and so on might not be the result of the arbitrary caprice of academic administrators and faculty; they might instead reflect a natural way in which human beings understand the world and their role in it." In other words, the only reason we do not have a molecular or quantum physical account of the mind is not because it is impossible, because the mind is emergent in some special, dualistic sense, but simply because such accounts are too difficult to synthesize or understand given our limited cognitive capacities. Is this true? Does level differentiation exist for pragmatic reasons, or because levels cannot be epistemically reduced? If the former is true, are we doomed to have a partial understanding of the world, or does it not matter?
+
+* Beauty project 
+What does a scientific desciprtion add to our appreciation of beauty
+
+- Does
+
+  

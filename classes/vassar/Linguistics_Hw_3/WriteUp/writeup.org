@@ -1,0 +1,18 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:nil toc:nil todo:t |:t
+#+TITLE: Write Up
+#+DATE: <2016-04-02 Sat>
+#+AUTHOR:
+#+EMAIL: jake@test-arch
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Write UP
+
+The most difficult part of this assignment for sure was understanding what Resnik Similarity entailed at a conceptual level. I spent a lot of time trying to translate the function $P(c)$ as described in the textbook, into code. I didn't really understand, for example, how derive values like $N$, and thus I was stuck for a couple of hours trying to figure out. It turns out all I needed to do to was look a little down the page at the equation: $IC = -logP(c)$ for a work around, as IC is a built in function. The more general lesson I took away from this was that if I am struggling implementing an equation I should try and find equivalent formulations of it that are more easy to implement. In general though, once I understood what an algorithm was actually doing, it was fairly easy to implement. Case in point, the disambiguation algorithm took me a while to parse conceptually, but once I understood it the implementation was relatively painless (assuming I've actually done the right thing).
+
+The one aspect of the disambiguation algorithm I didn't quite understand was how normalization was handled. I decided not to normalize the values because from what I could gather, it seemed like all the values were being normalized by a constant value, which did not seem to have much utility in this case aside from contextualizing the values. 

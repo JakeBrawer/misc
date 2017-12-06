@@ -1,0 +1,287 @@
+### Conway
+##!executable Conway
+##!path /c/cs427/hw3/Final/
+##Basic Execution
+#! score linear 30
+#! score threshold 6 30
+# interactive
+! args -i
+5
+6
+3
+# interactive, first move illegal
+! args -i
+0
+# interactive, last move illegal
+! args -i
+6
+0
+# interactive, input after illegal move
+! args -i
+6
+0
+4
+# interactive, multiple illegal moves
+! args -i
+0
+0
+0
+# interactive, solved
+! args -i
+SpinOut requires 85 moves here, Conway won't
+# interactive, start state
+! args -f /c/cs427/hw3/Final/conway_21.in
+6
+# interactive, start state, solved
+! args -f /c/cs427/hw3/Final/conway_21.in
+5
+6
+4
+6
+5
+6
+#interactive, empty input
+! args -i
+#interactive, incomplete move
+! args -i
+#interactive, moves after solved
+! args -i ------/
+6
+6
+# non-interactive
+! args 5 6 3
+! noinput
+# non-interactive, empty input
+! args
+! noinput
+# non-interactive, illegal move
+! args 0
+! noinput
+# non-interactive, incomplete move
+! args 0
+! noinput
+# non-interactive, multiple illegal moves
+! args 0 6 0
+! noinput
+# non-interactive, solved
+! args lots of moves here
+! noinput
+# non-interactive, start state
+! args /-/-/-- 6
+! noinput
+# non-interactive, start state, solved
+! args ----/-/ 5 6 4 6 5 6
+# non-interactive, moves go past solved
+! args ------/ 6 6 5
+## Invalid input (15 points)
+#! score linear 15
+#interactive, multiple moves on line
+! args -i
+! check graceful
+6 4 6 5
+#interactive, move is not integer
+! args -i
+! check graceful
+5.3
+# initialization file not found
+! args -f no_such_file.in
+! noinput
+! check graceful
+# initialization file with missing dimensions (create the input file below as shown)
+! args -f ${INPUT_FILE} (${INPUT_FILE} will be replaced by the name of the file created from the text below)
+! check graceful
+...
+.X.
+.X.
+# initialization file with leading whitespace
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with trailing whitespace
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with intermediate whitespace
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with negative width
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with negative height
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with rows too short
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with rows too long
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with too few rows
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with too many rows
+! args -f ${INPUT_FILE}
+! check graceful
+# initialization file with invalid characters
+! args -f ${INPUT_FILE}
+! check graceful
+#illegal characters in start state non-interactive
+! args -f ${INPUT_FILE}
+! noinput
+! check graceful
+#1st argument is not -i or -f or moves
+! args hello
+! noinput
+! check graceful
+#first move is non-integer non-interactive
+! args /////-/ 3.5
+! noinput
+! check graceful
+#last move is non-integer non-interactive
+! args /////// 6 6 6.5
+! noinput
+! check graceful
+#non-interactive, first move is non-number
+! args /////-/ THREE
+! noinput
+! check graceful
+#non-interactive, last move is non-number
+! args /////-/ 6 THREE
+! noinput
+! check graceful
+#first move is non-integer interactive
+! args -i /////-/
+! check graceful
+3.5
+#last move is non-integer interactive
+! args -i ///////
+! check graceful
+6
+6
+6.5
+#interactive, first move is non-number
+! args -i /////-/
+! check graceful
+THREE
+#interactive, last move is non-number
+! args -i /////-/
+! check graceful
+6
+THREE
+#interactive, extra input on line
+! args -i
+! check graceful
+6 6
+#interactive, blank line
+! args -i
+! check graceful
+6
+
+6
+#interactive, leading space
+! args -i
+! check graceful
+ 6
+## Unit Tests (25 points)
+#! copy student conway.h
+#! copy student conway.cpp
+#! copy staff unit.cpp
+#! score linear 23
+#! score threshold 3 2
+#! executable Unit
+# default constructor (implicitly tests toString too)
+! args 0
+! noinput
+# stream constructor
+! args 1
+! noinput
+# stream constructor with istringstream
+! args 2
+# isLegalMove on several positions for starting configuration
+! args 5
+! noinput
+# isLegalMove on several position for some other configuration
+! args 6
+! noinput
+# isLegalMove negative coordinates
+! args 7
+! noinput
+# isLegalMove too large coordinates
+! args 8
+! noinput
+# isLegalMove way too large coordinates
+! args 9
+! noinput
+# makeMove for each legal move in starting position
+! args 10
+! noinput
+# makeMove for each legal move in some other configuration
+! args 11
+! noinput
+# makeMove for illegal move
+! args 12
+! noinput
+# makeMove for negative coordinates
+! args 13
+! noinput
+# makeMove for too large coordinates
+! args 14
+! noinput
+# makeMove for way too large coordinates
+! args 15
+! noinput
+# totalMoves for default starting configuration
+! args 16
+! noinput
+# totalMoves for some other starting configuration
+! args 17
+! noinput
+# totalMoves for sequence of legal moves
+! args 18
+! noinput
+# totalMoves for sequence including illegal move
+! args 19
+! noinput
+# isSolved for starting configuration
+! args 20
+! noinput
+# isSolved for other configuration
+! args 21
+! noinput
+# isSolved for solved configuration
+! args 22
+! noinput
+# isSovled for object moved into and then past solved configuration
+! args 23
+! noinput
+# copy constructor copy is correct
+! args 24
+! noinput
+# copy constructor copy is deep
+! args 25
+! noinput
+# move constructor copy is correct (I will figure out how to split 427/527)
+! args 26
+! noinput
+# move constructor original is valid and doesn't affect new
+! args 27
+! noinput
+# assignment copy is correct
+! args 28
+! noinput
+# assignment copy is deep
+! args 29
+! noinput
+# assignment self-assignment
+! args 30
+! noinput
+# assignment return value
+! args 31
+! noinput
+# move assignment copy is correct
+! args 32
+! noinput
+# move assignment original is valid and doesn't affect new
+! args 33
+! noinput
+# move assignment return value
+! args 34
+! noinput

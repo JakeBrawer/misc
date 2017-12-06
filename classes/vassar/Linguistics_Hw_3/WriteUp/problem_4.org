@@ -1,0 +1,235 @@
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:nil p:t pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:nil toc:nil todo:t |:t
+#+TITLE: Break
+#+DATE: <2016-04-02 Sat>
+#+AUTHOR:
+#+EMAIL: jake@test-arch
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Senses of break
+** Sense: To take a break
+*** Example: Sybil took a break from her homework.
+**** Wordsense matches
+
+Synset('pause.v.02')
+cease an action temporarily
+** Sense: to nullify
+*** Example: Steve broke his promise to mike
+**** Wordsense matches
+
+Synset('violate.v.01')
+fail to agree with; be in violation of; as of rules or patterns
+** Sense: To end something
+*** Example: I broke the silence
+**** WordSense matches
+
+Synset('break.v.23')
+come to an end
+** Sense: To break out, begin
+*** Example: All hell broke loose
+**** WordSense matches
+
+Synset('break.v.09')
+force out or release suddenly and often violently something pent up
+** Sense: To stop working
+*** Example: Her computer broke
+**** WordSense matches:
+
+Synset('break.v.04')
+ruin completely
+
+Synset('break.v.03')
+render inoperable or ineffective
+
+* Part C
+
+I think all of my examples save for the second to last one (i.e. to break out) have the meta-sense of ending, even if it's in the metaphorical sense (e.g. when one breaks a promise one is also putting an end to it). I think to break out false under the metasense that break has of movement through (e.g. break out, break through).
+
+
+#+RESULTS:
+#+begin_example
+Synset('interrupt.v.04')
+[Synset('end.v.02')]
+
+Synset('break.v.02')
+[Synset('change_integrity.v.01')]
+
+Synset('break.v.03')
+[Synset('damage.v.01')]
+
+Synset('break.v.04')
+[Synset('destroy.v.02')]
+
+Synset('break.v.05')
+[Synset('separate.v.07')]
+
+Synset('transgress.v.01')
+[Synset('disrespect.v.01')]
+
+Synset('break.v.07')
+[Synset('escape.v.01')]
+
+Synset('break.v.08')
+[Synset('disperse.v.04')]
+
+Synset('break.v.09')
+[Synset('express_emotion.v.01')]
+
+Synset('break.v.10')
+[Synset('end.v.02')]
+
+Synset('break_in.v.01')
+[Synset('trespass.v.01')]
+
+Synset('break_in.v.06')
+[Synset('domesticate.v.02')]
+
+Synset('violate.v.01')
+[]
+
+Synset('better.v.01')
+[Synset('surpass.v.02')]
+
+Synset('unwrap.v.02')
+[Synset('tell.v.02')]
+
+Synset('break.v.16')
+[Synset('become.v.01')]
+
+Synset('fail.v.04')
+[Synset('change.v.02')]
+
+Synset('break.v.18')
+[Synset('separate.v.08')]
+
+Synset('break.v.19')
+[Synset('flee.v.01')]
+
+Synset('break.v.20')
+[Synset('collapse.v.01')]
+
+Synset('dampen.v.07')
+[Synset('deaden.v.06')]
+
+Synset('break.v.22')
+[Synset('change.v.02')]
+
+Synset('break.v.23')
+[Synset('end.v.01')]
+
+Synset('break.v.24')
+[Synset('change.v.03')]
+
+Synset('break.v.25')
+[]
+
+Synset('break.v.26')
+[Synset('discontinue.v.01')]
+
+Synset('break.v.27')
+[Synset('come_forth.v.02')]
+
+Synset('break.v.28')
+[Synset('happen.v.01')]
+
+Synset('break.v.29')
+[Synset('ruin.v.02')]
+
+Synset('break.v.30')
+[Synset('invalidate.v.01')]
+
+Synset('separate.v.08')
+[]
+
+Synset('demote.v.01')
+[Synset('delegate.v.02')]
+
+Synset('bankrupt.v.01')
+[Synset('impoverish.v.01')]
+
+Synset('break.v.34')
+[Synset('switch.v.03')]
+
+Synset('break.v.35')
+[Synset('appear.v.02')]
+
+Synset('collapse.v.01')
+[Synset('change.v.02')]
+
+Synset('break_dance.v.01')
+[Synset('dance.v.02')]
+
+Synset('break.v.38')
+[Synset('change.v.06')]
+
+Synset('break.v.39')
+[Synset('change.v.01')]
+
+Synset('break.v.40')
+[Synset('shoot.v.08')]
+
+Synset('break.v.41')
+[Synset('separate.v.02')]
+
+Synset('break.v.42')
+[Synset('decay.v.02')]
+
+Synset('break.v.43')
+[Synset('detach.v.01')]
+
+Synset('break.v.44')
+[]
+
+Synset('break.v.45')
+[Synset('penetrate.v.01')]
+
+Synset('break.v.46')
+[]
+
+Synset('pause.v.02')
+[Synset('interrupt.v.01')]
+
+Synset('break.v.48')
+[Synset('interrupt.v.01')]
+
+Synset('break.v.49')
+[Synset('diphthongize.v.01')]
+
+Synset('break.v.50')
+[Synset('destroy.v.02')]
+
+Synset('break.v.51')
+[Synset('solve.v.01')]
+
+Synset('break.v.52')
+[Synset('switch.v.03')]
+
+Synset('break.v.53')
+[Synset('happen.v.01')]
+
+Synset('crack.v.01')
+[Synset('change.v.02')]
+
+Synset('break.v.55')
+[Synset('change_state.v.01')]
+
+Synset('break.v.56')
+[Synset('decrease.v.01')]
+
+Synset('fracture.v.06')
+[Synset('injure.v.01')]
+
+Synset('break.v.58')
+[Synset('decrease.v.01')]
+
+Synset('break.v.59')
+[Synset('weaken.v.01')]
+
+#+end_example
+

@@ -1,0 +1,35 @@
+* Review
+
+Summary:
+The paper describes the design and evaluation of pedagogical activities for primary school students incorporating interactions with tangible and haptic robots. The authors hypothesized that such interactions would be better at resolving common geometrical misconseptions (here related to axial symmetry) when compared with traditional pencil and paper methods. The authors discuss co-designing an ecological experiment with a primary school teacher comparing the efficacy of these two methods for the teacher's actual students. The authors present a number results but perform no statistical analyses on them, and so do not make any strong claims. 
+
+Strengths:
+- Interesting ecological experimental design 
+- Crafted an ecologically-feasible tool for promoting pedagogical HRIs.
+
+Weaknesses:
+- Significantly lacking in clarity.
+- Some design decisions motivated in an unsatisfactory way.
+- Results presented without any statistical analysis 
+- Minimal discussion or interpretation of results
+
+Detailed Comments:
+- The strongest aspect of this paper was its ecological approach to HRI. The authors not only co-designed the experiment with a teacher, but had her administer the experiment to her actual students. Ecologically-feasible design is something that is sorely lacking in the literature (probably due to its sheer difficulty) so I commend the authors for taking this route. I hope to see more research in this vein in the future!
+- Building off the point above, the robotic apparatus outlined in the paper appears well-designed. That is, the HRIs here seem intuitive, age-appropriate, and could be feasibly incorporated into class curricula.
+- The paper is lacking in clarity in terms of its construction, but is also conceptually unclear in a few important ways. There are spelling and grammar issues too numerous to list here that impeded my understanding of the paper. I suspect that these issues would be remedied eventually, but in its current form the paper is unacceptable. More importantly, however, there are conceptual aspects of the paper require clarification. For example it's never explicitly made clear what the putative advantage is of the robotic system over pencil and ruler methods. Obviously it has something to do with the robots being haptic and tangible, but in a sense, so are pencils and rulers. What I gather here is that the apparatus allows users to physically manipulate geometric relations which cannot be done with a pencil and ruler. The authors would do well to make this point more clear. The authors also emphasize at a few points in the paper that an advantage of their robotic system was that it forced students to create a mental representation of object symmetries. This was due to the fact that the symmetrical shape was "uncovered" with the robot, and not drawn on the paper. However, I am not convinced that this an advantage inherent only to the robotic system; one could imagine a clever teacher taking advantage of this approach with traditional analogue methods.
+- Additionally, some aspects of the experimental design are not well motivated. The authors conduct two experimental sessions with ostensibly the only difference between the two being that that the second session contains a version of activity 2 implementing haptic feedback. Why was this second session necessary? Why not include haptic feedback in session 1's activity 2? Did the control group perform a version of activity 2 during the second session? A direct comparison between these two versions of activity 2 was never made so its unclear why these two versions exist.
+- The authors present numerical results but perform no statistical analyses on these results. This is likely due to the small number of participants run. I appreciate the difficulty of running this sort of experiment, but this paper was submitted to the "studies" subcommittee and as an empirical study the results are unconvincing. In fact, there are not any clear conclusions drawn by the authors regarding the efficacy of the robotic system nor can there be given the small participant pool and lack of statistical analyses. The work in this paper is very promising, but is more appropriate as a design-oriented paper with experimental work treated as a case study.
+- The abstract concludes with the following sentence "Our findings suggest that haptic interaction promotes children's conceptual learning by providing a richer perceptual experience." Apart from being vague, I don't see how the conclusion is necessarily supported by your results (see above comment), nor is the conclusion reiterated or expanded upon in the body of the text.
+
+Suggestions:
+- Rework paper to be design-oriented and treat experimental component as a case study.
+- Carefully review paper for spelling and grammar issues and clarify ambiguities. 
+
+Minor Suggestions:
+- Is there a reason Figure 2 (a) has a grid and (b) does not? Consider including the grid in (b) or removing it from (a) unless there is a good reason to keep it as is.
+
+Recommendation:
+The work here shows a lot of promise. This paper could make a strong submission with significant reworking and if sent to a different subcommittee. As it stands currently, however, I would argue for rejecting this paper.
+
+
+

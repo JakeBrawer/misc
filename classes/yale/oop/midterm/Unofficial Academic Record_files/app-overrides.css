@@ -1,0 +1,198 @@
+/*
+ ****************************************************************************
+ *                                                                          *
+ * Copyright 2010 - 2012 SunGard. All rights reserved.                      *
+ *                                                                          *
+ * SunGard or its subsidiaries in the U.S. and other countries is the owner *
+ * of numerous marks, including "SunGard," the SunGard logo, "Banner,"      *
+ * "PowerCAMPUS," "Advance," "Luminis," "DegreeWorks," "fsaATLAS,"          *
+ * "Course Signals," and "Open Digital Campus." Other names and marks used  *
+ * in this material are owned by third parties.                             *
+ *                                                                          *
+ * This [site/software] contains confidential and proprietary information   *
+ * of SunGard and its subsidiaries. Use of this [site/software] is limited  *
+ * to SunGard Higher Education licensees, and is subject to the terms and   *
+ * conditions of one or more written license agreements between SunGard     *
+ * Higher Education and the licensee in question.                           *
+ *                                                                          *
+ ****************************************************************************
+
+  AUDIT TRAIL: 8.5.1
+    1. Defect 1-F1HJJ5                                    JM 01/19/2012
+     Added default border style for dbdead class
+    2. Defect 1-BJEKAC                                    JM 01/19/2012
+     Added default border style for bordertable class
+  AUDIT TRAIL: 8.4.1
+    1. Defect 1-B37AGH                                        SVA
+     Add audit trails.
+ 
+  AUDIT TRAIL END
+
+  FILE NAME..: app-override.css
+  RELEASE....: 8.5.1
+  PRODUCT....: WTLWEB
+  COPYRIGHT..: Copyright (C) SunGard 2010 - 2012. All rights reserved.
+*/
+/* override web_defaulthome.css */
+BODY {
+	background-image: none;
+}  /* override web_defaultapp.css */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td
+	{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.98em;
+}
+
+body,.infotext,.captiontext,TABLE TD.deheader,TABLE TH.deheader,TABLE TD.delabel,TABLE TH.delabel,TABLE TD.deseparator,TABLE TD.dehighlight,.fieldformatboldtext,.fieldformattext
+	{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.98em;
+}
+
+input {
+	vertical-align: top;
+}
+
+.captiontext {
+	font-style: normal;
+	color: #036;
+}
+
+TABLE TH.delabel,TABLE TD.delabel {
+	color: #444;
+}  /* added TABLE TD.ddheader to ensure all headers appear same */
+/*Fix for Defect 1-BJEKAC 
+TABLE TD.deheader,TABLE TH.deheader,TABLE TH.ddlabel,table td.dbheader,table td.dbtitle,TABLE TD.ddheader */
+TABLE TD.deheader,TABLE TH.deheader,TABLE TH.ddlabel,table td.dbheader,table td.dbtitle,TABLE TD.ddheader,TABLE th.ddheader
+	{ /* new grey header background */
+	background: url(images/bg-table-header.png) repeat-x left bottom;
+	padding: 4px 4px;
+	margin: 0px;
+}
+	
+	/** added table td.dddefault as part of this to ensure similar alignment **/
+table td.dddefault {
+	padding: 4px 4px;
+	margin: 0px;
+	/*border: 1px solid black;  Fix for Defect 1-BJEKAC */
+}
+
+table td.dbdefault {
+	font-size: 95%;
+	/*border: 1px solid black;  Fix for Defect 1-BJEKAC */
+}
+
+/* Fix for defect 1-F1HJJ5 - define default border style for dbdead class - start */
+table td.dbdead {
+	border: 1px solid black;
+}
+/* Fix for defect 1-F1HJJ5 - define default border style for dbdead class - End */
+
+table th.ddheader {
+	padding: 4px;
+}
+
+table.bordertable {
+	margin: 0 0 0 1px;
+	border: 1px solid black; 
+	/* Fix for Defect 1-BJEKAC */
+	border-collapse: collapse;
+}
+/*Fix for Defect 1-BJEKAC 
+TABLE th.ddheader{
+	background: url(images/bg-table-header.png) repeat-x left bottom;
+	padding: 4px 4px;
+	margin: 0px;
+	border: 1px solid black;/* Fix for Defect 1-BJEKAC */
+}
+*/
+.leftaligntext {
+	font-size: 0.98em;
+}
+
+.infotextdiv {
+	border: 1px #ccc solid;
+	background-color: #fff;
+}
+
+.infotexttable {
+	font-size: 0.98em;
+	line-height: 13pt;
+}
+
+.infotexttable .infotext {
+	color: #445;
+}
+
+.infotexttable td {
+	padding: 3px 0px 4px 4px;
+}
+
+caption {
+	padding: 0px 0px 8px 0px;
+	margin: 0px 0px 10px 0px;
+	border-bottom: 1px #97afc2 solid;
+	color: #166a9f;
+	width: 100%;
+}
+
+acronym {
+	cursor: help;
+}
+
+td.bgtabon img.headerImg {
+	height: 0px;
+}
+
+.pldefault h2 {
+	font-size: 1.07em;
+	font-weight: bold;
+}
+
+.bg3 {
+	padding: 0;
+	margin: 0;
+	height: 0px;
+	display: none;
+}
+
+.reltext {
+	color: #666666;
+	display: block;
+	float: left;
+	font-size: 0.99em;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 5px;
+}
+
+div.staticheaders {
+	font-size: 0.8em;
+	line-height: 11pt;
+	color: #333;
+	text-align: right;
+	margin-bottom: 10px;
+	background-color: #fff;
+	margin: -15px 0 0;
+	float: right;
+}
+
+.menulinkdesctext {
+	font-size: 80%;
+}
+
+A.sitemaplevel3:visited {
+	font-size: 75%;
+}
+
+A.sitemaplevel3:hover {
+	font-size: 75%;
+}
+
+A.sitemaplevel3 {
+	font-size: 75%;
+}
+
+.fieldlabeltext .htmlButton {
+	width: 100%;
+}

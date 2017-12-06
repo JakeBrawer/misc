@@ -1,0 +1,55 @@
+#+LaTeX_CLASS: article
+#+OPTIONS: ':nil *:t -:t ::t <:t  \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:nil todo:t |:t
+#+TITLE: One Culture HW 5
+#+DATE: \today
+#+AUTHOR:Jake Brawer
+#+EMAIL: jabrawer@vassar.edu
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.1)
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+#+LATEX_HEADER: \usepackage[margin=2.54cm]{geometry}
+
+- What kind of Consilience btw art and science is Edie identifying?
+- Similarities between her type of consilience and consiliences we have seen before
+- Any types of consilience she may have missed?
+* Edie 
+- Science is preoccupied wih beeauty, more so than modern art
+** Chapter 3
+Attempts to understand  art through evolutionary psychology/biology
+- Talks about art-making occuring 60000 years ago
+  - "the same cognitie proceses which are used to attribute meaning to marks unintentionally made by animals would be equally effective at attributing marks intentionally created by humans" (50)
+  - "Art..apears to have been a medium which was intended to communicate meaning at an intense level" (51)
+  - Connects art-making with death religon and death
+    - Art seemed to have reached an apotheosis around sites connected with death"
+- *Art and science have similar goals, but different ways of getting at them*
+  - "Art...makes connections with the ancient history of human kind. Its meaning is not literaal or clear but affects us emotionally" (58)
+  - Science, on he other han, tries to paint a clear/objective picture of our history/our future
+  - -"our recurrent myths and literatures reiterate the universal truths evolved from our collective biological struggle to survie" (63)
+** Chapter 4
+*In general she seems to pull from various sources, both scientific and artistic to probe how we understand ourself (see 66 for some examples)*
+- Classic horizontal consillience
+** Chapter 5
+- "Experiments into artistic activity have to focus on a very limited of [art's]...This is not the claim that scientists possess an always reductivist vision...An engagement with art requires...an uder-acknowledged subscription to a fine mesh of cultural values with widely variable definitions " (80)
+  - Therefore claims that vertical consilience is impossible
+- On page 81, cites freudian theory for innovation in poetry
+- "Art is certaintly an armament in the processes of sexual selection" (81)
+- Nice quote from an artist about beauty being inherently sensual (82)
+- *point of all this is that shes using horizontal consilience (taking from diff disciplines)*
+- She makes many references to neuroscience to prove her point, but its unclear if this vertical or horizontal consiliences
+  - eg pg 87
+
+This book is good because its about how art can inform science as much as it is about how science can inform art (pg 100 for example)
+
+
+* Essay
+In our first batch of readings, Weiseltier lamented Pinker's calls for consilience between the humanities and the sciences. Pinker had claimed that consilience would be beneficial to both camps by facilitating the mutual exchange of methodologies and knowledge. To this Weiseltier insisted that Pinker's brand of consilience (read: vertical consilience ) would not be a mutual boon to both camps, but would rather result in the cannibalization of the humanities by the sciences.
+
+I would mostly agree with Weiseltier that a purely vertical consilience would do a disservice arts, but I do not think that is true of all types of consilience in general. Indeed, I think Edie has been the only author whose made a satisfying attempt at art-science consilience. This is because her approach appears to be mostly horizontal, which by design mitigates the aforementioned cannibalization. Rather than reduce art to 'merely' neuroscience, or 'merely' psychology, Edie attempts to unify these disparate methods of understanding to paint a coherent picture, so to speak. Most crucially, she's not not just unifying the different scientific approaches, , but scientific and artistic approaches as well. That is to say, she attempts to get at a deeper understanding of certain concepts by corroborating certain explanations from multiple different disciplines. For example in one chapter she draws from evolutionary psychology to speculate on the ontology of art. She argues that artistry evolved because its social and sexual significance is adaptive. She supports this assertion with a g bamut of arguments from sociology and neuroscience, but interestingly, she is also sure to include a relevant quote from an artist. Generally, when authors we have been reading, like Wilson, have attempted art-science consilience, it was enough for them to simply try and explain some art-related phenomenon with a pointological neuroscience finding. I admire Edie's attempt at trying to reconcile an artist's viewpoint with a scientist's, even if it does feel haphazard at times. In class we talk a lot about 'respect' and how at the very least the cultures should try at least attempt to foster a mutual respect for each other (something that was clearly absent from the One Culture readings and the Pinker/Weiseltier exchange). Edie's brand of horizontal consilience seems to me to be an ideal method of developing respect because it treats all disciplines under consideration as equal partners in epistemological pursuits.
+
+One thing Edie neglected to do was find consilience between the arts. That is, for the most part she either focused on just Western art, or lumped all the worlds art in one category. For example, she talks a lot about how our aesthetic judgments may be tied to the adaptiveness of being able to recognize and appreciate symmetry. However, my group, which is trying to reconcile Eastern and Western conceptions of beauty, have found that many Japanese aesthetic philosophies emphasize asymmetry over symmetry as being an indicator of beauty. She does briefly recognize this, but it would have nice (if only for my own selfish reasons) if she had explored this more. 

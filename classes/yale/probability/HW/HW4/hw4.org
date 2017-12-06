@@ -1,0 +1,67 @@
+#+TITLE: Assignment 4
+#+AUTHOR: Jake Brawer
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage{amsmath}
+
+* Problem 1
+
+** (a)
+
+#+BEGIN_SRC latex :exports results
+  \begin{align}
+    F_{x}(X) &= P\left\{X \leq x\}\right\\ 
+         &= P\left\{s\tan{A} + \theta \leq x\}\right\\
+         &=P\left\{A \leq \arctan{\frac{x-\theta}{s}}\right\}\\
+         &=(\arctan{\frac{x-\theta}{s} + \frac{\pi}{2})\frac{1}{\pi}}\\
+  \end{align}
+#+END_SRC
+So:\\
+#+BEGIN_SRC latex :exports results
+  \begin{align}
+  F_{x}'(X) &= \frac{1}{s \pi (1 + \frac{x - \theta}{s})}\\
+            &=\frac{1}{s}\kappa(\frac{x-\theta}{s})\\
+            &= f_{x}
+  \end{align}
+#+END_SRC
+
+** (b)
+
+#+BEGIN_SRC R :session :exports both
+  Ths <- seq(-30, 10, 0.2)
+  Ss <- seq(.2, 40, .2)
+
+  Xs <- c(1,2,7.8,9.2)
+
+  likefcn <- function(th, s){
+    return(prod(1/(pi*s*(1.0+((Xs-th) / s)^2))))
+  }
+
+  m <- length(Ss)
+  n <- length(Ths)
+  liks <- matrix(0, nrow=m, ncol=n)
+  for(i in 1:m){
+    for(j in 1:n){
+      liks[i, j] = likefcn(Ths[j], Ss[i])
+    }
+  }
+  length(liks)
+#+END_SRC
+
+#+RESULTS:
+: 40200
+
+
+** (c)
+
+#+BEGIN_SRC R :session :results graphics :file 3d.png :exports both
+  persp(Ss,Ths, liks, theta=30, phi=30, expand=0.5, 
+  col="lightblue", zlab="z=f(x,y)",  
+  ticktype="detailed", 
+  shade=.75, lphi=45, ltheta=135)
+#+END_SRC
+
+#+RESULTS:
+[[file:3d.png]]
+
+
+Sorry this is all I had time to do ;_; 

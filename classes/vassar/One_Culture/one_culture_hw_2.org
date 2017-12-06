@@ -1,0 +1,122 @@
+#+LaTeX_CLASS: article
+#+OPTIONS: ':nil *:t -:t ::t <:t  \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:nil todo:t |:t
+#+TITLE: One Culture HW 2
+#+DATE: \today
+#+AUTHOR:Jake Brawer
+#+EMAIL: jabrawer@vassar.edu
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.1)
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+#+LATEX_HEADER: \usepackage[margin=2.54cm]{geometry}
+
+* E.O. Wilson
+- Hard sciences are v consilient with one another, but not so much with other cultures
+** Is all knowledge consilient?
+- The fact that hard sciences were once consilient and now are not is good evidence for that
+- Nothing special about the mind (rejects dualism)
+- Why is consilence btw sciences and humanities important?
+  - "provides the caracterization of human nature with greater objectivity and precsion, an exactitude that is the key to human self-understanding"
+  -
+  - Being able to understand human nature scientifically is the holy grail of scholarship
+  - *Seems to be dismissing humanities as a way of understanding human knowledge*
+** What is human nature?
+epigenetic rules, inhereted regularities of mental development 
+- Genetically determined sesnory biases
+- how we represent the world symbolically
+- the responses our brains find easiest to make
+- Human nature are not cultural universals (e.g. incest taboos), these are the products of incest
+  - *Has a p reductive, scientific view of human nature. Its unclear if humanities folks would agree*
+
+* EO Wilson Daedulus
+- While western sciences was always grounded in the search for reductive laws, Chinese folks never tried to do that
+  - They subsequently 'failed' to expand knowledge past what could be directly percieved.
+** What is consilence
+Consilience takes place when an induction, obtained from one class of facts, coincieds with an Induction, from another class of facts
+*** Vertical consilience
+- Physics cam to undergrid chemistry
+  - *" The successful union was not just a broad theoretical consistency... but an exact folding of principles pretaining to more complex and particular systems into the principles for simpler more general sytems"*
+- Biology is the result of consilience between chemistry physics biology, evolutionary biology, etc.
+  - However, to social scientist and humanists, the reductionism implied by consilience cant explain higher level phenomena like brains.
+  - Complex systems are distinguished by emergent properties not physics
+    - *"Each higher level of orginization requires its own principles...which permit accurate characterization... of its elements"* 
+**** Top-down consilience
+"Principles used to describe the level, if apposite and correct, can be telescoped into those of lower levels and, especialy, the next level down. That is...the process of reduction.o"
+**** Bottom-up consilience
+Is much harder than top-down, and gets harder the higher the level is you are trying to understand.
+** Consilience w social sciences
+Discusses how increases in imaging capabilities will lead to a better understanding of how the brain works
+
+* Walsh
+False dichotomy btw reductionism and hollism 
+** Good reductionism
+"commitment to non-question-begging science"
+** Greedy reductionsim
+skips over several layers of complexity in order to make an elegant model
+- Argues that few scientist think greedy reductionsim is a valid way of understanding the world
+  - *The problem to me seems to be when people think they are being "good" when they are really being greed"*
+** Vertical consistency 
+A phenomenon can be more fully understood if its explanation maintains consistency with what we know about the more elementary units.
+- "social sciences should make themselves consistent with what we know about the physical sciences as well."
+- "crime rates are emergent properties of sociocultural sysetms that cannot be deduced from the biologicl properties of its constituent parts.."
+* Bechtel
+** Chapter 1
+*** Nomological account of science vs mechanisms
+Belief that science seek underlying laws of behavior
+- this is in contrast to a mechanistic approach (which is how cogsci folks approach understanding)
+  - Laws apply universally, mechanisms consists of a particualr set of parts that carry out a specific operation.
+  - There are no laws in biology
+
+*** Naturalist perspective
+- Understands that all sciences are not the same and that there may not be one framework that unifies all science
+* Boyer
+Anthropology is becoming irrelevant in the current social milleau 
+- This is because strident relativism (each culture has its own concepts that are sacred and untransalteble is of little usse to folks living in an increasingly culturally intermingled world.
+
+Three distinct modes of scholarship:
+** Sceince mode
+- Shared corpus of knowlede
+- people publish short contributions
+- Histroy of field is not too important
+- fundementals are explained in textbooks
+** Erudition mode
+Recquirement that specialists of the descipline shoudl have detaield knowledge of a particular domain of facts. 
+- shared corpus of knowledge 
+- knwoledge may not be made explicit in manuals
+- History of field is important
+- Age of practioner = more skilled
+
+Not hypothesis driven like science, but desciption-driven 
+
+In many scientific disciplines, erudite and scientific mode are intermingled 
+
+** Salient connections mode
+people asses new contributions in terms of connections they establish between facts or ideas...
+- e.g. refraiming Shakespeares plays in erms of colonial outlook
+- No agreed corpus
+- no textbook
+
+Erudition not too important. Only making new connections matter
+- Salient connections are only salient to a limited num of people
+
+such scholarship does not solve any questions or contribute anything to the understanding of the world
+
+Anthropologists are arafid of reduction but in reality reduction is the main mode of understanding in science
+
+
+
+* Essay
+This weeks authorial cohort produced a plethora of definitions, both overtly and implicitly, of what we have been apt to calling "vertical consilience." In general, these authors single out "consistency" as being the main the goal of vertical consilience, and "reduction" as being the vehicle of consistency. In general there seems to concordance (or maybe consistency) between the authors in what consistency means in a multi-disciplinary context; Walsh and Wilson define vertical consilience (or vertical consistency in Walsh's case) as being a theoretical consistency across levels of analysis (i.e. different disciplines) such there is an "unfolding of principles" from the complex (orginizationally sepaking) lower levels to the more general higher levels. Under this view, for example, a biological observation/theory/idea that is at odds or actively repudiates the second law of thermodynamics would be inconsistent with our understanding of physics and thus would not be vertically consilient.
+
+How one gets at whether an discipline/idea is consistent is whether it can undergo reductionism of the sort that Walsh would call "good," Bechtel would call "mechanistic," and Boyer deems simply "reduction." This type of reduction respects that high-level phenomena  may "emerge" from low-level processes in a way that is not necessarily clear from analysis of the lower-level alone. However, this is paired with the understanidng that at the same time lower-level dynamics shape and constrain the higher-level in such a way that a full understanding of the higher-level cannot be ascertained without appealing to these lower-level dynamics. While the humanities and in part the social sciences tend to reject such reductionism, in the natural sciences reductionism is the /modus operendi/ of its practitioners, and has lead to immense successes. These authors argue that the near ubiquitous anti-reductionist sentiment amongst humanists and social scientists is the result of a conflation of so-called good reductionism with "greedy" or to some extent, Bickle's "ruthless" reductionism, which at least Walsh and Bechtel view a mischaracterization of a truly reductive approach. This type of reductionsim is only concerned with describing phenomena using its lower-level constituents, and does not regard holistic or emergent or emergent processes as being causally relevant. 
+
+I think in general these authors make a very good case for good reductionism-driven vertical consilience amongst the sciences and some humanists pursuits (e.g. anthropology, sociology, etc.). However, I think that in general they mischaracterize what they refer to as anti-reductionist sentiment in the social sciences. I think very few cognitive scientists, for example, would argue that an understanding of neural dynamics is /not/ part and parcel of an understanding of cognitive processes in some respect. I think however, at least at Vassar, there is a certain skepticism that a good reductionist account of a cognitive processes is not really just a greedy reductionsim in good reductionism's clothing, so to speak. I think Bickle's reductionist's epiphany is an example of this. Bickle makes a strong case for understanding social cognition through purely neurobiological means, but I believe such an account, which openly shirks the contributions of embodiment and other holistic processes, fails to describe a very compelling picture of the phenomenon of interest.
+
+Additionally, while, Boyer and Walsh make a pretty convincing case for vertical consilience between the sciences and some humanists pursuits like anthropology and sociology, I think all the authors failed to bridge the gap between the arts and the sciences. 
+
+ bb

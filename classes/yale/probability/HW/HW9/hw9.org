@@ -1,0 +1,377 @@
+#+TITLE: Assignment 9
+#+AUTHOR: Jake Brawer
+#+OPTIONS: toc:nil num:nil |t:nil
+#+BABEL: :session *R* :cache no :results output graphics :exports both 
+#+LATEX_HEADER: \usepackage{amsmath}
+
+
+* Problem 1
+** a)
+#+BEGIN_SRC latex
+  First lets solve for $\mu_{Y}$\\
+  \begin{align*}
+    Y &= \alpha + \beta x + \epsilon\\
+    \mu_{Y} &= E\left[Y \right]\\
+      &= E\left[ \alpha + \beta x + \epsilon \right]\\
+      &= \alpha + \beta \mu_{Y} \tag{1}
+  \end{align*}
+
+  Using $(1)$ we can solve for $\rho$\\
+  \begin{align*}
+
+    \rho &= \tfrac{cov(X, Y)}{\sigma_{X} \sigma_{X}}\\
+
+         \quad &= E \left[ (Y - \mu_{Y})(X - \mu_{X}) \right]\\
+
+         \quad &= E \left[ (\alpha \beta X + \epsilon - \alpha + \beta \mu_{X} ) (X - \mu_{X})\right]\\
+
+         \quad &= E \left[ \beta (X - \mu_{X})^{2} + \epsilon(X - \mu_{X}) \right]\\
+
+         \quad &= \cfrac{\beta \sigma^{2}_{X}}{\sigma_{X} \sigma_{Y}} \\
+  
+    \quad &= \cfrac{\beta \sigma_{X}}{\sigma_{Y}} \tag{2}
+  \end{align*}
+
+  From $(2)$ It's easy to see that $$\beta =\rho \frac{\sigma_{Y}}{\sigma_{X}} $$
+  and substituting $(2)$ in for $\beta$ in  $(1)$ $$\alpha = \mu_{Y} - \rho
+  \frac{\sigma_{Y}}{\sigma_{X}} \mu_{X}$$
+#+END_SRC
+
+** b)
+#+BEGIN_SRC latex
+  \begin{align*}
+
+    \sigma_{Y} &= E \left[ (Y - \mu_{Y})^{2} \right]\\
+
+    \quad &= E \left[ (\alpha + \beta X + \epsilon - \alpha - \beta \mu_{x} )^{2} \right] \tag{by Eq. (1)}\\
+
+    \quad &= E \left[ (\beta (X - \mu_{X} ) + \epsilon)^{2} \right]\\
+
+    \quad &= \beta E \left[ (X - \mu_{X})^{2} \right] + E \left[ \epsilon^{2} \right] + E \left[ 2 \beta \epsilon (X - \mu_{X} )\right]\\
+  
+    \quad &= \beta^{2} \sigma^{2}_{X} + \mu^{2}_{\epsilon} + 0\\
+  
+  \end{align*}
+
+  So from here we have
+  \begin{align*}
+
+    \sigma^{2}_{\epsilon} &= \sigma^{2}_{Y} - \beta^{2} \sigma^{2}_{X}\\
+
+    \quad &= \sigma^{2}_{Y} - \rho \cfrac{\sigma^{2}_{Y}}{\sigma^{2}_{X}} \sigma^{2}_{X} \tag{From (a)}\\
+
+    \quad &= (1 - \rho)^{2}\sigma^{2}_{Y}
+  \end{align*}
+#+END_SRC
+** c)
+#+BEGIN_SRC latex
+\begin{align*}
+  \tilde{\epsilon} &= \tilde{Y} - \rho \tilde{X}\\
+  \quad &= \cfrac{\beta (X - \mu_{X}) + \epsilon}{\sigma_{X}} - \cfrac{\beta \sigma_{X} (X - \mu_{X})}{\sigma_{X}\sigma_{Y}}\\
+  \quad &= \cfrac{\epsilon}{\sigma_{Y}}
+\end{align*}
+Now we can show that $var(\tilde{\epsilon}) = (1 - \rho)^{2}$
+
+\begin{align*}
+
+  \sigma_{\tilde{\epsilon}} &= E \left[ (\tilde{\epsilon} - \mu_{\epsilon})^{2} \right]\\
+
+  \quad &= \tfrac{1}{\sigma_{Y}}  E \left[ (\epsilon - \mu_{\epsilon})^{2} \right]\\
+
+  \quad &= \cfrac{\sigma_{\epsilon}}{\sigma_{Y}}\\
+
+  \text{So we have}\\
+  
+  \sigma^{2}_{\tilde{\epsilon}} &= \cfrac{\sigma^{2}_{\epsilon}}{\sigma^{2}_{Y}}\\
+
+  \quad &= (1 - \rho)^{2}   \hspace{2in}\text{By problem b) }\\
+
+          \quad &= var(\tilde{\epsilon})
+
+
+\end{align*}
+#+END_SRC
+* Problem 2
+** a)
+#+BEGIN_SRC latex
+\begin{equation*}
+  \left( \cfrac{68 - 65}{3.5} \right) = .85\\
+
+\end{equation*}
+So $$1 - \Phi(.85) = 1 - .30 = .70. $$
+#+END_SRC
+** b) 
+#+BEGIN_SRC latex
+\begin{equation*}
+  \left( \cfrac{\hat{Y} - 65}{3.5} \right) = .3 \left( \cfrac{\hat{X} - 70}{4.0} \right)\\
+  
+\end{equation*}
+So
+\begin{equation*}
+  \hat{Y} = .2625\left( \hat{X} - 70 \right) + 65\\
+  
+\end{equation*}
+#+END_SRC
+** c)
+#+BEGIN_SRC 
+ f
+#+END_SRC
+* Problem 3
+#+BEGIN_SRC R :session *R* :cache yes
+  library(MASS) # for truehist function
+  library(rjags)
+  salary.dat <- read.csv(
+    "http://www.stat.yale.edu/~jtc5/238/data/SalariesAndGender.csv"
+  )
+  attach(salary.dat)
+
+  male <- as.numeric(gender=="m")
+
+
+
+  m3 <- "
+  model{
+    for(i in 1:12){
+      salary[i] ~ dnorm(a + b[1]*male[i] + b[2]*experience[i] + b[3]*male[i]*experience[i], tau)
+    }
+    a ~ dnorm(0.0, 1.0E-14)
+    for(i in 1:3){b[i] ~ dnorm(0.0, 1.0E-14)}
+    tau ~ dgamma(.01,.01)
+  }
+  "
+
+  jmlog <- jags.model(
+    textConnection(m3),
+    data=list(salary=log(salary), male=male, experience=experience)
+  )
+  jm <- jags.model(
+    textConnection(m3),
+    data=list(salary=salary, male=male, experience=experience)
+  )
+
+  update(jm, 10000)
+  update(jmlog, 10000)
+
+  s <- coda.samples(jm, c("a","b","tau"), 100000)
+  slog <- coda.samples(jmlog, c("a","b","tau"), 100000)
+
+
+  ss <- as.data.frame(s[[1]])
+  sslog <- as.data.frame(slog[[1]])
+
+#+END_SRC
+
+#+RESULTS[3e415516e4061975ac503579e7f94d5372ccc818]:
+
+
+The likelihood that there is a positive interaction in the salary case is:
+#+BEGIN_SRC R :session *R* :exports both
+  mean(ss$'b[3]' > 0)
+#+END_SRC
+
+#+RESULTS:
+: 0.98913
+
+The likelihood that there is a positive interaction in the log(salary) case is:
+#+BEGIN_SRC R :session *R* :exports both
+  mean(sslog$'b[3]' > 0)
+#+END_SRC
+
+#+RESULTS:
+: 0.5659
+
+Using the log scale, it is unclear whether the interaction effect is present. Logarithmic scales are nice when you are dealing with data that spans orders of magnitude. In terms of salaries, such vasts differences in salaries are not likely to exists between employees, and so the using a log scale is thus not very useful.
+
+* Problem 4
+
+** a)
+#+BEGIN_SRC R :session *R* :results graphics :exports both :file fig1.png :cache yes
+  source("http://www.stat.yale.edu/~jtc5/238/data/martian-basketball-data.r")
+  m1 <- "
+    model{
+      for(i in 1:100){
+        ks[i] ~ dbinom( th1[i], ns[i])
+        th1[i] ~ dunif(0,1)
+      }
+  }
+  "
+
+  m2 <- "
+    model{
+      for(i in 1:100){
+        ks[i] ~ dbinom(th2[i], ns[i])
+        th2[i] ~ dbeta(a, b)
+      }
+      p ~ dunif(0, 1)
+      lam ~ dexp(0.0001)
+      a <- lam * p
+      b <- (1 - p) * lam
+  }
+  "
+  jm1 <- jags.model (file = textConnection ( m1 ),
+                    data=list(ks=ks, ns=ns),
+                    )
+  cs1 <- coda.samples (jm1 , c("th1"), 10000)
+  s1 <- as.data.frame (cs1 [[1]])
+
+  jm2 <- jags.model (file = textConnection ( m2 ),
+                    data=list(ks=ks, ns=ns),
+                    )
+  cs2 <- coda.samples (jm2 , c("th2", "p", "lam"), 10000)
+  s2 <- as.data.frame (cs2 [[1]])
+
+  par(mfrow = c(2,2))
+  truehist(s1$"th1[3]")
+  truehist(s2$"th2[3]")
+  truehist(s2$"lam")
+  truehist(s2$"p")
+#+END_SRC
+
+#+RESULTS:
+[[file:fig1.png]]
+
+** b)
+#+BEGIN_SRC R :session *R* :results graphics :exports both :file fig2.png
+  postmeans1 <-  colMeans(s1)
+  postmeans2 <-  colMeans(s2[, 3:102])
+
+  plot(postmeans1,postmeans2)
+#+END_SRC
+
+#+RESULTS:
+[[file:fig2.png]]
+
+** c)
+
+#+BEGIN_SRC R :session *R* :results graphics :exports both :file fig3.png
+  length(postmeans2)
+  xlim <- c(0,.5)
+  ylim <- c(0,.5)
+  par(mfrow = c(2,1))
+  plot(postmeans1, trueprobs, col = 1, lim = xlim, ylim = ylim)
+  abline(coef=c(0,1))
+  plot(postmeans2, trueprobs, col=1, xlim = xlim, ylim = ylim)
+  abline(coef=c(0,1))
+
+#+END_SRC
+
+#+RESULTS:
+[[file:fig3.png]]
+
+** d)
+
+#+BEGIN_SRC R :session *R* :exports code
+  quant <- c(0.025, 0.975)
+  M1L <- lapply(s1, quantile, 0.025)
+  M2L <- lapply(s2[3:102], quantile, 0.025)
+  M1U <- lapply(s1, quantile, 0.975)
+  M2U <- lapply(s2[3:102], quantile, 0.975)
+
+  M1L[[1]] < M1U[[1]]
+  nms <- c("trueprobs", "M1L", "M1U", "cover1", "M2L", "M2U", "cover2")
+  df <- data.frame(matrix(ncol=length(nms), nrow = 100))
+  colnames(df) <- nms
+  for(i in 1:100){
+    c1 <-  trueprobs[i] >= M1L[[i]] & trueprobs[i] <= M1U[[i]]
+    c2 <-  trueprobs[i] >= M2L[[i]] & trueprobs[i] <= M2U[[i]]
+    r <- list(trueprobs[i],M1L[[i]], M1U[[i]], c1[[1]], M2L[[i]], M2U[[i]], c2[[1]] )
+    df[i,] <- r
+  }
+  head(df)
+  tail(df)
+#+END_SRC
+
+#+RESULTS:
+|  0.156662836153253 |  0.127762041118333 |  0.31612959278988 | TRUE |  0.119281625835934 | 0.235497082380724 | TRUE |
+|  0.210493444686645 |   0.19226081792872 | 0.733332311532721 | TRUE |  0.111934625201878 | 0.264258038900608 | TRUE |
+|  0.198514062992322 |  0.179752850343462 | 0.359073122825473 | TRUE |  0.148877167021555 | 0.271268729069514 | TRUE |
+|  0.144616257225882 | 0.0462308073490615 | 0.309358481235923 | TRUE | 0.0863033764564521 |    0.216098950156 | TRUE |
+|  0.174783127318205 |  0.144583842593525 | 0.398825429470024 | TRUE |  0.120076312168847 | 0.254872108774743 | TRUE |
+| 0.0987562715626893 | 0.0270934081854977 | 0.489192115404087 | TRUE | 0.0865009979642082 | 0.227662875120098 | TRUE |
+
+#+BEGIN_SRC 
+  trueprobs        M1L       M1U cover1        M2L       M2U cover2
+1 0.1341175 0.09808346 0.1869452   TRUE 0.10374789 0.1806429   TRUE
+2 0.1732624 0.04940630 0.2321773   TRUE 0.08373924 0.1974685   TRUE
+3 0.1326052 0.06724363 0.3122853   TRUE 0.09346874 0.2179882   TRUE
+4 0.1443848 0.01385996 0.1535057   TRUE 0.06411825 0.1749340   TRUE
+5 0.1585323 0.08861564 0.2551024   TRUE 0.10135107 0.2103108   TRUE
+6 0.1808951 0.07434845 0.3932984   TRUE 0.09771855 0.2323512   TRUE
+     trueprobs        M1L       M1U cover1        M2L       M2U cover2
+95  0.15666284 0.12647688 0.3153460   TRUE 0.12019647 0.2376223   TRUE
+96  0.21049344 0.19377363 0.7359731   TRUE 0.10960895 0.2644518   TRUE
+97  0.19851406 0.18027855 0.3578279   TRUE 0.14806369 0.2724698   TRUE
+98  0.14461626 0.04449855 0.3134686   TRUE 0.08547946 0.2139191   TRUE
+99  0.17478313 0.14492910 0.4076666   TRUE 0.12030734 0.2578638   TRUE
+100 0.09875627 0.02843607 0.4858974   TRUE 0.08558720 0.2292309   TRUE
+#+END_SRC
+
+** e)
+
+#+BEGIN_SRC R :session *R* :exports both
+length(df$cover1[df$cover1==TRUE]) /100
+#+END_SRC
+
+#+RESULTS:
+: 0.95
+
+
+#+BEGIN_SRC R :session *R* :exports both
+length(df$cover2[df$cover2==TRUE]) /100
+#+END_SRC
+
+#+RESULTS:
+: 0.95
+
+the predicted value is within the interval $95%$ of the time for both models, so its hard to judge on those terms alone. Lets look at the average size of each interval
+
+#+BEGIN_SRC R :session *R* :exports both
+  mu1 <- mean(df$M1U - df$M1L)
+  sd1 <- sd(df$M1U - df$M1L)
+  sprintf("Mean interval length for M1: %s, SD: %s", mu1, sd1)
+#+END_SRC
+
+#+RESULTS:
+: Mean interval length for M1: 0.223022281152827, SD: 0.122712803914428
+
+#+BEGIN_SRC R :session *R* :exports both
+  mu2 <- mean(df$M2U - df$M2L)
+  sd2 <- sd(df$M2U - df$M2L)
+  sprintf("Mean interval length for M2: %s, SD: %s", mu2, sd2)
+#+END_SRC
+
+#+RESULTS:
+: Mean interval length for M2: 0.114613607861422, SD: 0.0244053862258754
+
+Clearly model the set of intervals from Model 2 are preferred. While M2 is no more accurate than M1, the intervals more precisely hone in on the predicted value.
+** f) 
+First we will store the best players for each model.
+#+BEGIN_SRC R :session *R* :exports both :cache yes
+  I1 <- rep(0, dim(s1)[1])
+  I2 <- rep(0, dim(s1)[1])
+  ths2 <- subset(s2,select = -c(1,2))
+  # Save the best player at each iteration for each model.
+  for(i in 1:dim(s1)[1]){
+    I1[i] <- which(s1[i, ] == max(s1[i, ]))
+    I2[i] <- which(ths2[i, ] == max(ths2[i, ]))
+  }
+#+END_SRC
+
+The probability that 19 is the best player according to model 1 is
+#+BEGIN_SRC R :session *R* :Exports both
+  length(I1[I1== 19])/length(I1)
+#+END_SRC
+
+#+RESULTS:
+: 0.0021
+
+
+The probability that 19 is the best player according to model 2 is
+#+BEGIN_SRC R :session *R* :Exports both
+  length(I2[I2== 19])/length(I2)
+#+END_SRC
+
+#+RESULTS:
+: 0.2589
+
+Clearly Model 2 is the better model.

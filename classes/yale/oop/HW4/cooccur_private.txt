@@ -1,0 +1,279 @@
+### Cooccurrence Matrix
+##! executable Cooccur
+##! path /c/cs223/hw4/Final/
+## Public Tests (35 points)
+#! score linear 20
+#! score threshold 9 15
+# Cat in the Hat
+! args ball cold play sun wet
+the sun did not shine
+it was too wet to play
+so we sat in the house all that cold cold wet day
+i sat there with sally
+we sat there we two
+and i said how i wish we had something to do
+too wet to go out and too cold to play ball
+so we sat in the house
+we did nothing at all
+# Airline routes (shortened)
+! pipe cat_routes.sh
+! args ATL ORD DFW DEN LAX CLT PHX LAS SFO SEA MSP MCO IAH LGA DTW BOS PHL JFK EWR BWI
+## Whitespace and Punctuation (5 points)
+#! score linear 5
+# Punctuation
+! args one! two-two three?
+one!
+two-two three?
+three? two-two
+one! two
+two-two three
+three? one
+# Between Words
+! args ball cold play sun wet
+the sun did  not shine
+it was too wet to play
+so we sat   in the house all that cold cold wet day
+i sat  there    with sally
+we sat 		there we two
+and i said how  i wish we   had something to do
+too wet to go out and   too cold to play ball
+so we sat in the house
+we did nothing at all
+# Beginning and End of Lines
+! args ball cold play sun wet
+  the sun did not shine
+it was too wet to play	
+  so we sat in the house all that cold cold wet day
+i sat there with sally  
+   we sat there we two   
+   and i said how i wish we had something to do	
+too wet to go out and too cold to play ball
+so we sat in the house
+we did nothing at all
+# Blank Line
+! args ball cold play sun wet
+the sun did not shine
+
+it was too wet to play
+so we sat in the house all that cold cold wet day
+i sat there with sally
+we sat there we two
+and i said how i wish we had something to do
+too wet to go out and too cold to play ball
+so we sat in the house
+we did nothing at all
+## Public Tests w/ Valgrind (5 points)
+#! score linear 5
+# Cat in the Hat
+! args ball cold play sun wet
+! check valgrind
+the sun did not shine
+it was too wet to play
+so we sat in the house all that cold cold wet day
+i sat there with sally
+we sat there we two
+and i said how i wish we had something to do
+too wet to go out and too cold to play ball
+so we sat in the house
+we did nothing at all
+## Map Unit Tests (20 points)
+#! score linear 10
+#! score threshold 1 10
+#! copy student smap.c
+#! copy staff smap.h
+#! copy staff smap_unit.c
+#! copy staff smap_test_functions.h
+#! copy staff smap_test_functions.c
+#! executable SmapUnit
+# smap_get
+! args 1
+! noinput
+# smap_size
+! args 2
+! noinput
+# smap_contains
+! args 3
+! noinput
+# smap_put NULL value
+! args 4
+! noinput
+# smap_put copies key
+! args 5
+! noinput
+# smap_put does not copy value
+! args 6
+! noinput
+# smap_put multiple calls same key
+! args 7
+! noinput
+# large map
+! args 8
+! noinput
+# smap_for_each
+! args 9
+! noinput
+# smap_for_each_r
+! args 10
+! noinput
+# smap_destroy
+! args 11
+! noinput
+# negative hash
+! args 17
+! noinput
+## Map Timing Tests (8 points)
+#! score linear 8
+#! copy student smap.c
+#! copy staff smap.h
+#! copy staff smap_unit.c
+#! copy staff smap_test_functions.h
+#! copy staff smap_test_functions.c
+#! executable SmapUnit
+# smap_put
+! args 12
+! noinput
+# smap_contains
+! args 13
+! noinput
+# smap_get
+! args 14
+! noinput
+# smap_for_each and smap_for_each_r
+! args 15
+! noinput
+## Map Valgrind (5 points)
+#! score linear 5
+#! copy student smap.c
+#! copy staff smap.h
+#! copy staff smap_unit.c
+#! copy staff smap_test_functions.h
+#! copy staff smap_test_functions.c
+#! executable SmapUnit
+# Valgrind 
+! args 16
+! noinput
+! check valgrind
+## Cooccurrence Matrix Unit Tests (10 points)
+#! score linear 10
+#! copy student cooccur_adt.c
+#! copy student smap.c
+#! copy staff cooccur.h
+#! copy staff smap.h
+#! copy staff cooccur_unit.c
+#! copy staff smap_test_functions.h
+#! copy staff smap_test_functions.c
+#! executable CooccurUnit
+# cooccur_create static array
+! args 1
+! noinput
+# cooccur_create small dynamic array
+! args 2 4
+! noinput
+# cooccur_create large dynamic array
+! args 2 1000
+! noinput
+# cooccur_update all keywords
+! args 3 4
+! noinput
+# cooccur_read_context one keyword
+! args 7 4
+word2
+# cooccur_read_context all keywords
+! args 8 4
+word0 word1 word2 word3
+# cooccur_read_context mixed words
+! args 9 4
+word0 word4 word1 word5 word2 word6 word3 word7
+# cooccur_read_context duplicate keywords
+! args 10 4
+word0 word0 word0 word0
+# cooccur_read_context empty line
+! args 11 4
+
+# cooccur_read_context EOF in line
+! args 12 4
+! pipe cat_eof.sh
+# cooccur_read_context two lines
+! args 13 4
+word0
+word0 word1
+# cooccur_read_context reads from file
+! args 7 4 ${INPUT_FILE}
+word2
+# cooccur_get_vector no occurrences
+! args 14 4
+! noinput
+# cooccur_get_vector non-keyword
+! args 15 4
+! noinput
+# cooccur_get_vector returns copy
+! args 16 4
+! noinput
+# cooccur_destroy
+! args 17 4
+! noinput
+## Cooccurrence Matrix Preconditions Not Met (4 points)
+#! score linear 4
+#! copy student cooccur_adt.c
+#! copy student smap.c
+#! copy staff cooccur.h
+#! copy staff smap.h
+#! copy staff cooccur_unit.c
+#! copy staff smap_test_functions.h
+#! copy staff smap_test_functions.c
+#! executable CooccurUnit
+# cooccur_update duplicate keywords
+! args 5 4
+! noinput
+! check graceful
+# cooccur_update empty context
+! args 6 4
+! noinput
+! check graceful
+# cooccur_create no keywords
+! args 18
+! noinput
+! check graceful
+# cooccur_create duplicate keywords
+! args 19 4
+! noinput
+! check graceful
+# cooccur_create space in keywords
+! args 20 4
+! check graceful
+wo rd0 wo rd3
+# cooccur_update non_keyword
+! args 21 4
+! noinput
+! check graceful
+## Cooccurrence Matrix Timing (8 points)
+#! score linear 8
+#! copy student cooccur_adt.c
+#! copy student smap.c
+#! copy staff cooccur.h
+#! copy staff smap.h
+#! copy staff cooccur_unit.c
+#! copy staff smap_test_functions.h
+#! copy staff smap_test_functions.c
+#! executable CooccurUnit
+# cooccur_create
+! args 22 15000
+! noinput
+# cooccur_update few keywords
+! args 23 13000
+! noinput
+# cooccur_update many keywords
+! args 24 400
+! noinput
+# cooccur_read duplicate keywords
+! args 25 10000
+! pipe run_write_context.sh word5000 100000
+# cooccur_read many non-keywords
+! args 25 10000
+! pipe run_write_context.sh wort0 100000
+# cooccur_get_vector
+! args 26 10000
+! noinput
+# cooccur_get_vector after many updates
+! args 27 4000
+! noinput

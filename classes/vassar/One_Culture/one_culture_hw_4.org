@@ -1,0 +1,133 @@
+
+#+LaTeX_CLASS: article
+#+OPTIONS: ':nil *:t -:t ::t <:t  \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:nil todo:t |:t
+#+TITLE: One Culture HW 4
+#+DATE: \today
+#+AUTHOR:Jake Brawer
+#+EMAIL: jabrawer@vassar.edu
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.1)
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+#+LATEX_HEADER: \usepackage[margin=2.54cm]{geometry}
+
+- What are the candidat sources of difficulty between the cultures?
+  - To what degree do they succeed or fail in overcoming them?
+- 
+* One Culture
+** Pinch
+Sciences studies does not treat science like the "exotic other" like the arts does but treats it like a body of skilled practice like anythign else
+- Sociology of science (SOS):understanding how knowledge and taken for granted beliefs get socially embedded or institutionalized within a given society
+  - "This means that sociologists ask questions of science which to practicing scientists often seem plain daft, irreverent or worse, undermining of the scientific enterprise."
+- The sociologic enterprise of the ontology of truth means putting being skeptical of truth itself
+- Scientists are uncomfortable with SOS because they feel like they are undermining science.
+- Scientist get offend when they are critisized by nonscientists in public (but not so when criticized in private by scientists)
+  - Critiques of science aimed at the public are taken to be undermining (versuses critiques aimed at scientists or other sociologists)o
+
+the author argues that science is a lofty institution, but an area of expertize like everything else:
+- As such scientific knowledge isnt divinely received, but acquired sometimes messily through expert applictation of skill.
+
+** Bricmont and Sokal
+- Are mad at sociologists for claiming facts are socially constructed
+- Things conceded by the authors:
+  - Science is a human endevaor and theefore merits sociologic study
+  - Even the content of scientific debates (e.g. what types of theories can be concieved and enteratined) are fair game to sociologists
+  - Thre is nothing wrong with research informed by political commmitment if done correctly. Sociologists can critique such science if it is bad
+- That beign said the authors are only interested in critiquing SSK epistemic relativism.
+
+- Main objection to science is the undertdetermination thesis:
+  - That there are an infinite amount of mutually exclusive theories that explain a set of data
+    
+*** Cogntive relativism
+Truth or falisity of a statement is relative to social groups
+- This follows if we equate truth with utility or intersubjectivity
+- This does not follow if we accept the correspondence notion of truth
+- It does not make any sense for a scientist to adopt cognitive relativism.
+*** Methodological relativism
+-"methodological relativism amounts to trying to understand how the police, judge, and jury become convinced of X's guilt without without ever taking into account the fact that, in some case at least, there might be good evidence for X's guilt.
+-"it seems clear that an adequate causal explanation of how scientific theoriescome to be accepted would have to combine "natural" and "social factors, just as for oridinary perception
+- methadological relativism makes no sense unless one adheres to the idea that the natural sciences are like a kind of religon while the social sciences are truely scientific and can accurately explain why natural scientists believe the things they do:w
+
+** Lynch
+- Scientist are said to believe in truth, nature and reality
+- sociologists believe that representations of nature are arbitrary, scientific laws are ideologicial, and reality is a myth.
+- No interest in a middle ground, ech side wants to convince the publich that the other side sucks
+  - Both side resort to ad hominem attacks
+- "many scientist feel uneasy about various ideas from sociology, notably the sugestion that the laws of nature as we know them are "social constructs"
+- Some argue that sociologists are the political left while scientists are sympathetic to the right
+  - However many scientist critics of sociology are v liberal
+- Many folks on the science side are not scientist and SSK has little to do with sociology and is mostly philosophical 
+  - "Contrary to the typical way the science wars are portrayed, the conflict is a metaphysical battle fought by conscripts whohave limited training...in philosophy"
+- This dude seems to be misunderstanding the humerous airplane analogy
+- His prorposal:
+  - Folks should be well informed about the discipline they are disputing before they dispue it
+  - disputes about historical science matters should be recognized to be historical matters andd treated as such
+  - Dont use 'merely'
+  - No ad hominems
+
+** Gregory and Miller
+Discusses the the science wars from the publics viewpoint
+** Saulson
+Discusses the science wars from the pov of gravitational waves controversy
+- The controersy: Weber thought he recorded gravitational but it was unclear if he actually did (he didnt)
+  - science conservatives argue that this is an example of the triumph of the scientific method
+    - Sociologists argue its a more subtle social related thing
+  - "thoughtful scientists must also worry about any possible source of embarassing revalations, given that we work on a project whose rsicentific risk and substantial costs are well known
+- "Different styles of language use appear to be the root of many of the disputes that have been loosely grouped together under the heading of the science wars (79)"
+  - However, it seems like there can be fundemental agreement between the two groups, its just the language problem. (79)
+- Scientist are also pissed when nonscientists "misappropriate" scientific words (80)
+- "We [i.e. scientists] tend to be deeply suspicious both of the idea that our "intersts" might be thought to influence our judgements as scientists and of the motives of someone who might make that claim."
+- *"physical scientists need to learn to make a more nuanced reading of sociolgical writing"*
+- Sociologists need to define their terms better so as to make their aims clearer to scientsits
+** Mermin
+Got into a lengthy exchange with Pinch over the Golem 
+- Looking back, is suprised at how much they misunderstood each other and how little they disagreee
+- "I am increasingly persauded that an issue one can formulate in one language has a parellel formulation in another" (84)
+- Originally took issue with Collins' and Pinch's essay on relativity 
+  - Read it as an attack on the validity of relativity, but in reality that was not at all the point of the article
+  - Conversly, C&P read Mermin's critism as stemming from anger that someone was challenging the sacred doctrine of relativity/
+    - In reality, he was angry that they were oversimplifying and mischaracterizing the process of acceptance of relativity
+- Phyicist come across as a little childish when they percieve a theory as being under attack.
+- Lot of talking past each other and strawmaning
+  - Has to do with the diff language and rhetorical strats employed by both camps
+** Shapin
+This is a great article on disagreement within the scientific community about metscientific claims
+- "Certain kinds of descriptions will be heard as unwarranted criticisms if they come from those thought to lack the moral or intellectual rights to make them." (101)
+- metascientific claims are problematic because science is not unified in any real sense and therefore sweeping generalizations will probably be wrong(110)
+
+* Essay 
+
+The most interesting thing to come out of these essays, as captured best by Mermin and Shapin, is that much of the conflict appears to be motivated by linguistic ambiguities and emotional concerns, and not philosophical or methodological points of departure. That is, the authors on either side of the battle line are probably for the most part in agreement, but any actual divergences are amplified by misinterpretations of the opponent's argument (i.e. literal misunderstandings of the semantics of a word or phrase), or by perceived affronts (real or not) from one side to the other. Mermin's (a scientist) account of his back and forth with Collins and Pinch (sociologists). Mermin took issue with Collins and Pinch's perceived mischaracterization and oversimplification of the process that lead to relativity being accepted as a scientific fact. Collins and Pinch mistook Mermin's complaint to have stemmed from anger elicited by the fact that they were challenging the 'sacred doctrine of relativity.' It wasn't until the authors met and had a proper (private, unpublished) discussion that Mermin realized that their squabble was largely just a lexical misunderstanding, and they were in agreement on a great many points. This leads Mermin to concluded: "[Mermin is] increasingly persauded that an issue one can formulate in one language has a parellel formulation in another." It was the formulations of their respective argument. not the arguments themselves that lead to the dispute amongst Mermin, Collins, and Pinch. Saulson, who participated in a similar dispute over the history of experimentally verifying gravitational waves, corroborates this idea almost verbatim.  Her assert that "different styles of language use appear to be the root of many of the disputes that have been loosely grouped together under the heading of the science wars." In fact, almost comically, he implores scientists to read sociologists more carefully and for sociologists to define their terms more clearly so as not to confuse (re: upset) scientists. 
+
+In fact there are many puerile intercessions made by the authors (puerile in the sense that they have to be made in the first place, not that that these interceders are puerile) to amend their language use. More than one author calls for a moratorium on words like 'merely' as in merely socially constructed, or merely subjective, so as not to hurt peoples' feelings. Other authors feel the need to beseech their cohorts to not resort to ad hominem attacks on authors they disagree with. I do not think I need to point out the absurdity of the situation, that invdividuals belonging to the so called intelligentsia, the intellectual zeitgeist, need to be reminded to not participate in what might be called schoolyard spats rhetorical strategies. I think this underlies the emotional component of both the science wars and the culture wars at large. Shapin very aptly observes that certain "kinds of descriptions will be heard as unwarranted criticisms if they come from those thought to lack the moral or intellectual rights to make them." Notice that this implies that individuals react to arguments irrespective of the soundness of the argument (something Mermin admits to initially doing). In fact, this quote comes right after the revelation that many of the so-called extreme antiscientific ideas held by some sociologists were actually formulated first by prominent scientists. 
+
+However, such descriptions pop up often on the front lines of the culture war and as a result may be one of the impediments to consilience. This is typified by the Weiseltier/Pinker exchange. The exchange was so hostile in part because, to Shapin's point, both authors were making claims about the nature of each others' discipline without the "moral or intellectual right to make them," not to mention the fact that both authors appeared to be talking past each other (as Shapin et al. are quick to point out is the norm in the science wars). This seems to be more of a cognitive bias than anything else, so it is unclear how to avoid this issue. One could follow Snow's example and dabble in both cultures and therefore always be in the moral and intellectual right, although as we've discussed in class this is an untenable undertaking.
+
+The language problem also seems to be at the heart of the culture wars at large. While there is quite a bit of misunderstanding and talking passed one another, there are more subtle linguitstic issues. While I do not agree with much with Shweder's argument, he did bring up the very good point; science can only answer questions phrased using naturalistic language. Many of the questions important to the humanities and the sciences are phrased using nonnaturalistic language, and therefore are not appropriate for scientific analyses. It is not enough to reinterpret a nonaturalistic question using naturalistic semantics because scientists and no scientists use the same words differently; the fundamental nature of the question must be maintained in translation, which is no easy thing to do.
+* Notes 
+** Sources of difficulties 
+1) Terminology
+2) Language 
+3) Interpretation 
+4) Entrenched ideas aout how to do things
+5) Different ontologies 
+6) fifferent ideas about truth 
+7) Relativism vs objectivism
+8) Overstatement/exaggerations of claims
+9) Insulting language/ taking criticisms personally
+   - In-crowed/out-crowed
+10) Publication format (published writings vs actual conversations)
+11) Ignorance of the other side
+12) "Pop-metaphysics"
+13) Close-mindedness/prior assumptions
+14) Focus on motives not content
+15) Failiure ro recognize common goals
+16) Temprement talents and interests
+
+I thik the baggage brought to the table
+https://www.youtube.com/watch?v=dljNabciEGg

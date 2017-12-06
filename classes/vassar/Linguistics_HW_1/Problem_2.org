@@ -1,0 +1,3 @@
+* Problem 2 
+In general Good-Turing smoothing produces the highest probabilities and MLE produces the lowest, with Laplace usually somehwere in the middle. 
+Additionally MLE will report probabilities = 0, whereas the other two will never do that (due to smoothing).

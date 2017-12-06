@@ -1,0 +1,420 @@
+% Created 2015-12-15 Tue 00:26
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 24.5.1 (Org mode 8.3.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{Final Review}
+\label{sec:orgheadline61}
+\subsection{RAM}
+\label{sec:orgheadline1}
+Is "random" because you can access any byte in any order
+\begin{itemize}
+\item Baisc unit of storage is a cell
+\begin{itemize}
+\item 1 bit = 1 cell
+\item multiple chips form memory
+\end{itemize}
+\end{itemize}
+\subsection{SRAM (Static RAM)}
+\label{sec:orgheadline2}
+\begin{itemize}
+\item 6 transitors per bit
+\item Very stable, no leakage
+\item Very fast
+\item More expensive
+\end{itemize}
+\subsection{DRAM (Dynamic RAM)}
+\label{sec:orgheadline3}
+One transistor per bit
+\begin{itemize}
+\item can have much larger memory per cost
+\item Charge stored on a capicitor, which will leak after a while
+\begin{itemize}
+\item Therefore the controller has to habitually read entier memory and refresh memory
+\end{itemize}
+\end{itemize}
+\subsection{Nonvolatile Memory}
+\label{sec:orgheadline6}
+\begin{itemize}
+\item SRAM and DRAM are volatile memory
+\begin{itemize}
+\item Will lose data if powered off
+\end{itemize}
+\end{itemize}
+\subsubsection{Read-only memory (ROM)}
+\label{sec:orgheadline4}
+Code is hardcoded into the circuitry of the chip.
+\begin{itemize}
+\item Thus, it is nonvolatile and will never change
+\end{itemize}
+\subsubsection{Flash memory}
+\label{sec:orgheadline5}
+\begin{itemize}
+\item Electrically erasbale programmable ROM, with partial erase capability.
+\begin{itemize}
+\item Wears out after 100,000 erasings
+\end{itemize}
+\end{itemize}
+\subsection{Memory Read Transaction}
+\label{sec:orgheadline7}
+\subsection{Harddisk Geometry}
+\label{sec:orgheadline8}
+\begin{itemize}
+\item Disk consists of platters eachwith two surfaces
+\item Each track consists of multiple tracks (concentric circles)
+\item Each track is divided into sectors, which are the basic unit of the disk
+\end{itemize}
+\subsection{Disk access time}
+\label{sec:orgheadline9}
+\begin{itemize}
+\item Average time to access some target sector:
+\begin{itemize}
+\item T\(_{\text{access}}\) = T\(_{\text{avg}}_{\text{seek}}\) + T\(_{\text{avg}}_{\text{rotation}}\) + T\(_{\text{avg}}_{\text{transfer}}\)
+\end{itemize}
+\item Seek time for head is biggest limiting factor
+\item At 7200 RPM, T\(_{\text{access}}\) = 13.02ms
+\item SRAM takes about 4ns to access a 4-bit word
+\end{itemize}
+\subsection{SSD}
+\label{sec:orgheadline10}
+\begin{itemize}
+\item Organized into pages and blocks
+\begin{itemize}
+\item Page: 512-4kbs
+\item Blocks: 32-128 pages
+\item data read/written in units of pages
+\end{itemize}
+\item Reads much faster tahn HDD
+\item Erasing takes long though
+\end{itemize}
+
+\subsection{Cache}
+\label{sec:orgheadline12}
+\subsubsection{Cache size}
+\label{sec:orgheadline11}
+C = S x E x B
+\begin{itemize}
+\item C - cache
+\item S - number of sets
+\item E - number of lines per set
+\item B - block size
+\end{itemize}
+\subsection{Virtual address}
+\label{sec:orgheadline15}
+\subsubsection{Basic parameters}
+\label{sec:orgheadline13}
+\begin{itemize}
+\item N: 2\(^{\text{n}}\) number of addresses in V
+\item M = 2\(^{\text{m}}\) number of addresses in P
+\item P = 2\(^{\text{p}}\) page size
+\end{itemize}
+\subsubsection{Components of a VA}
+\label{sec:orgheadline14}
+\begin{itemize}
+\item TLBT (TLB tag)
+\begin{itemize}
+\item which page in in the set?
+\end{itemize}
+\item TLBI (TLB index)
+\begin{itemize}
+\item which set in the TLB?
+\end{itemize}
+\item VPO: virual page offset (p bits)
+\begin{itemize}
+\item index into the page itself (which byte of memory do we want?)
+\end{itemize}
+\item VPN: Virtual page number  (n-p bits)
+\begin{itemize}
+\item index into page table
+\end{itemize}
+\end{itemize}
+\subsection{Control Hazards}
+\label{sec:orgheadline19}
+\subsubsection{Missed Prediction}
+\label{sec:orgheadline16}
+When a coditional jump is executed is executed prematurally 
+\begin{itemize}
+\item Fixed by replacing instructions in decode and execute stages with bubbles.
+\item instructions effectively cancelled.
+\item Waste two cycles
+\end{itemize}
+\subsubsection{Return}
+\label{sec:orgheadline17}
+Return address is saved on the stack, so need to wait till MEMORY stage is complete
+\begin{itemize}
+\item solved by simply placing a few bubbles until address is retrieved.
+\item Waste 3 cycles
+\end{itemize}
+\subsubsection{Load/use}
+\label{sec:orgheadline18}
+When we retrieve something from memory and the destination of this call is being used as the source in the next call
+\subsection{Control conditions}
+\label{sec:orgheadline20}
+Can have combnations of hazards
+\begin{itemize}
+\item Combination A
+\begin{itemize}
+\item jump in the EXECUTE stage and a return in the Decode
+\end{itemize}
+\begin{itemize}
+\item Combination B
+\begin{itemize}
+\item loading is in EXECUTE stage and a return in the DECODE stage (use)
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\subsection{Exceptions}
+\label{sec:orgheadline25}
+\subsubsection{Causes}
+\label{sec:orgheadline21}
+\begin{itemize}
+\item Halt instruction
+\item Bad address for instruction for data
+\item Invalid Instruction
+\end{itemize}
+\subsubsection{Detection}
+\label{sec:orgheadline22}
+Sometimes an exception will be detected but it shouldnt be triggered
+\subsubsection{Maintaning exception ordering}
+\label{sec:orgheadline23}
+\begin{itemize}
+\item Add status field to pipeline register
+\end{itemize}
+Set by FETCH:
+\begin{itemize}
+\item AOK: ok
+\item ADR: when bad fetch address
+Also set by MEMORY
+\item HLT: Halt instruction
+\item INS: Illegal instruction
+\end{itemize}
+\subsubsection{Avoiding sideeffects}
+\label{sec:orgheadline24}
+\begin{itemize}
+\item Invalid inst. are converetd into bubbles
+\end{itemize}
+
+\subsection{Pipelined Implemention \textit{<2015-11-03 Tue>}}
+\label{sec:orgheadline60}
+\subsubsection{Basic Idea}
+\label{sec:orgheadline26}
+\begin{itemize}
+\item Divide process into independent stages
+\item multiple objects being processed at different stages
+\end{itemize}
+\subsubsection{Throughput}
+\label{sec:orgheadline27}
+\begin{itemize}
+\item Number of objects processes per unit time
+\end{itemize}
+\subsubsection{Latency}
+\label{sec:orgheadline28}
+Time it takes to process a single object
+
+\subsubsection{3-way pipelines version}
+\label{sec:orgheadline29}
+Break up computation into 3 stages. Save each stage at a register.
+\begin{itemize}
+\item This allows the first stage, for example, to do more computations more quickly, because it has been freed up by the register
+\item Results in much larger throughput, but higher latency
+\end{itemize}
+
+\subsubsection{Limitations}
+\label{sec:orgheadline32}
+\begin{enumerate}
+\item Nonuniform Delays
+\label{sec:orgheadline30}
+\begin{itemize}
+\item Throughput limited by slowest stage
+\item Other stages then sit idle for a lot of time
+\item Difficult to partion system into balanced system
+\end{itemize}
+\item Register overhead
+\label{sec:orgheadline31}
+As you try to deepen the pipeline (add more stages), the writing to registers becomes more significant
+\begin{itemize}
+\item Therefore pipelining is limited by the write speed of the registers.
+\end{itemize}
+\end{enumerate}
+\subsubsection{Data Dependency}
+\label{sec:orgheadline33}
+If operations in stage A depend on results of stage C, stage A depends on C
+\begin{itemize}
+\item Therefore pipeline needs to handle this properly, or risk getting the computaton wrong
+\end{itemize}
+\subsubsection{Pipline architure stuff}
+\label{sec:orgheadline36}
+\begin{enumerate}
+\item S\(_{\text{field}}\)
+\label{sec:orgheadline34}
+Value of field held in stage S pipeline registers
+\item s\(_{\text{field}}\)
+\label{sec:orgheadline35}
+Value of field computed in stage S
+\end{enumerate}
+\subsubsection{Feedback path}
+\label{sec:orgheadline37}
+Anywhere that a particular value goes back to a particular stage
+\subsubsection{PC prediciton strategy}
+\label{sec:orgheadline40}
+\begin{enumerate}
+\item Instructions that dont transfer control
+\label{sec:orgheadline38}
+\begin{itemize}
+\item Predict next PC to be valP
+\item always reliable
+\end{itemize}
+\item Call and Unconditional jumps
+\label{sec:orgheadline39}
+\begin{itemize}
+\item Predict next Pc to be valC
+\end{itemize}
+\end{enumerate}
+\subsubsection{Stalling for data dependencies}
+\label{sec:orgheadline42}
+\begin{enumerate}
+\item Bubble
+\label{sec:orgheadline41}
+If instruction follows too closely after one that writes to a register, slow it down.
+\begin{itemize}
+\item hold instruction in decode
+\item dynamically inject nop into execute stage
+\item stalled instruction is held in DECODE stage
+\item Sucessive instructions held in the FETCH stage
+\end{itemize}
+\end{enumerate}
+\subsubsection{Implementing Stalling}
+\label{sec:orgheadline43}
+\subsubsection{Data forwarding}
+\label{sec:orgheadline46}
+ValE or ValM have been calculated in EXECUTE stage, but have yet to be written to a register 
+\begin{itemize}
+\item Therefore, therefore the write stage can be bypassed, by forwarding these values to earlier stages if they need them
+\item eliminates the need fro nops and bubbles
+\end{itemize}
+\begin{enumerate}
+\item Priority
+\label{sec:orgheadline44}
+If for some reason there are multiple choices, the earlies stage has priority (EXECUTE has highest priority)
+\item Limitation
+\label{sec:orgheadline45}
+When a register that gets its value from a memory location, and a following instruction needs the value in the registers
+\begin{itemize}
+\item have to wait to the memory stage to get the value
+\item need a bubble
+\item 
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Control Hazards}
+\label{sec:orgheadline50}
+\begin{enumerate}
+\item Missed Prediction
+\label{sec:orgheadline47}
+When a coditional jump is executed is executed prematurally 
+\begin{itemize}
+\item Fixed by replacing instructions in decode and execute stages with bubbles.
+\item instructions effectively cancelled.
+\item Waste two cycles
+\end{itemize}
+\item Return
+\label{sec:orgheadline48}
+Return address is saved on the stack, so need to wait till MEMORY stage is complete
+\begin{itemize}
+\item solved by simply placing a few bubbles until address is retrieved.
+\item Waste 3 cycles
+\end{itemize}
+\item Load/use
+\label{sec:orgheadline49}
+When we retrieve something from memory and the destination of this call is being used as the source in the next call
+\end{enumerate}
+\subsubsection{Control conditions}
+\label{sec:orgheadline51}
+Can have combnations of hazards
+\begin{itemize}
+\item Combination A
+\begin{itemize}
+\item jump in the EXECUTE stage and a return in the Decode
+\end{itemize}
+\begin{itemize}
+\item Combination B
+\begin{itemize}
+\item loading is in EXECUTE stage and a return in the DECODE stage (use)
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\subsubsection{Exceptions}
+\label{sec:orgheadline56}
+\begin{enumerate}
+\item Causes
+\label{sec:orgheadline52}
+\begin{itemize}
+\item Halt instruction
+\item Bad address for instruction for data
+\item Invalid Instruction
+\end{itemize}
+\item Detection
+\label{sec:orgheadline53}
+Sometimes an exception will be detected but it shouldnt be triggered
+\item Maintaning exception ordering
+\label{sec:orgheadline54}
+\begin{itemize}
+\item Add status field to pipeline register
+\end{itemize}
+Set by FETCH:
+\begin{itemize}
+\item AOK: ok
+\item ADR: when bad fetch address
+Also set by MEMORY
+\item HLT: Halt instruction
+\item INS: Illegal instruction
+\end{itemize}
+\item Avoiding sideeffects
+\label{sec:orgheadline55}
+\begin{itemize}
+\item Invalid inst. are converetd into bubbles
+\end{itemize}
+\end{enumerate}
+\subsubsection{Performance Metrics}
+\label{sec:orgheadline59}
+\begin{enumerate}
+\item Clockrate
+\label{sec:orgheadline57}
+\begin{itemize}
+\item Measured in GhZ
+\end{itemize}
+\item Rate at which instructions executed
+\label{sec:orgheadline58}
+\begin{itemize}
+\item CPI: cycles per instruction
+\begin{itemize}
+\item on avergae, how many clock cycles does each instruction recquire?
+\end{itemize}
+\item in PIPE architecure we want as close to 1 instuct. per clock cycle.
+\end{itemize}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,608 @@
+data1
+N: 800
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000005)----------
+	 Beginning of time step: 0
+	 Current Center of Mass: [ 2.1538750e-08, 1.1488625e-09, 4.3345750e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887374e-10]
+--------- SIMULATION INFO (t: 0.808221)----------
+	 Beginning of time step: 128
+	 Current Center of Mass: [ -4.0885250e-08, -2.4015137e-08, 5.2500699e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887374e-10]
+--------- SIMULATION INFO (t: 1.588229)----------
+	 Beginning of time step: 256
+	 Current Center of Mass: [ -1.0330925e-07, -4.9179138e-08, 6.1655649e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 2.321344)----------
+	 Beginning of time step: 384
+	 Current Center of Mass: [ -1.6573325e-07, -7.4343138e-08, 7.0810599e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910001e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 2.996952)----------
+	 Beginning of time step: 512
+	 Current Center of Mass: [ -2.2815725e-07, -9.9507137e-08, 7.9965545e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 3.624232)----------
+	 Beginning of time step: 640
+	 Current Center of Mass: [ -2.9058125e-07, -1.2467114e-07, 8.9120495e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887374e-10]
+--------- SIMULATION INFO (t: 4.223723)----------
+	 Beginning of time step: 768
+	 Current Center of Mass: [ -3.5300525e-07, -1.4983513e-07, 9.8275447e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 4.808110)----------
+	 Beginning of time step: 896
+	 Current Center of Mass: [ -4.1542924e-07, -1.7499914e-07, 1.0743042e-08]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+--------- SIMULATION INFO (t: 5.383916)----------
+	 Beginning of time step: 1024
+	 Current Center of Mass: [ -4.7785323e-07, -2.0016314e-07, 1.1658541e-08]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887376e-10]
+data2
+N: 1600
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000004)----------
+	 Beginning of time step: 0
+	 Current Center of Mass: [ -4.1281257e-09, -1.8359312e-10, -1.6534656e-08]
+	 Current Average Velocity: [ -6.7892307e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 3.094835)----------
+	 Beginning of time step: 128
+	 Current Center of Mass: [ -6.8438179e-09, -1.4226103e-08, -5.5691687e-09]
+	 Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 6.205870)----------
+	 Beginning of time step: 256
+	 Current Center of Mass: [ -9.5595104e-09, -2.8268613e-08, 5.3963187e-09]
+	 Current Average Velocity: [ -6.7892307e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 9.195942)----------
+	 Beginning of time step: 384
+	 Current Center of Mass: [ -1.2275203e-08, -4.2311124e-08, 1.6361806e-08]
+	 Current Average Velocity: [ -6.7892306e-10, -3.5106276e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 11.969422)----------
+	 Beginning of time step: 512
+	 Current Center of Mass: [ -1.4990896e-08, -5.6353634e-08, 2.7327293e-08]
+	 Current Average Velocity: [ -6.7892306e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 14.577942)----------
+	 Beginning of time step: 640
+	 Current Center of Mass: [ -1.7706589e-08, -7.0396145e-08, 3.8292780e-08]
+	 Current Average Velocity: [ -6.7892305e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 17.103526)----------
+	 Beginning of time step: 768
+	 Current Center of Mass: [ -2.0422280e-08, -8.4438653e-08, 4.9258267e-08]
+	 Current Average Velocity: [ -6.7892316e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 19.619497)----------
+	 Beginning of time step: 896
+	 Current Center of Mass: [ -2.3137971e-08, -9.8481164e-08, 6.0223754e-08]
+	 Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+--------- SIMULATION INFO (t: 22.178836)----------
+	 Beginning of time step: 1024
+	 Current Center of Mass: [ -2.5853664e-08, -1.1252367e-07, 7.1189242e-08]
+	 Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+data3
+N: 3200
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000005)----------
+	 Beginning of time step: 0
+	 Current Center of Mass: [ 2.7384375e-09, -8.9806911e-09, -3.7085991e-09]
+	 Current Average Velocity: [ 3.6056231e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 12.395048)----------
+	 Beginning of time step: 128
+	 Current Center of Mass: [ 4.1806871e-09, 6.8289709e-08, 1.0873602e-08]
+	 Current Average Velocity: [ 3.6056220e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 24.884049)----------
+	 Beginning of time step: 256
+	 Current Center of Mass: [ 5.6229348e-09, 1.4556011e-07, 2.5455804e-08]
+	 Current Average Velocity: [ 3.6056219e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 36.977460)----------
+	 Beginning of time step: 384
+	 Current Center of Mass: [ 7.0651851e-09, 2.2283051e-07, 4.0038005e-08]
+	 Current Average Velocity: [ 3.6056235e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 48.389388)----------
+	 Beginning of time step: 512
+	 Current Center of Mass: [ 8.5074340e-09, 3.0010091e-07, 5.4620206e-08]
+	 Current Average Velocity: [ 3.6056229e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 59.297114)----------
+	 Beginning of time step: 640
+	 Current Center of Mass: [ 9.9496831e-09, 3.7737131e-07, 6.9202407e-08]
+	 Current Average Velocity: [ 3.6056228e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 69.982303)----------
+	 Beginning of time step: 768
+	 Current Center of Mass: [ 1.1391931e-08, 4.5464171e-07, 8.3784608e-08]
+	 Current Average Velocity: [ 3.6056222e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 80.715332)----------
+	 Beginning of time step: 896
+	 Current Center of Mass: [ 1.2834181e-08, 5.3191211e-07, 9.8366810e-08]
+	 Current Average Velocity: [ 3.6056235e-10, 1.9317600e-08, 3.6455503e-09]
+--------- SIMULATION INFO (t: 91.710556)----------
+	 Beginning of time step: 1024
+	 Current Center of Mass: [ 1.4276430e-08, 6.0918251e-07, 1.1294901e-07]
+	 Current Average Velocity: [ 3.6056231e-10, 1.9317600e-08, 3.6455503e-09]
+data4
+N: 6400
+K: 1024
+DT: 0.031250
+--------- SIMULATION INFO (t: 0.000005)----------
+	 Beginning of time step: 0
+	 Current Center of Mass: [ -2.0187578e-08, 1.0121546e-08, -3.9576078e-09]
+	 Current Average Velocity: [ -5.5401981e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 49.499988)----------
+	 Beginning of time step: 128
+	 Current Center of Mass: [ -4.2348368e-08, 2.4437094e-08, 2.5786471e-08]
+	 Current Average Velocity: [ -5.5401967e-09, 3.5788869e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 99.245374)----------
+	 Beginning of time step: 256
+	 Current Center of Mass: [ -6.4509157e-08, 3.8752642e-08, 5.5530550e-08]
+	 Current Average Velocity: [ -5.5401976e-09, 3.5788870e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 146.887110)----------
+	 Beginning of time step: 384
+	 Current Center of Mass: [ -8.6669948e-08, 5.3068191e-08, 8.5274628e-08]
+	 Current Average Velocity: [ -5.5401974e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 191.660034)----------
+	 Beginning of time step: 512
+	 Current Center of Mass: [ -1.0883074e-07, 6.7383739e-08, 1.1501871e-07]
+	 Current Average Velocity: [ -5.5401975e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 233.989914)----------
+	 Beginning of time step: 640
+	 Current Center of Mass: [ -1.3099153e-07, 8.1699288e-08, 1.4476279e-07]
+	 Current Average Velocity: [ -5.5401974e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 274.661741)----------
+	 Beginning of time step: 768
+	 Current Center of Mass: [ -1.5315232e-07, 9.6014835e-08, 1.7450686e-07]
+	 Current Average Velocity: [ -5.5401974e-09, 3.5788870e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 314.449315)----------
+	 Beginning of time step: 896
+	 Current Center of Mass: [ -1.7531310e-07, 1.1033038e-07, 2.0425094e-07]
+	 Current Average Velocity: [ -5.5401975e-09, 3.5788871e-09, 7.4360197e-09]
+--------- SIMULATION INFO (t: 353.823311)----------
+	 Beginning of time step: 1024
+	 Current Center of Mass: [ -1.9747390e-07, 1.2464593e-07, 2.3399502e-07]
+	 Current Average Velocity: [ -5.5401974e-09, 3.5788870e-09, 7.4360197e-09]
+data1
+N: 800
+K: 1024
+DT: 0.031250
+Rank: 1  time: 0.000005 percent of bodies: 0.106250
+Rank: 2  time: 0.000005 percent of bodies: 0.140000
+Rank: 3  time: 0.000004 percent of bodies: 0.131250
+--------- SIMULATION INFO (t: 0.000004)----------
+	 Beginning of time step: 0
+	 Current Center of Mass: [ 2.1538750e-08, 1.1488625e-09, 4.3345750e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+Rank: 0  time: 0.000004 percent of bodies: 0.116250
+Rank: 7  time: 0.000005 percent of bodies: 0.120000
+Rank: 6  time: 0.000005 percent of bodies: 0.130000
+Rank: 4  time: 0.000004 percent of bodies: 0.122500
+Rank: 5  time: 0.000004 percent of bodies: 0.133750
+Rank: 1  time: 0.786914 percent of bodies: 0.102791
+--------- SIMULATION INFO (t: 0.786905)----------
+	 Beginning of time step: 128
+	 Current Center of Mass: [ -4.0885250e-08, -2.4015137e-08, 5.2500701e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2909999e-09, 2.2887376e-10]
+Rank: 0  time: 0.786905 percent of bodies: 0.102568
+Rank: 2  time: 0.786910 percent of bodies: 0.143711
+Rank: 3  time: 0.786909 percent of bodies: 0.151715
+Rank: 5  time: 0.786910 percent of bodies: 0.143450
+Rank: 4  time: 0.786911 percent of bodies: 0.132810
+Rank: 6  time: 0.786908 percent of bodies: 0.113537
+Rank: 7  time: 0.786907 percent of bodies: 0.109419
+Rank: 1  time: 1.543385 percent of bodies: 0.096328
+--------- SIMULATION INFO (t: 1.543383)----------
+	 Beginning of time step: 256
+	 Current Center of Mass: [ -1.0330925e-07, -4.9179138e-08, 6.1655655e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887377e-10]
+Rank: 0  time: 1.543383 percent of bodies: 0.102305
+Rank: 2  time: 1.543393 percent of bodies: 0.154100
+Rank: 3  time: 1.543392 percent of bodies: 0.152495
+Rank: 5  time: 1.543386 percent of bodies: 0.146279
+Rank: 4  time: 1.543387 percent of bodies: 0.137670
+Rank: 7  time: 1.543381 percent of bodies: 0.105798
+Rank: 6  time: 1.543378 percent of bodies: 0.105024
+--------- SIMULATION INFO (t: 2.142623)----------
+	 Beginning of time step: 384
+	 Current Center of Mass: [ -1.6573325e-07, -7.4343138e-08, 7.0810601e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887382e-10]
+Rank: 0  time: 2.142623 percent of bodies: 0.090526
+Rank: 1  time: 2.142626 percent of bodies: 0.083240
+Rank: 6  time: 2.142622 percent of bodies: 0.093597
+Rank: 7  time: 2.142623 percent of bodies: 0.095136
+Rank: 3  time: 2.142623 percent of bodies: 0.167185
+Rank: 2  time: 2.142627 percent of bodies: 0.164519
+Rank: 5  time: 2.142626 percent of bodies: 0.159289
+Rank: 4  time: 2.142622 percent of bodies: 0.146506
+--------- SIMULATION INFO (t: 2.566184)----------
+	 Beginning of time step: 512
+	 Current Center of Mass: [ -2.2815725e-07, -9.9507139e-08, 7.9965543e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887378e-10]
+Rank: 0  time: 2.566184 percent of bodies: 0.080227
+Rank: 1  time: 2.566193 percent of bodies: 0.074050
+Rank: 2  time: 2.566193 percent of bodies: 0.171326
+Rank: 3  time: 2.566194 percent of bodies: 0.181177
+Rank: 5  time: 2.566188 percent of bodies: 0.171313
+Rank: 4  time: 2.566191 percent of bodies: 0.152939
+Rank: 7  time: 2.566187 percent of bodies: 0.085061
+Rank: 6  time: 2.566188 percent of bodies: 0.083908
+--------- SIMULATION INFO (t: 2.904153)----------
+	 Beginning of time step: 640
+	 Current Center of Mass: [ -2.9058125e-07, -1.2467114e-07, 8.9120486e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887375e-10]
+Rank: 0  time: 2.904153 percent of bodies: 0.073504
+Rank: 1  time: 2.904162 percent of bodies: 0.067428
+Rank: 2  time: 2.904162 percent of bodies: 0.176527
+Rank: 3  time: 2.904162 percent of bodies: 0.190437
+Rank: 4  time: 2.904159 percent of bodies: 0.157237
+Rank: 5  time: 2.904157 percent of bodies: 0.180021
+Rank: 7  time: 2.904156 percent of bodies: 0.078738
+Rank: 6  time: 2.904157 percent of bodies: 0.076108
+--------- SIMULATION INFO (t: 3.170492)----------
+	 Beginning of time step: 768
+	 Current Center of Mass: [ -3.5300525e-07, -1.4983514e-07, 9.8275425e-09]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887379e-10]
+Rank: 0  time: 3.170492 percent of bodies: 0.068435
+Rank: 1  time: 3.170500 percent of bodies: 0.061383
+Rank: 6  time: 3.170502 percent of bodies: 0.069351
+Rank: 7  time: 3.170494 percent of bodies: 0.072950
+Rank: 2  time: 3.170505 percent of bodies: 0.180239
+Rank: 3  time: 3.170503 percent of bodies: 0.198963
+Rank: 4  time: 3.170496 percent of bodies: 0.161736
+Rank: 5  time: 3.170495 percent of bodies: 0.186942
+Rank: 1  time: 3.376879 percent of bodies: 0.056807
+--------- SIMULATION INFO (t: 3.376870)----------
+	 Beginning of time step: 896
+	 Current Center of Mass: [ -4.1542925e-07, -1.7499914e-07, 1.0743038e-08]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2909999e-09, 2.2887381e-10]
+Rank: 0  time: 3.376870 percent of bodies: 0.064472
+Rank: 2  time: 3.376883 percent of bodies: 0.182486
+Rank: 3  time: 3.376882 percent of bodies: 0.206247
+Rank: 4  time: 3.376879 percent of bodies: 0.164518
+Rank: 5  time: 3.376879 percent of bodies: 0.193999
+Rank: 6  time: 3.376874 percent of bodies: 0.063789
+Rank: 7  time: 3.376873 percent of bodies: 0.067681
+--------- SIMULATION INFO (t: 3.549023)----------
+	 Beginning of time step: 1024
+	 Current Center of Mass: [ -4.7785326e-07, -2.0016314e-07, 1.1658535e-08]
+	 Current Average Velocity: [ -1.5606000e-08, -6.2910000e-09, 2.2887378e-10]
+Rank: 0  time: 3.549023 percent of bodies: 0.060876
+Rank: 1  time: 3.549032 percent of bodies: 0.053549
+Rank: 2  time: 3.549036 percent of bodies: 0.184532
+Rank: 3  time: 3.549035 percent of bodies: 0.211777
+Rank: 4  time: 3.549030 percent of bodies: 0.166629
+Rank: 5  time: 3.549029 percent of bodies: 0.199868
+Rank: 7  time: 3.549026 percent of bodies: 0.063265
+Rank: 6  time: 3.549027 percent of bodies: 0.059505
+data2
+N: 1600
+K: 1024
+DT: 0.031250
+Rank: 1  time: 0.000004 percent of bodies: 0.146250
+--------- SIMULATION INFO (t: 0.000005)----------
+	 Beginning of time step: 0
+	 Current Center of Mass: [ -4.1281247e-09, -1.8359309e-10, -1.6534656e-08]
+	 Current Average Velocity: [ -6.7892312e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 0.000005 percent of bodies: 0.121250
+Rank: 2  time: 0.000005 percent of bodies: 0.117500
+Rank: 3  time: 0.000004 percent of bodies: 0.117500
+Rank: 4  time: 0.000005 percent of bodies: 0.126875
+Rank: 5  time: 0.000004 percent of bodies: 0.133125
+Rank: 6  time: 0.000005 percent of bodies: 0.117500
+Rank: 7  time: 0.000004 percent of bodies: 0.120000
+Rank: 1  time: 3.052497 percent of bodies: 0.118343
+--------- SIMULATION INFO (t: 3.052485)----------
+	 Beginning of time step: 128
+	 Current Center of Mass: [ -6.8438178e-09, -1.4226103e-08, -5.5691687e-09]
+	 Current Average Velocity: [ -6.7892312e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 3.052485 percent of bodies: 0.111235
+Rank: 3  time: 3.052491 percent of bodies: 0.140291
+Rank: 2  time: 3.052493 percent of bodies: 0.129380
+Rank: 5  time: 3.052493 percent of bodies: 0.156846
+Rank: 4  time: 3.052494 percent of bodies: 0.150722
+Rank: 7  time: 3.052488 percent of bodies: 0.098125
+Rank: 6  time: 3.052490 percent of bodies: 0.095058
+Rank: 1  time: 6.045054 percent of bodies: 0.104494
+--------- SIMULATION INFO (t: 6.045031)----------
+	 Beginning of time step: 256
+	 Current Center of Mass: [ -9.5595105e-09, -2.8268613e-08, 5.3963188e-09]
+	 Current Average Velocity: [ -6.7892323e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 6.045031 percent of bodies: 0.101763
+Rank: 2  time: 6.045041 percent of bodies: 0.135331
+Rank: 5  time: 6.045048 percent of bodies: 0.159363
+Rank: 6  time: 6.045036 percent of bodies: 0.089283
+Rank: 3  time: 6.045044 percent of bodies: 0.154864
+Rank: 4  time: 6.045049 percent of bodies: 0.162456
+Rank: 7  time: 6.045040 percent of bodies: 0.092446
+--------- SIMULATION INFO (t: 8.435317)----------
+	 Beginning of time step: 384
+	 Current Center of Mass: [ -1.2275204e-08, -4.2311123e-08, 1.6361806e-08]
+	 Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 8.435317 percent of bodies: 0.089149
+Rank: 1  time: 8.435347 percent of bodies: 0.088304
+Rank: 7  time: 8.435323 percent of bodies: 0.085771
+Rank: 6  time: 8.435320 percent of bodies: 0.076857
+Rank: 5  time: 8.435342 percent of bodies: 0.164562
+Rank: 4  time: 8.435333 percent of bodies: 0.176669
+Rank: 3  time: 8.435343 percent of bodies: 0.169422
+Rank: 2  time: 8.435344 percent of bodies: 0.149266
+Rank: 1  time: 10.187812 percent of bodies: 0.076243
+--------- SIMULATION INFO (t: 10.187785)----------
+	 Beginning of time step: 512
+	 Current Center of Mass: [ -1.4990895e-08, -5.6353634e-08, 2.7327295e-08]
+	 Current Average Velocity: [ -6.7892316e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 10.187785 percent of bodies: 0.078130
+Rank: 3  time: 10.187809 percent of bodies: 0.182059
+Rank: 5  time: 10.187804 percent of bodies: 0.170831
+Rank: 2  time: 10.187810 percent of bodies: 0.160219
+Rank: 4  time: 10.187796 percent of bodies: 0.185514
+Rank: 6  time: 10.187795 percent of bodies: 0.068990
+Rank: 7  time: 10.187805 percent of bodies: 0.078014
+Rank: 1  time: 11.698229 percent of bodies: 0.067799
+--------- SIMULATION INFO (t: 11.698229)----------
+	 Beginning of time step: 640
+	 Current Center of Mass: [ -1.7706587e-08, -7.0396144e-08, 3.8292782e-08]
+	 Current Average Velocity: [ -6.7892310e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 11.698229 percent of bodies: 0.069962
+Rank: 3  time: 11.698238 percent of bodies: 0.192673
+Rank: 2  time: 11.698239 percent of bodies: 0.166648
+Rank: 6  time: 11.698224 percent of bodies: 0.063680
+Rank: 7  time: 11.698225 percent of bodies: 0.071447
+Rank: 4  time: 11.698231 percent of bodies: 0.190879
+Rank: 5  time: 11.698231 percent of bodies: 0.176912
+--------- SIMULATION INFO (t: 13.096621)----------
+	 Beginning of time step: 768
+	 Current Center of Mass: [ -2.0422279e-08, -8.4438654e-08, 4.9258271e-08]
+	 Current Average Velocity: [ -6.7892309e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 13.096621 percent of bodies: 0.064192
+Rank: 1  time: 13.096633 percent of bodies: 0.061349
+Rank: 3  time: 13.096639 percent of bodies: 0.199069
+Rank: 2  time: 13.096640 percent of bodies: 0.171863
+Rank: 5  time: 13.096648 percent of bodies: 0.182033
+Rank: 4  time: 13.096649 percent of bodies: 0.194775
+Rank: 6  time: 13.096629 percent of bodies: 0.059973
+Rank: 7  time: 13.096630 percent of bodies: 0.066745
+--------- SIMULATION INFO (t: 14.470738)----------
+	 Beginning of time step: 896
+	 Current Center of Mass: [ -2.3137970e-08, -9.8481163e-08, 6.0223761e-08]
+	 Current Average Velocity: [ -6.7892311e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 14.470738 percent of bodies: 0.060118
+Rank: 1  time: 14.470765 percent of bodies: 0.056748
+Rank: 2  time: 14.470755 percent of bodies: 0.175657
+Rank: 5  time: 14.470760 percent of bodies: 0.185524
+Rank: 3  time: 14.470754 percent of bodies: 0.203535
+Rank: 4  time: 14.470761 percent of bodies: 0.197557
+Rank: 6  time: 14.470760 percent of bodies: 0.057503
+Rank: 7  time: 14.470742 percent of bodies: 0.063357
+Rank: 1  time: 15.834832 percent of bodies: 0.053938
+--------- SIMULATION INFO (t: 15.834821)----------
+	 Beginning of time step: 1024
+	 Current Center of Mass: [ -2.5853661e-08, -1.1252367e-07, 7.1189249e-08]
+	 Current Average Velocity: [ -6.7892308e-10, -3.5106275e-09, 2.7413719e-09]
+Rank: 0  time: 15.834821 percent of bodies: 0.058127
+Rank: 2  time: 15.834838 percent of bodies: 0.178401
+Rank: 3  time: 15.834833 percent of bodies: 0.206044
+Rank: 5  time: 15.834836 percent of bodies: 0.186687
+Rank: 4  time: 15.834833 percent of bodies: 0.198041
+Rank: 7  time: 15.834834 percent of bodies: 0.061721
+Rank: 6  time: 15.834828 percent of bodies: 0.057040
+data3
+N: 3200
+K: 1024
+DT: 0.031250
+Rank: 1  time: 0.000004 percent of bodies: 0.137187
+--------- SIMULATION INFO (t: 0.000004)----------
+	 Beginning of time step: 0
+	 Current Center of Mass: [ 2.7384375e-09, -8.9806912e-09, -3.7085990e-09]
+	 Current Average Velocity: [ 3.6056235e-10, 1.9317600e-08, 3.6455503e-09]
+Rank: 0  time: 0.000004 percent of bodies: 0.135000
+Rank: 6  time: 0.000005 percent of bodies: 0.123438
+Rank: 7  time: 0.000004 percent of bodies: 0.120313
+Rank: 2  time: 0.000005 percent of bodies: 0.115000
+Rank: 3  time: 0.000004 percent of bodies: 0.110937
+Rank: 4  time: 0.000005 percent of bodies: 0.130000
+Rank: 5  time: 0.000004 percent of bodies: 0.128125
+Rank: 1  time: 12.315932 percent of bodies: 0.108806
+--------- SIMULATION INFO (t: 12.315910)----------
+	 Beginning of time step: 128
+	 Current Center of Mass: [ 4.1806864e-09, 6.8289709e-08, 1.0873602e-08]
+	 Current Average Velocity: [ 3.6056221e-10, 1.9317600e-08, 3.6455502e-09]
+Rank: 0  time: 12.315910 percent of bodies: 0.113905
+Rank: 6  time: 12.315923 percent of bodies: 0.099409
+Rank: 7  time: 12.315919 percent of bodies: 0.099266
+Rank: 2  time: 12.315930 percent of bodies: 0.143689
+Rank: 3  time: 12.315926 percent of bodies: 0.133016
+Rank: 5  time: 12.315925 percent of bodies: 0.145264
+Rank: 4  time: 12.315930 percent of bodies: 0.156645
+Rank: 1  time: 24.448518 percent of bodies: 0.094899
+--------- SIMULATION INFO (t: 24.448493)----------
+	 Beginning of time step: 256
+	 Current Center of Mass: [ 5.6229355e-09, 1.4556011e-07, 2.5455803e-08]
+	 Current Average Velocity: [ 3.6056218e-10, 1.9317600e-08, 3.6455503e-09]
+Rank: 0  time: 24.448493 percent of bodies: 0.097657
+Rank: 5  time: 24.448543 percent of bodies: 0.153729
+Rank: 2  time: 24.448550 percent of bodies: 0.156227
+Rank: 4  time: 24.448548 percent of bodies: 0.165535
+Rank: 3  time: 24.448545 percent of bodies: 0.151830
+Rank: 6  time: 24.448541 percent of bodies: 0.092157
+Rank: 7  time: 24.448538 percent of bodies: 0.087966
+Rank: 1  time: 34.284961 percent of bodies: 0.081774
+--------- SIMULATION INFO (t: 34.284936)----------
+	 Beginning of time step: 384
+	 Current Center of Mass: [ 7.0651850e-09, 2.2283051e-07, 4.0038004e-08]
+	 Current Average Velocity: [ 3.6056228e-10, 1.9317600e-08, 3.6455503e-09]
+Rank: 0  time: 34.284936 percent of bodies: 0.082005
+Rank: 6  time: 34.284955 percent of bodies: 0.079704
+Rank: 7  time: 34.284985 percent of bodies: 0.076307
+Rank: 3  time: 34.284969 percent of bodies: 0.169578
+Rank: 2  time: 34.284969 percent of bodies: 0.169236
+Rank: 5  time: 34.284993 percent of bodies: 0.164844
+Rank: 4  time: 34.284995 percent of bodies: 0.176553
+Rank: 1  time: 41.727252 percent of bodies: 0.072272
+Rank: 5  time: 41.727269 percent of bodies: 0.171645
+Rank: 4  time: 41.727271 percent of bodies: 0.186437
+--------- SIMULATION INFO (t: 41.727228)----------
+	 Beginning of time step: 512
+	 Current Center of Mass: [ 8.5074333e-09, 3.0010091e-07, 5.4620206e-08]
+	 Current Average Velocity: [ 3.6056225e-10, 1.9317600e-08, 3.6455503e-09]
+Rank: 0  time: 41.727228 percent of bodies: 0.071802
+Rank: 7  time: 41.727241 percent of bodies: 0.067109
+Rank: 6  time: 41.727243 percent of bodies: 0.069317
+Rank: 2  time: 41.727266 percent of bodies: 0.178639
+Rank: 3  time: 41.727265 percent of bodies: 0.182780
+Rank: 1  time: 48.225054 percent of bodies: 0.064616
+--------- SIMULATION INFO (t: 48.225032)----------
+	 Beginning of time step: 640
+	 Current Center of Mass: [ 9.9496817e-09, 3.7737131e-07, 6.9202407e-08]
+	 Current Average Velocity: [ 3.6056220e-10, 1.9317600e-08, 3.6455503e-09]
+Rank: 0  time: 48.225032 percent of bodies: 0.063534
+Rank: 2  time: 48.225064 percent of bodies: 0.186685
+Rank: 3  time: 48.225058 percent of bodies: 0.193093
+Rank: 6  time: 48.225045 percent of bodies: 0.061940
+Rank: 7  time: 48.225043 percent of bodies: 0.060224
+Rank: 4  time: 48.225074 percent of bodies: 0.194024
+Rank: 5  time: 48.225071 percent of bodies: 0.175884
+Rank: 1  time: 54.406457 percent of bodies: 0.058890
+--------- SIMULATION INFO (t: 54.406432)----------
+	 Beginning of time step: 768
+	 Current Center of Mass: [ 1.1391932e-08, 4.5464171e-07, 8.3784608e-08]
+	 Current Average Velocity: [ 3.6056223e-10, 1.9317600e-08, 3.6455503e-09]
+Rank: 0  time: 54.406432 percent of bodies: 0.057476
+Rank: 6  time: 54.406444 percent of bodies: 0.056706
+Rank: 7  time: 54.406442 percent of bodies: 0.055298
+Rank: 2  time: 54.406472 percent of bodies: 0.190815
+Rank: 3  time: 54.406471 percent of bodies: 0.202517
+Rank: 5  time: 54.406470 percent of bodies: 0.177554
+Rank: 4  time: 54.406472 percent of bodies: 0.200744
+Rank: 1  time: 60.553450 percent of bodies: 0.055408
+--------- SIMULATION INFO (t: 60.553425)----------
+	 Beginning of time step: 896
+	 Current Center of Mass: [ 1.2834181e-08, 5.3191211e-07, 9.8366810e-08]
+	 Current Average Velocity: [ 3.6056218e-10, 1.9317600e-08, 3.6455503e-09]
+Rank: 0  time: 60.553425 percent of bodies: 0.053662
+Rank: 5  time: 60.553469 percent of bodies: 0.178523
+Rank: 6  time: 60.553470 percent of bodies: 0.053386
+Rank: 4  time: 60.553471 percent of bodies: 0.204653
+Rank: 7  time: 60.553444 percent of bodies: 0.051991
+Rank: 2  time: 60.553477 percent of bodies: 0.194052
+Rank: 3  time: 60.553479 percent of bodies: 0.208326
+Rank: 1  time: 66.764527 percent of bodies: 0.053874
+Rank: 2  time: 66.764541 percent of bodies: 0.196114
+--------- SIMULATION INFO (t: 66.764520)----------
+	 Beginning of time step: 1024
+	 Current Center of Mass: [ 1.4276430e-08, 6.0918251e-07, 1.1294901e-07]
+	 Current Average Velocity: [ 3.6056225e-10, 1.9317600e-08, 3.6455503e-09]
+Rank: 0  time: 66.764520 percent of bodies: 0.052200
+Rank: 3  time: 66.764539 percent of bodies: 0.210942
+Rank: 6  time: 66.764552 percent of bodies: 0.052224
+Rank: 7  time: 66.764507 percent of bodies: 0.050501
+Rank: 5  time: 66.764557 percent of bodies: 0.178238
+Rank: 4  time: 66.764562 percent of bodies: 0.205906
+data4
+N: 6400
+K: 1024
+DT: 0.031250
+Rank: 1  time: 0.000005 percent of bodies: 0.125312
+--------- SIMULATION INFO (t: 0.000005)----------
+	 Beginning of time step: 0
+	 Current Center of Mass: [ -2.0187578e-08, 1.0121546e-08, -3.9576078e-09]
+	 Current Average Velocity: [ -5.5401974e-09, 3.5788871e-09, 7.4360197e-09]
+Rank: 0  time: 0.000005 percent of bodies: 0.129375
+Rank: 2  time: 0.000005 percent of bodies: 0.120156
+Rank: 3  time: 0.000004 percent of bodies: 0.126406
+Rank: 4  time: 0.000005 percent of bodies: 0.123438
+Rank: 5  time: 0.000004 percent of bodies: 0.126250
+Rank: 6  time: 0.000005 percent of bodies: 0.127188
+Rank: 7  time: 0.000004 percent of bodies: 0.121875
+Rank: 1  time: 48.705413 percent of bodies: 0.102502
+--------- SIMULATION INFO (t: 48.705346)----------
+	 Beginning of time step: 128
+	 Current Center of Mass: [ -4.2348368e-08, 2.4437094e-08, 2.5786471e-08]
+	 Current Average Velocity: [ -5.5401973e-09, 3.5788871e-09, 7.4360197e-09]
+Rank: 0  time: 48.705346 percent of bodies: 0.108401
+Rank: 7  time: 48.705378 percent of bodies: 0.100472
+Rank: 6  time: 48.705382 percent of bodies: 0.104427
+Rank: 2  time: 48.705401 percent of bodies: 0.144755
+Rank: 3  time: 48.705400 percent of bodies: 0.145715
+Rank: 5  time: 48.705394 percent of bodies: 0.145936
+Rank: 4  time: 48.705398 percent of bodies: 0.147791
+Rank: 1  time: 96.695606 percent of bodies: 0.093292
+--------- SIMULATION INFO (t: 96.695538)----------
+	 Beginning of time step: 256
+	 Current Center of Mass: [ -6.4509158e-08, 3.8752643e-08, 5.5530550e-08]
+	 Current Average Velocity: [ -5.5401975e-09, 3.5788867e-09, 7.4360197e-09]
+Rank: 0  time: 96.695538 percent of bodies: 0.095252
+Rank: 5  time: 96.695577 percent of bodies: 0.154458
+Rank: 6  time: 96.695574 percent of bodies: 0.093326
+Rank: 3  time: 96.695584 percent of bodies: 0.153582
+Rank: 4  time: 96.695585 percent of bodies: 0.159989
+Rank: 7  time: 96.695525 percent of bodies: 0.091874
+Rank: 2  time: 96.695594 percent of bodies: 0.158227
+Rank: 1  time: 135.794410 percent of bodies: 0.079998
+--------- SIMULATION INFO (t: 135.794347)----------
+	 Beginning of time step: 384
+	 Current Center of Mass: [ -8.6669947e-08, 5.3068191e-08, 8.5274629e-08]
+	 Current Average Velocity: [ -5.5401975e-09, 3.5788870e-09, 7.4360197e-09]
+Rank: 0  time: 135.794347 percent of bodies: 0.081754
+Rank: 7  time: 135.794379 percent of bodies: 0.080335
+Rank: 6  time: 135.794325 percent of bodies: 0.079040
+Rank: 2  time: 135.794401 percent of bodies: 0.170843
+Rank: 5  time: 135.794388 percent of bodies: 0.169476
+Rank: 3  time: 135.794394 percent of bodies: 0.166241
+Rank: 4  time: 135.794392 percent of bodies: 0.172313
+Rank: 1  time: 165.010001 percent of bodies: 0.068664
+--------- SIMULATION INFO (t: 165.009956)----------
+	 Beginning of time step: 512
+	 Current Center of Mass: [ -1.0883074e-07, 6.7383739e-08, 1.1501871e-07]
+	 Current Average Velocity: [ -5.5401975e-09, 3.5788869e-09, 7.4360197e-09]
+Rank: 0  time: 165.009956 percent of bodies: 0.071202
+Rank: 3  time: 165.009999 percent of bodies: 0.178048
+Rank: 6  time: 165.010006 percent of bodies: 0.068352
+Rank: 2  time: 165.010006 percent of bodies: 0.179857
+Rank: 5  time: 165.010006 percent of bodies: 0.181641
+Rank: 7  time: 165.009962 percent of bodies: 0.071143
+Rank: 4  time: 165.010013 percent of bodies: 0.181092
+Rank: 1  time: 190.092405 percent of bodies: 0.060312
+--------- SIMULATION INFO (t: 190.092338)----------
+	 Beginning of time step: 640
+	 Current Center of Mass: [ -1.3099153e-07, 8.1699287e-08, 1.4476279e-07]
+	 Current Average Velocity: [ -5.5401974e-09, 3.5788870e-09, 7.4360197e-09]
+Rank: 0  time: 190.092338 percent of bodies: 0.063401
+Rank: 6  time: 190.092377 percent of bodies: 0.060473
+Rank: 3  time: 190.092411 percent of bodies: 0.187824
+Rank: 4  time: 190.092414 percent of bodies: 0.187621
+Rank: 7  time: 190.092369 percent of bodies: 0.063628
+Rank: 2  time: 190.092418 percent of bodies: 0.185415
+Rank: 5  time: 190.092410 percent of bodies: 0.191326
+Rank: 1  time: 213.097475 percent of bodies: 0.054407
+--------- SIMULATION INFO (t: 213.097443)----------
+	 Beginning of time step: 768
+	 Current Center of Mass: [ -1.5315232e-07, 9.6014838e-08, 1.7450686e-07]
+	 Current Average Velocity: [ -5.5401976e-09, 3.5788870e-09, 7.4360197e-09]
+Rank: 0  time: 213.097443 percent of bodies: 0.057617
+Rank: 3  time: 213.097482 percent of bodies: 0.195426
+Rank: 2  time: 213.097489 percent of bodies: 0.188993
+Rank: 6  time: 213.097447 percent of bodies: 0.054885
+Rank: 7  time: 213.097479 percent of bodies: 0.057693
+Rank: 4  time: 213.097484 percent of bodies: 0.192078
+Rank: 5  time: 213.097479 percent of bodies: 0.198901
+Rank: 1  time: 234.926585 percent of bodies: 0.050262
+--------- SIMULATION INFO (t: 234.926483)----------
+	 Beginning of time step: 896
+	 Current Center of Mass: [ -1.7531311e-07, 1.1033038e-07, 2.0425094e-07]
+	 Current Average Velocity: [ -5.5401975e-09, 3.5788870e-09, 7.4360197e-09]
+Rank: 0  time: 234.926483 percent of bodies: 0.053267
+Rank: 6  time: 234.926518 percent of bodies: 0.050580
+Rank: 7  time: 234.926514 percent of bodies: 0.053367
+Rank: 3  time: 234.926556 percent of bodies: 0.201303
+Rank: 2  time: 234.926562 percent of bodies: 0.191114
+Rank: 4  time: 234.926549 percent of bodies: 0.195657
+Rank: 5  time: 234.926545 percent of bodies: 0.204450
+Rank: 1  time: 255.974513 percent of bodies: 0.047216
+--------- SIMULATION INFO (t: 255.974442)----------
+	 Beginning of time step: 1024
+	 Current Center of Mass: [ -1.9747390e-07, 1.2464593e-07, 2.3399502e-07]
+	 Current Average Velocity: [ -5.5401974e-09, 3.5788870e-09, 7.4360197e-09]
+Rank: 0  time: 255.974442 percent of bodies: 0.050236
+Rank: 3  time: 255.974514 percent of bodies: 0.205713
+Rank: 2  time: 255.974521 percent of bodies: 0.192127
+Rank: 4  time: 255.974508 percent of bodies: 0.198516
+Rank: 5  time: 255.974504 percent of bodies: 0.208264
+Rank: 7  time: 255.974477 percent of bodies: 0.050418
+Rank: 6  time: 255.974480 percent of bodies: 0.047509

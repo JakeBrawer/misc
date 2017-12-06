@@ -1,0 +1,17 @@
+#+Title: Example of consilience
+* StrandBeest
+briefly describe an effort at consilience and to briefly discuss the implications of the case you describe for the future of efforts at reconciliation and integration of different intellectual cultures.  
+
+The thing that has fascinated m is trying to find examples of art science consilience that is not an example of "science canabalizing art" but rather the respecctful, two-way crosstalk we all talk so much about.  I also think people taking photos of "science" is incredibly lame and not at all an example of consilience. 
+
+I think the strandbeest are a great example of consilience:
+- Made by a dutch artist with engineering background.
+- Original purpose was to create a robot to fight erosion 
+- used genetic algorithms to help with the design process
+
+How the beesr contribute to art:
+- They are beautiful
+- They are the embodiement of past-present-future of dutch art:
+  - they are wind powered (windmills) and are mde to protect the dutch landscape (the most famous art landscape ever)
+  - They are made to mitiagate  erosion/ draw attention to climiate change/
+  - Meant to bring attention to dutch landscapes ultimately to climate change
